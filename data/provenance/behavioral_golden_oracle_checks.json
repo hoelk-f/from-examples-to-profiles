@@ -1,0 +1,374 @@
+[
+  {
+    "input": "a@b@c",
+    "selector": [
+      [
+        "before",
+        "@"
+      ]
+    ],
+    "expected": "a",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "a@b@c",
+    "selector": [
+      [
+        "after",
+        "@"
+      ]
+    ],
+    "expected": "b@c",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "a@b@c",
+    "selector": [
+      [
+        "before_last",
+        "@"
+      ]
+    ],
+    "expected": "a@b",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "a@b@c",
+    "selector": [
+      [
+        "after_last",
+        "@"
+      ]
+    ],
+    "expected": "c",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "a@b@c",
+    "selector": [
+      [
+        "before_inclusive",
+        "@"
+      ]
+    ],
+    "expected": "a@",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "a@b@c",
+    "selector": [
+      [
+        "after_inclusive",
+        "@"
+      ]
+    ],
+    "expected": "@b@c",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "a@b@c",
+    "selector": [
+      [
+        "before_last_inclusive",
+        "@"
+      ]
+    ],
+    "expected": "a@b@",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "aaaaX",
+    "selector": [
+      [
+        "after_last",
+        "aa"
+      ]
+    ],
+    "expected": "X",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "aaaaX",
+    "selector": [
+      [
+        "before_last",
+        "aa"
+      ]
+    ],
+    "expected": "aa",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "a::b::c",
+    "selector": [
+      [
+        "token",
+        "::",
+        1
+      ]
+    ],
+    "expected": "b",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "a::b::c",
+    "selector": [
+      [
+        "token",
+        "::",
+        -1
+      ]
+    ],
+    "expected": "c",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "a::b::c",
+    "selector": [
+      [
+        "token_span",
+        "::",
+        0,
+        -2
+      ]
+    ],
+    "expected": "a::b",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "a::b::c",
+    "selector": [
+      [
+        "token_span",
+        "::",
+        -2,
+        -1
+      ]
+    ],
+    "expected": "b::c",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "single",
+    "selector": [
+      [
+        "token",
+        " ",
+        0
+      ]
+    ],
+    "expected": "single",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "a name_id b",
+    "selector": [
+      [
+        "containing_token",
+        " ",
+        "_"
+      ]
+    ],
+    "expected": "name_id",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "a name_id other_id",
+    "selector": [
+      [
+        "containing_token",
+        " ",
+        "_"
+      ]
+    ],
+    "expected": null,
+    "expected_status": "outside_contract",
+    "both_references_agree": true
+  },
+  {
+    "input": "a b c",
+    "selector": [
+      [
+        "containing_token",
+        " ",
+        "_"
+      ]
+    ],
+    "expected": null,
+    "expected_status": "outside_contract",
+    "both_references_agree": true
+  },
+  {
+    "input": "a name_id b",
+    "selector": [
+      [
+        "from_after_marker_to_next_inclusive",
+        "_",
+        " "
+      ]
+    ],
+    "expected": " b",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "prefix<q> A B </q>suffix",
+    "selector": [
+      [
+        "after",
+        "<q>"
+      ],
+      [
+        "before",
+        "</q>"
+      ],
+      [
+        "trim"
+      ]
+    ],
+    "expected": "A B",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": " a ",
+    "selector": [
+      [
+        "trim"
+      ]
+    ],
+    "expected": "a",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "pre<é😀>tail",
+    "selector": [
+      [
+        "after",
+        "<"
+      ],
+      [
+        "before",
+        ">"
+      ]
+    ],
+    "expected": "é😀",
+    "expected_status": "valid",
+    "both_references_agree": true
+  },
+  {
+    "input": "x",
+    "selector": [
+      [
+        "before",
+        "@"
+      ]
+    ],
+    "expected": null,
+    "expected_status": "outside_contract",
+    "both_references_agree": true
+  },
+  {
+    "input": "@x",
+    "selector": [
+      [
+        "before",
+        "@"
+      ]
+    ],
+    "expected": null,
+    "expected_status": "outside_contract",
+    "both_references_agree": true
+  },
+  {
+    "input": "x@",
+    "selector": [
+      [
+        "after",
+        "@"
+      ]
+    ],
+    "expected": null,
+    "expected_status": "outside_contract",
+    "both_references_agree": true
+  },
+  {
+    "input": "a::b",
+    "selector": [
+      [
+        "token",
+        "::",
+        2
+      ]
+    ],
+    "expected": null,
+    "expected_status": "outside_contract",
+    "both_references_agree": true
+  },
+  {
+    "input": "a::::b",
+    "selector": [
+      [
+        "token",
+        "::",
+        1
+      ]
+    ],
+    "expected": null,
+    "expected_status": "outside_contract",
+    "both_references_agree": true
+  },
+  {
+    "input": "a b c",
+    "selector": [
+      [
+        "token_span",
+        " ",
+        2,
+        0
+      ]
+    ],
+    "expected": null,
+    "expected_status": "outside_contract",
+    "both_references_agree": true
+  },
+  {
+    "input": "   ",
+    "selector": [
+      [
+        "trim"
+      ]
+    ],
+    "expected": null,
+    "expected_status": "outside_contract",
+    "both_references_agree": true
+  },
+  {
+    "input": "a@b",
+    "selector": [
+      [
+        "before",
+        ""
+      ]
+    ],
+    "expected": null,
+    "expected_status": "outside_contract",
+    "both_references_agree": true
+  }
+]

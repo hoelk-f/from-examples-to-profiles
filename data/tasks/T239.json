@@ -1,0 +1,162 @@
+{
+  "task_id": "T239",
+  "family_id": "field-extraction-v1",
+  "field": "Nested XML price text",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "<price>"
+      ],
+      [
+        "before",
+        "</price>"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0716"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "<book id=\"bk107\"><price>2.95</price></book>"
+      ],
+      "output": "2.95",
+      "pair_sha256": "624df1324506064be1551543ec59db6e1aef8f29614441b3ff9c641a2f1a95a0",
+      "provenance": [
+        {
+          "occurrence_id": "O0716",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:221/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<book id=\"bk102\"><price>5.95</price></book>"
+      ],
+      "output": "5.95",
+      "pair_sha256": "7da9c3a9fb6085d360a73f98cb834b8091205a10d12d8dfc447c9958db2dc4a5",
+      "provenance": [
+        {
+          "occurrence_id": "O0716",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:221/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<book id=\"bk104\"><price>5.95</price></book>"
+      ],
+      "output": "5.95",
+      "pair_sha256": "466e72eec4daad455f3d764293d915990b5face51eda3279ea7b212465e70dd0",
+      "provenance": [
+        {
+          "occurrence_id": "O0716",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:221/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<book id=\"bk110\"><price>41.00</price></book>"
+      ],
+      "output": "41.00",
+      "pair_sha256": "7d6ed8c5d1550a740a24850c06fb719f3f84059f66c7e4455f018622629e9eee",
+      "provenance": [
+        {
+          "occurrence_id": "O0716",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:221/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<book id=\"bk101\"><price>44.95</price></book>"
+      ],
+      "output": "44.95",
+      "pair_sha256": "f48cf6b2791b6b43900a07e8672784c3b72985e82d63a5ac97822905967cdc37",
+      "provenance": [
+        {
+          "occurrence_id": "O0716",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:221/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 43,
+      "max": 44
+    },
+    "output_lengths": {
+      "min": 4,
+      "max": 5
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Das price-Feld im Buchfragment ist klar markiert. Die Aufgabe ist wörtliche Textextraktion und kein allgemeines XML-Parsing."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "<book id=\"bk107\"><price>2.95</price></book>",
+        "output": "2.95"
+      },
+      {
+        "input": "<book id=\"bk104\"><price>5.95</price></book>",
+        "output": "5.95"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "<book id=\"bk101\"><price>44.95</price></book>",
+        "output": "44.95"
+      },
+      {
+        "input": "<book id=\"bk110\"><price>41.00</price></book>",
+        "output": "41.00"
+      },
+      {
+        "input": "<book id=\"bk102\"><price>5.95</price></book>",
+        "output": "5.95"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 133
+}

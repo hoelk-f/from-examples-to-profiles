@@ -1,0 +1,1 @@
+(define-fun f ((x String)) String (str.++ (str.substr "Dhool Ka Phool" 0 (str.indexof x "Dhool Ka Phool" 0)) (str.++ (str.substr "Sahara" 0 (str.indexof x "Sahara" 0)) (str.substr x (str.indexof x "Azaad" 0) 5))))

@@ -1,0 +1,162 @@
+{
+  "task_id": "T254",
+  "family_id": "field-extraction-v1",
+  "field": "Brand",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "Brand: "
+      ],
+      [
+        "before",
+        " Model:"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0793"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "Brand: Nokia Model: 6208c"
+      ],
+      "output": "Nokia",
+      "pair_sha256": "800ae0b56915af2765bffa4afe7d8b3f8cbc21d60bf4ba58c7c5856b8640c8c7",
+      "provenance": [
+        {
+          "occurrence_id": "O0793",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:318/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Brand: Apple Model: iPhone 5"
+      ],
+      "output": "Apple",
+      "pair_sha256": "eb1b70116e0c71e65bf60036c16de1bdb637f15a211b4f353681b7621655c2e7",
+      "provenance": [
+        {
+          "occurrence_id": "O0793",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:318/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Brand: Feton Model: ALPS A618"
+      ],
+      "output": "Feton",
+      "pair_sha256": "85851580b5b5ec07e7f8e1eba36c255b8596d3c5cca46cf43e262ab1ff904955",
+      "provenance": [
+        {
+          "occurrence_id": "O0793",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:318/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Brand: Nokia Model: 6310"
+      ],
+      "output": "Nokia",
+      "pair_sha256": "00cb029119b010c13d1aaeb3a74187c8dc644a086ba2f1e63ae6d085407f5e82",
+      "provenance": [
+        {
+          "occurrence_id": "O0793",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:318/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Brand: Nokia Model: 7370"
+      ],
+      "output": "Nokia",
+      "pair_sha256": "21deb5c962a498867afb8ae7bdc7906976dec58c4169966c66671636865deb06",
+      "provenance": [
+        {
+          "occurrence_id": "O0793",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:318/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 24,
+      "max": 29
+    },
+    "output_lengths": {
+      "min": 5,
+      "max": 5
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Das Markenfeld liegt zwischen Brand und Model. Der nachfolgende Modellname darf Leerzeichen enthalten."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Brand: Nokia Model: 7370",
+        "output": "Nokia"
+      },
+      {
+        "input": "Brand: Nokia Model: 6310",
+        "output": "Nokia"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "Brand: Nokia Model: 6208c",
+        "output": "Nokia"
+      },
+      {
+        "input": "Brand: Feton Model: ALPS A618",
+        "output": "Feton"
+      },
+      {
+        "input": "Brand: Apple Model: iPhone 5",
+        "output": "Apple"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 182
+}

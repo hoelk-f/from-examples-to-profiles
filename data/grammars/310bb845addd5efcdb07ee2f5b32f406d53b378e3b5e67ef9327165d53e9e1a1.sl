@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " (" " T" " United v " "(" ")" "," ", " ":" "Hartlepool United v Boreham Wood" "Maidstone United v Torquay United" "d, 15:00 GMT (BBC " (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "Maidstone United v Torquay United, 15:00 GMT (BBC Radio Devon)") "Maidstone United v Torquay United"))
+(constraint (= (f "Hartlepool United v Boreham Wood, 15:00 GMT (BBC Tees)") "Hartlepool United v Boreham Wood"))
+(check-synth)

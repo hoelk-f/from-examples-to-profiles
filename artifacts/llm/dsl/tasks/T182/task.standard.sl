@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " $" " (" "$" "$5.99" "$9.99" "(" ")" ") " "." ".99" "n " (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "Mixed Berries Frozen Bag (Organic Mixed Berries) 350g $5.99") "$5.99"))
+(constraint (= (f "Premium Extra Virgin Olive Oil $9.99") "$9.99"))
+(check-synth)

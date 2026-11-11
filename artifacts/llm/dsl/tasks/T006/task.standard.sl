@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " "-" "1990" "2031" ":" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "29-Apr-2031 04:59:45") "2031"))
+(constraint (= (f "17-Jan-1990 13:32:01") "1990"))
+(check-synth)

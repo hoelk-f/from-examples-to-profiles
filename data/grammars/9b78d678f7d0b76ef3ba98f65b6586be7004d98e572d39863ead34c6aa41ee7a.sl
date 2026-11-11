@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " (" " CPU in " " Lips)" " inferences, " " seconds (9" "%" "% " "% CPU, " "(" ")" "," ", " "." "4254902" "9094687" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "1,085 inferences, 0.000 CPU in 0.000 seconds (91% CPU, 4254902 Lips)") "4254902"))
+(constraint (= (f "215,282,111 inferences, 23.671 CPU in 24.283 seconds (97% CPU, 9094687 Lips)") "9094687"))
+(check-synth)

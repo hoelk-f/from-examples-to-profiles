@@ -1,0 +1,166 @@
+{
+  "task_id": "T223",
+  "family_id": "field-extraction-v1",
+  "field": "Image extension",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "src=\""
+      ],
+      [
+        "before",
+        "\""
+      ],
+      [
+        "after_last",
+        "."
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0685"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "<img src=\"smiley.gif\">"
+      ],
+      "output": "gif",
+      "pair_sha256": "d8e8a1e8cde5d85d55c531035167966c4727f3826213c192ff9cc98a62d3527c",
+      "provenance": [
+        {
+          "occurrence_id": "O0685",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:55/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<img src=\"sad.jpg\">"
+      ],
+      "output": "jpg",
+      "pair_sha256": "240d691c9756c713ecbdf85bd7e60c19cdf4bd7eacef708fd2bfc18bc4e69bea",
+      "provenance": [
+        {
+          "occurrence_id": "O0685",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:55/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<img src=\"yes.png\">"
+      ],
+      "output": "png",
+      "pair_sha256": "da0ebc0365a1b57fe1e8a8bf2517e7e3395f8eee689523b7a3020e0cfd7a3563",
+      "provenance": [
+        {
+          "occurrence_id": "O0685",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:55/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<img src=\"small.jpg\">"
+      ],
+      "output": "jpg",
+      "pair_sha256": "377a57ce867dbfceba15a151638e430d4247d59eca9849593d65502545ace038",
+      "provenance": [
+        {
+          "occurrence_id": "O0685",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:55/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<img src=\"help.jpg\">"
+      ],
+      "output": "jpg",
+      "pair_sha256": "54179e9cd30bc11f4e2b68080395d7d6414f063e77d71d02943af785d9cd99b0",
+      "provenance": [
+        {
+          "occurrence_id": "O0685",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:55/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 19,
+      "max": 22
+    },
+    "output_lengths": {
+      "min": 3,
+      "max": 3
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Das letzte Punktfeld des einfachen src-Dateinamens ist unterstützt. URL-Abfragen und allgemeine Pfadsemantik sind nicht zugesichert."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "<img src=\"sad.jpg\">",
+        "output": "jpg"
+      },
+      {
+        "input": "<img src=\"help.jpg\">",
+        "output": "jpg"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "<img src=\"smiley.gif\">",
+        "output": "gif"
+      },
+      {
+        "input": "<img src=\"yes.png\">",
+        "output": "png"
+      },
+      {
+        "input": "<img src=\"small.jpg\">",
+        "output": "jpg"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 111
+}

@@ -1,0 +1,8 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " "'" "evil" "life" "s " "time" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "premature opt is the root of evil") "evil"))
+(constraint (= (f "I'd like to know where is life") "life"))
+(constraint (= (f "premature opt is the root of all evil") "evil"))
+(constraint (= (f "focus on multiple thing at a time") "time"))
+(constraint (= (f "what is life") "life"))
+(check-synth)

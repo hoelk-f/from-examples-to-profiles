@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " (" " (195" " [[Meena Kumari]] – ''[[" " film)|" "'" "(" ")" ")|" "*" "* [[Meena Kumari]] – ''[" "** [[" "** [[Meena Kumari]] – ''" "Azaad" "Sahara" "[" "]" "]] – ''[[" "]]'' " "]]'' as " "|" "–" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "** [[Meena Kumari]] – ''[[Azaad (1955 film)|Azaad]]'' as Shobha") "Azaad"))
+(constraint (= (f "** [[Meena Kumari]] – ''[[Sahara (1958 film)|Sahara]]'' as Leela") "Sahara"))
+(check-synth)

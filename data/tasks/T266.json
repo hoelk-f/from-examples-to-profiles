@@ -1,0 +1,162 @@
+{
+  "task_id": "T266",
+  "family_id": "field-extraction-v1",
+  "field": "Match time",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        ", "
+      ],
+      [
+        "before",
+        " "
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0885"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "Woking v FC Halifax Town, 15:00 GMT (BBC Surrey)"
+      ],
+      "output": "15:00",
+      "pair_sha256": "d1fed4e6b13941502de08d96a7fc5f452931732d02600861a10a3ccd8073d3b8",
+      "provenance": [
+        {
+          "occurrence_id": "O0885",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:118/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Hartlepool United v Boreham Wood, 15:00 GMT (BBC Tees)"
+      ],
+      "output": "15:00",
+      "pair_sha256": "98ac28a03b24498718fdce84b828f8acfcf5ab0d48f2fde8d37334aeb538309e",
+      "provenance": [
+        {
+          "occurrence_id": "O0885",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:118/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Macclesfield Town v Barrow, 15:00 GMT (BBC Radio Cumbria)"
+      ],
+      "output": "15:00",
+      "pair_sha256": "ba3e129b7a630c333531b894dea63ebebf5c3ed37f9db9cc62c0ef2fcccabe04",
+      "provenance": [
+        {
+          "occurrence_id": "O0885",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:118/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Gateshead v Maidenhead United, 15:00 GMT (BBC Radio Berkshire)"
+      ],
+      "output": "15:00",
+      "pair_sha256": "4176698d553aafb5efbef8d7d97b806572ddbbeb7766fda76ffeef5ea640af1d",
+      "provenance": [
+        {
+          "occurrence_id": "O0885",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:118/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Manchester United v Liverpool, 12:30 GMT (BBC Radio 5 live)"
+      ],
+      "output": "12:30",
+      "pair_sha256": "1381014f63d843f694f5c06e21b7eaf0aed4cde4e1a5970505809c33e81942a1",
+      "provenance": [
+        {
+          "occurrence_id": "O0885",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:118/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 48,
+      "max": 62
+    },
+    "output_lengths": {
+      "min": 5,
+      "max": 5
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Die Uhrzeit steht nach dem Komma vor dem nächsten Leerzeichen. Unterschiedliche Uhrzeiten sind vorhanden."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Woking v FC Halifax Town, 15:00 GMT (BBC Surrey)",
+        "output": "15:00"
+      },
+      {
+        "input": "Gateshead v Maidenhead United, 15:00 GMT (BBC Radio Berkshire)",
+        "output": "15:00"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "Macclesfield Town v Barrow, 15:00 GMT (BBC Radio Cumbria)",
+        "output": "15:00"
+      },
+      {
+        "input": "Hartlepool United v Boreham Wood, 15:00 GMT (BBC Tees)",
+        "output": "15:00"
+      },
+      {
+        "input": "Manchester United v Liverpool, 12:30 GMT (BBC Radio 5 live)",
+        "output": "12:30"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 225
+}

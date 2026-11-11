@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " "," ", " ", 198" "-" "1956, 1975, 1981" "1964, 1987, 1990, 1995" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "France Parc des Princes, Paris 3 1956, 1975, 1981") "1956, 1975, 1981"))
+(constraint (= (f "Austria Ernst-Happel-Stadion, Vienna 4 1964, 1987, 1990, 1995") "1964, 1987, 1990, 1995"))
+(check-synth)

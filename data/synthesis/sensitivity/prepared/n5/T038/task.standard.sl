@@ -1,0 +1,8 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" "." "/" "/5/6.7/" "/c.org/" "/news/" "/stuff/" ":" "://" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "http://www.stanford.edu/news/") "/news/"))
+(constraint (= (f "https://google.com/stuff/") "/stuff/"))
+(constraint (= (f "http://1.23.4/5/6.7/") "/5/6.7/"))
+(constraint (= (f "http://a.b/c.org/") "/c.org/"))
+(constraint (= (f "https://google.com/") "/"))
+(check-synth)

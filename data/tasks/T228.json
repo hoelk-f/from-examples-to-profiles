@@ -1,0 +1,163 @@
+{
+  "task_id": "T228",
+  "family_id": "field-extraction-v1",
+  "field": "Conference month",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "token",
+        ", ",
+        -2
+      ],
+      [
+        "before",
+        " "
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0696"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "ILP 2016, London, UK, September 4-6, 2016"
+      ],
+      "output": "September",
+      "pair_sha256": "f474b1a59c4b0d261edf5d21d2c33e6d1d5693ca5e3372d0bbdc8bb07d21f7dd",
+      "provenance": [
+        {
+          "occurrence_id": "O0696",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:238/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "ILP 2015, Kyoto, Japan, August 20-22, 2015"
+      ],
+      "output": "August",
+      "pair_sha256": "1238962f8817c857d7dea510cdc3b099f61600ca8e537b37da7ee8a6dc0a96fd",
+      "provenance": [
+        {
+          "occurrence_id": "O0696",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:238/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "ILP 2012, Dubrovnik, Croatia, September 17-19, 2012"
+      ],
+      "output": "September",
+      "pair_sha256": "f35225444b0bb043798ca835272ddb3e8d3b0a5561e1ffe98ee3b56f1f909c98",
+      "provenance": [
+        {
+          "occurrence_id": "O0696",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:238/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "ILP 2013, Rio de Janeiro, Brazil, August 28-30, 2013"
+      ],
+      "output": "August",
+      "pair_sha256": "fce42756a247ef692abd1929033f79da30a80d8b837e3cb3eb81035f28198784",
+      "provenance": [
+        {
+          "occurrence_id": "O0696",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:238/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "ILP 2014, Nancy, France, September 14-16, 2014"
+      ],
+      "output": "September",
+      "pair_sha256": "444253a1937d51a9aeadc1f4df948bd228447d52edf363047bcf75d987fe53e3",
+      "provenance": [
+        {
+          "occurrence_id": "O0696",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:238/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 41,
+      "max": 52
+    },
+    "output_lengths": {
+      "min": 6,
+      "max": 9
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Das erste Wort des Datumsfeldes liefert den Beginnmonat. Die Aufgabe spezifiziert keine vollständige Datumsinterpretation."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "ILP 2014, Nancy, France, September 14-16, 2014",
+        "output": "September"
+      },
+      {
+        "input": "ILP 2015, Kyoto, Japan, August 20-22, 2015",
+        "output": "August"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "ILP 2012, Dubrovnik, Croatia, September 17-19, 2012",
+        "output": "September"
+      },
+      {
+        "input": "ILP 2016, London, UK, September 4-6, 2016",
+        "output": "September"
+      },
+      {
+        "input": "ILP 2013, Rio de Janeiro, Brazil, August 28-30, 2013",
+        "output": "August"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 119
+}

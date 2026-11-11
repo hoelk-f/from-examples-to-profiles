@@ -1,0 +1,162 @@
+{
+  "task_id": "T251",
+  "family_id": "field-extraction-v1",
+  "field": "Service domain",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "."
+      ],
+      [
+        "before",
+        "/"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0784"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "www.twitter.com/HertfordCollege"
+      ],
+      "output": "twitter.com",
+      "pair_sha256": "7e52e18dc26d4cbe43dd9cb23761924fdf0996c826a1be903ef565a36783a591",
+      "provenance": [
+        {
+          "occurrence_id": "O0784",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:187/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "www.twitter.com/SumitGulwani"
+      ],
+      "output": "twitter.com",
+      "pair_sha256": "fe98dbf6ae2922f796be6885eaa2976685fe034f33ad4ddfe9fcd461f34e60e2",
+      "provenance": [
+        {
+          "occurrence_id": "O0784",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:187/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "www.twitter.com/tommmitchell"
+      ],
+      "output": "twitter.com",
+      "pair_sha256": "8dd9286a7d2b43e1fb610db9770fba66afdc42e884205c132b3c9427af046641",
+      "provenance": [
+        {
+          "occurrence_id": "O0784",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:187/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "www.twitter.com/TobyWalsh"
+      ],
+      "output": "twitter.com",
+      "pair_sha256": "c969aaf39547829201459e40a38a9c7ac96a66b8b6ac2ce09a68203d2603c935",
+      "provenance": [
+        {
+          "occurrence_id": "O0784",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:187/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "www.twitter.com/poplconf"
+      ],
+      "output": "twitter.com",
+      "pair_sha256": "360d4d2f6dee16b002e55489d76ad232a1a7d322fedd6456a31b6df64fcaf8fe",
+      "provenance": [
+        {
+          "occurrence_id": "O0784",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:187/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 24,
+      "max": 31
+    },
+    "output_lengths": {
+      "min": 11,
+      "max": 11
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Alle Ausgaben sind twitter.com. Die Feldgrenze ist plausibel, aber die Quelldaten unterscheiden Extraktion nicht von einer konstanten Ausgabe."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "www.twitter.com/HertfordCollege",
+        "output": "twitter.com"
+      },
+      {
+        "input": "www.twitter.com/poplconf",
+        "output": "twitter.com"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "www.twitter.com/tommmitchell",
+        "output": "twitter.com"
+      },
+      {
+        "input": "www.twitter.com/TobyWalsh",
+        "output": "twitter.com"
+      },
+      {
+        "input": "www.twitter.com/SumitGulwani",
+        "output": "twitter.com"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 173
+}

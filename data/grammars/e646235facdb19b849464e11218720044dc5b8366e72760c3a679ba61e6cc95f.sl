@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " "(" "(latitude), -1" "(longitude)" ")" "), -" "," "-" "-115.065933" "-122.413055" "." (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "37.780544(latitude), -122.413055(longitude)") "-122.413055"))
+(constraint (= (f "36.166019(latitude), -115.065933(longitude)") "-115.065933"))
+(check-synth)

@@ -1,0 +1,163 @@
+{
+  "task_id": "T256",
+  "family_id": "field-extraction-v1",
+  "field": "Postal-code field",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "before_last",
+        ", "
+      ],
+      [
+        "token",
+        " ",
+        -2
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0798"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "65, boulevard Bryas 2619 COURBEVOIE, France"
+      ],
+      "output": "2619",
+      "pair_sha256": "d8bf375168a18035dec74284439fff066803951a3b0ce04c18a79b23e5a59d82",
+      "provenance": [
+        {
+          "occurrence_id": "O0798",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:230/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "30, Place de la Gare 5036 COLOMIERS, France"
+      ],
+      "output": "5036",
+      "pair_sha256": "f775c058019036e0c9aace87366ed68119ffb5fd1b159ed9499c00d33b15d534",
+      "provenance": [
+        {
+          "occurrence_id": "O0798",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:230/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "57, Rue Roussy 6711 ORANGE, France"
+      ],
+      "output": "6711",
+      "pair_sha256": "83fdbe9eca52564c22dbf6728ff5b7493bf2efc38b2eddb7f5d4121e41da9a7a",
+      "provenance": [
+        {
+          "occurrence_id": "O0798",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:230/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "33, rue Nationale 5752 PARIS, France"
+      ],
+      "output": "5752",
+      "pair_sha256": "89acaf6d0eab435da014437ba75940ffa12a190ae1089ae11c91549119ba1b41",
+      "provenance": [
+        {
+          "occurrence_id": "O0798",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:230/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "4, Chemin Des Bateliers 2663 ANGLET, France"
+      ],
+      "output": "2663",
+      "pair_sha256": "bd6d7bb5bc615ea56a6bc50dcad1799b6cc8e85b7890971ecfa878d9585cc6db",
+      "provenance": [
+        {
+          "occurrence_id": "O0798",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:230/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 34,
+      "max": 43
+    },
+    "output_lengths": {
+      "min": 4,
+      "max": 4
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Der Postcode wird als vorletztes Wort vor France lokalisiert. Dies setzt einen einwortigen Ortsnamen voraus."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "65, boulevard Bryas 2619 COURBEVOIE, France",
+        "output": "2619"
+      },
+      {
+        "input": "30, Place de la Gare 5036 COLOMIERS, France",
+        "output": "5036"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "4, Chemin Des Bateliers 2663 ANGLET, France",
+        "output": "2663"
+      },
+      {
+        "input": "57, Rue Roussy 6711 ORANGE, France",
+        "output": "6711"
+      },
+      {
+        "input": "33, rue Nationale 5752 PARIS, France",
+        "output": "5752"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 185
+}

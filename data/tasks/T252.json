@@ -1,0 +1,158 @@
+{
+  "task_id": "T252",
+  "family_id": "field-extraction-v1",
+  "field": "Card type",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "before",
+        ","
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0785"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "Visa,4532333294347962"
+      ],
+      "output": "Visa",
+      "pair_sha256": "6a8497e2f7656a009a07732749e6a59113e2b72a5090bb4860aeb03c42a0b168",
+      "provenance": [
+        {
+          "occurrence_id": "O0785",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:180/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "American Express,373976083599365"
+      ],
+      "output": "American Express",
+      "pair_sha256": "d7c39bee444898b70840db629a5c964895072f443d649d77da628920e116e78e",
+      "provenance": [
+        {
+          "occurrence_id": "O0785",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:180/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Visa,4556876501562519"
+      ],
+      "output": "Visa",
+      "pair_sha256": "c500e35aedb4f12ee19f81a1af616b61b68cd773317143d90ec505a36ef25197",
+      "provenance": [
+        {
+          "occurrence_id": "O0785",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:180/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Visa,4916944185554908"
+      ],
+      "output": "Visa",
+      "pair_sha256": "2cf51e33253e928335f77a743549412746926c6969cb4bc61d17d75e9eb6ccbb",
+      "provenance": [
+        {
+          "occurrence_id": "O0785",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:180/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Diners Club,30353191710174"
+      ],
+      "output": "Diners Club",
+      "pair_sha256": "e4464e74749972635a90aaedf76a5b89f0356945b9a1500065d23762af91bec5",
+      "provenance": [
+        {
+          "occurrence_id": "O0785",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:180/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 21,
+      "max": 32
+    },
+    "output_lengths": {
+      "min": 4,
+      "max": 16
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Das Kartenartenfeld vor dem Komma umfasst auch mehrere Wörter."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Visa,4916944185554908",
+        "output": "Visa"
+      },
+      {
+        "input": "Visa,4532333294347962",
+        "output": "Visa"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "Visa,4556876501562519",
+        "output": "Visa"
+      },
+      {
+        "input": "American Express,373976083599365",
+        "output": "American Express"
+      },
+      {
+        "input": "Diners Club,30353191710174",
+        "output": "Diners Club"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 174
+}

@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" "." "Company\u{5c}Illum\u{5c}" "\u{5c}" "company\u{5c}Totam\u{5c}" "m\u{5c}" "ompany\u{5c}" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "Company\u{5c}Illum\u{5c}9cRG5QHfl.lhz") "Company\u{5c}Illum\u{5c}"))
+(constraint (= (f "company\u{5c}Totam\u{5c}index.html") "company\u{5c}Totam\u{5c}"))
+(check-synth)

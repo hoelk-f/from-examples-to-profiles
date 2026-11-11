@@ -1,0 +1,121 @@
+{
+  "task_id": "T186",
+  "family_id": "field-extraction-v1",
+  "field": "Address line 2",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "token",
+        "\n",
+        1
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0005"
+  ],
+  "collections": [
+    "PROSE"
+  ],
+  "unique_example_count": 3,
+  "source_example_row_count": 3,
+  "examples": [
+    {
+      "input": [
+        "Abdoulaye Drubych\n123 First Ln.\nVancouver\nMI\n38891"
+      ],
+      "output": "123 First Ln.",
+      "pair_sha256": "8f4ee77b045e2955412fa68aa2c24a4b0bcb2bc5a13f6a2f9dc9ba9707ce18ae",
+      "provenance": [
+        {
+          "occurrence_id": "O0005",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000005/spec.json",
+          "location": "/Examples/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Rohini Che\n90 Cherry Pkwy.\nCleveland\nNE\n38891"
+      ],
+      "output": "90 Cherry Pkwy.",
+      "pair_sha256": "679bee6315b8381a6ce06e2bb24de3cd1112559e4102c1d4496145cece6ff03a",
+      "provenance": [
+        {
+          "occurrence_id": "O0005",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000005/spec.json",
+          "location": "/Examples/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Nitin Lapsa\n3456 Pecan Ave.\nRiyadh\nCO\n17293"
+      ],
+      "output": "3456 Pecan Ave.",
+      "pair_sha256": "8898c90387b1c7c82496336bfc3bc4c302dab63d4c7b5dbaf005b8ee79ec429a",
+      "provenance": [
+        {
+          "occurrence_id": "O0005",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000005/spec.json",
+          "location": "/Examples/2"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 43,
+      "max": 50
+    },
+    "output_lengths": {
+      "min": 13,
+      "max": 15
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Die zweite Adresszeile enthält auch Straße und Hausnummer unverändert."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Abdoulaye Drubych\n123 First Ln.\nVancouver\nMI\n38891",
+        "output": "123 First Ln."
+      },
+      {
+        "input": "Rohini Che\n90 Cherry Pkwy.\nCleveland\nNE\n38891",
+        "output": "90 Cherry Pkwy."
+      }
+    ],
+    "heldout": [
+      {
+        "input": "Nitin Lapsa\n3456 Pecan Ave.\nRiyadh\nCO\n17293",
+        "output": "3456 Pecan Ave."
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 2
+}

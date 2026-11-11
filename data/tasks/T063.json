@@ -1,0 +1,2547 @@
+{
+  "task_id": "T063",
+  "family_id": "field-extraction-v1",
+  "field": "Name after title",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        " "
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0672"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "Mr Patrick Starfish"
+      ],
+      "output": "Patrick Starfish",
+      "pair_sha256": "f2ad90313473814c23026260a0ec974a069623035673cdb8446add300f4210e1",
+      "provenance": [
+        {
+          "occurrence_id": "O0672",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:5/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Mr Harry Potter"
+      ],
+      "output": "Harry Potter",
+      "pair_sha256": "e4ac14dadc6ee343bdfa9a869a25a6543c62bfd4b0d5da90debe2b5fb1ccdd7a",
+      "provenance": [
+        {
+          "occurrence_id": "O0672",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:5/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Ms Hermione Granger"
+      ],
+      "output": "Hermione Granger",
+      "pair_sha256": "ef2373d08efb45e61270c0150bb25999d349936f75707ff1014218de5b245e50",
+      "provenance": [
+        {
+          "occurrence_id": "O0672",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:5/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Mr Spongebob Squarepants"
+      ],
+      "output": "Spongebob Squarepants",
+      "pair_sha256": "5d8e5eb058a075e6e7dfa0c6e532ae583ab92b1ef49e85fd2760b25fc8778c9b",
+      "provenance": [
+        {
+          "occurrence_id": "O0672",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:5/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Professor Minerva Mcgonagall"
+      ],
+      "output": "Minerva Mcgonagall",
+      "pair_sha256": "34ab7c39c4dacee78e5aabede7954e0925243154f42612dd0d8888d4951bf412",
+      "provenance": [
+        {
+          "occurrence_id": "O0672",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:5/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 15,
+      "max": 28
+    },
+    "output_lengths": {
+      "min": 12,
+      "max": 21
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Ein einwortiger Titel wird am ersten Leerzeichen vom vollständig erhaltenen Personennamen getrennt."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Professor Minerva Mcgonagall",
+        "output": "Minerva Mcgonagall"
+      },
+      {
+        "input": "Mr Spongebob Squarepants",
+        "output": "Spongebob Squarepants"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "Mr Patrick Starfish",
+        "output": "Patrick Starfish"
+      },
+      {
+        "input": "Mr Harry Potter",
+        "output": "Harry Potter"
+      },
+      {
+        "input": "Ms Hermione Granger",
+        "output": "Hermione Granger"
+      }
+    ]
+  },
+  "behavioral": {
+    "bases": [
+      {
+        "base_id": "T063-B1",
+        "task_id": "T063",
+        "input": "Professor Minerva Mcgonagall",
+        "expected_output": "Minerva Mcgonagall",
+        "expected_span": [
+          10,
+          28
+        ],
+        "source_path": "data/tasks/T063.json#split.training",
+        "source_index": 0,
+        "role": "synthesis_example_for_paired_assertions_only"
+      },
+      {
+        "base_id": "T063-B2",
+        "task_id": "T063",
+        "input": "Mr Spongebob Squarepants",
+        "expected_output": "Spongebob Squarepants",
+        "expected_span": [
+          3,
+          24
+        ],
+        "source_path": "data/tasks/T063.json#split.training",
+        "source_index": 1,
+        "role": "synthesis_example_for_paired_assertions_only"
+      }
+    ],
+    "cases": [
+      {
+        "case_id": "T063-Ce912b895dc474a00f85f",
+        "task_id": "T063",
+        "input": "Professor Minerva Mxfkawwxjn",
+        "expected_output": "Minerva Mxfkawwxjn",
+        "expected_span": [
+          10,
+          28
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-V01-1"
+        ]
+      },
+      {
+        "case_id": "T063-C3777e252aff0bff70370",
+        "task_id": "T063",
+        "input": "Professor Minerva Mwdnfoniny",
+        "expected_output": "Minerva Mwdnfoniny",
+        "expected_span": [
+          10,
+          28
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-V01-2"
+        ]
+      },
+      {
+        "case_id": "T063-C73eea43756665eea2a64",
+        "task_id": "T063",
+        "input": "Professor Minerva Myxbsnpuun",
+        "expected_output": "Minerva Myxbsnpuun",
+        "expected_span": [
+          10,
+          28
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-V01-3"
+        ]
+      },
+      {
+        "case_id": "T063-Cde70757d21020509bee0",
+        "task_id": "T063",
+        "input": "Powikmffe Minerva Mcgonagall",
+        "expected_output": "Minerva Mcgonagall",
+        "expected_span": [
+          10,
+          28
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-V02-1"
+        ]
+      },
+      {
+        "case_id": "T063-C13e1af0aa3ea8f6b7316",
+        "task_id": "T063",
+        "input": "Psnkburkp Minerva Mcgonagall",
+        "expected_output": "Minerva Mcgonagall",
+        "expected_span": [
+          10,
+          28
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-V02-2"
+        ]
+      },
+      {
+        "case_id": "T063-Cd089e7c78528e432d60f",
+        "task_id": "T063",
+        "input": "Ptlnukubs Minerva Mcgonagall",
+        "expected_output": "Minerva Mcgonagall",
+        "expected_span": [
+          10,
+          28
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-V02-3"
+        ]
+      },
+      {
+        "case_id": "T063-C960cc332be31d9b5868a",
+        "task_id": "T063",
+        "input": "Professormzjrt Minerva Mcgonagall",
+        "expected_output": "Minerva Mcgonagall",
+        "expected_span": [
+          15,
+          33
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-V03-1"
+        ]
+      },
+      {
+        "case_id": "T063-Cfa2d6184e994284aa770",
+        "task_id": "T063",
+        "input": "Professorntiigsjyo Minerva Mcgonagall",
+        "expected_output": "Minerva Mcgonagall",
+        "expected_span": [
+          19,
+          37
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-V03-2"
+        ]
+      },
+      {
+        "case_id": "T063-C29425918d064c9668787",
+        "task_id": "T063",
+        "input": "Professorycooirwdybmyudgqekhkcooggif Minerva Mcgonagall",
+        "expected_output": "Minerva Mcgonagall",
+        "expected_span": [
+          37,
+          55
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-V03-3"
+        ]
+      },
+      {
+        "case_id": "T063-C9b060feb7b4458b843c6",
+        "task_id": "T063",
+        "input": "Professor Minerva Mcgonagallhteabedztumqjd",
+        "expected_output": "Minerva Mcgonagallhteabedztumqjd",
+        "expected_span": [
+          10,
+          42
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-V04-1"
+        ]
+      },
+      {
+        "case_id": "T063-Cc336ebe29a8367d54a9b",
+        "task_id": "T063",
+        "input": "Professor Minerva Mcgonagalldoqneptakepvearbjnrlhhzw",
+        "expected_output": "Minerva Mcgonagalldoqneptakepvearbjnrlhhzw",
+        "expected_span": [
+          10,
+          52
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-V04-2"
+        ]
+      },
+      {
+        "case_id": "T063-C5b7e245fff268d35e6db",
+        "task_id": "T063",
+        "input": "Professor Minerva Mcgonagallgmfnuchvwdrgxxfqypxpafmskzhbegfyybhxefdlemvhndlfrszxrokubcytlisvbd",
+        "expected_output": "Minerva Mcgonagallgmfnuchvwdrgxxfqypxpafmskzhbegfyybhxefdlemvhndlfrszxrokubcytlisvbd",
+        "expected_span": [
+          10,
+          94
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-V04-3"
+        ]
+      },
+      {
+        "case_id": "T063-C5f41b9c1178f2e5ed3c1",
+        "task_id": "T063",
+        "input": "WETVRDRPNEOJ Professor Minerva Mcgonagall",
+        "expected_output": "Professor Minerva Mcgonagall",
+        "expected_span": [
+          13,
+          41
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-S01-1"
+        ]
+      },
+      {
+        "case_id": "T063-C02dc282a9a698ead2240",
+        "task_id": "T063",
+        "input": "GKDLTJTLQKYP Professor Minerva Mcgonagall",
+        "expected_output": "Professor Minerva Mcgonagall",
+        "expected_span": [
+          13,
+          41
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-S01-2"
+        ]
+      },
+      {
+        "case_id": "T063-Cb3b6b1cd33f125afdba6",
+        "task_id": "T063",
+        "input": "Professor Minerva Mcgonagall YPCJICYOBJGR",
+        "expected_output": "Minerva Mcgonagall YPCJICYOBJGR",
+        "expected_span": [
+          10,
+          41
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-S01-3"
+        ]
+      },
+      {
+        "case_id": "T063-C5ca33bf2cf72997bb5e5",
+        "task_id": "T063",
+        "input": "Professor Minerva Mcgonagall VCVOJATAOLAY",
+        "expected_output": "Minerva Mcgonagall VCVOJATAOLAY",
+        "expected_span": [
+          10,
+          41
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B1-S01-4"
+        ]
+      },
+      {
+        "case_id": "T063-C4940d50e14f6aa566bf3",
+        "task_id": "T063",
+        "input": "Mr Spongebob Skarkqwdela",
+        "expected_output": "Spongebob Skarkqwdela",
+        "expected_span": [
+          3,
+          24
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-V01-1"
+        ]
+      },
+      {
+        "case_id": "T063-C1ca099861e5e751f8837",
+        "task_id": "T063",
+        "input": "Mr Spongebob Shnoijqrujy",
+        "expected_output": "Spongebob Shnoijqrujy",
+        "expected_span": [
+          3,
+          24
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-V01-2"
+        ]
+      },
+      {
+        "case_id": "T063-Cca431923e80101d14326",
+        "task_id": "T063",
+        "input": "Mr Spongebob Sjvzuagjxpu",
+        "expected_output": "Spongebob Sjvzuagjxpu",
+        "expected_span": [
+          3,
+          24
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-V01-3"
+        ]
+      },
+      {
+        "case_id": "T063-Cd317cc7b4eb8cc4650a3",
+        "task_id": "T063",
+        "input": "Kr Spongebob Squarepants",
+        "expected_output": "Spongebob Squarepants",
+        "expected_span": [
+          3,
+          24
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-V02-1"
+        ]
+      },
+      {
+        "case_id": "T063-Cb463f8b290bce0342d73",
+        "task_id": "T063",
+        "input": "Br Spongebob Squarepants",
+        "expected_output": "Spongebob Squarepants",
+        "expected_span": [
+          3,
+          24
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-V02-2"
+        ]
+      },
+      {
+        "case_id": "T063-C715d7d8f6678a73bbd15",
+        "task_id": "T063",
+        "input": "Nr Spongebob Squarepants",
+        "expected_output": "Spongebob Squarepants",
+        "expected_span": [
+          3,
+          24
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-V02-3"
+        ]
+      },
+      {
+        "case_id": "T063-C81ed0447993cac9eb043",
+        "task_id": "T063",
+        "input": "MLQLXRUKMFCXUr Spongebob Squarepants",
+        "expected_output": "Spongebob Squarepants",
+        "expected_span": [
+          15,
+          36
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-V03-1"
+        ]
+      },
+      {
+        "case_id": "T063-C96022e96224ba291b999",
+        "task_id": "T063",
+        "input": "MGPLMAFYTDAJOBIALr Spongebob Squarepants",
+        "expected_output": "Spongebob Squarepants",
+        "expected_span": [
+          19,
+          40
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-V03-2"
+        ]
+      },
+      {
+        "case_id": "T063-Cb639225a0e3d7aeddc24",
+        "task_id": "T063",
+        "input": "MPBIQAANRWBYEHGKNJJQRVRDDSIJFBTYHMMr Spongebob Squarepants",
+        "expected_output": "Spongebob Squarepants",
+        "expected_span": [
+          37,
+          58
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-V03-3"
+        ]
+      },
+      {
+        "case_id": "T063-C7acd4e88bf0c5ce8dc77",
+        "task_id": "T063",
+        "input": "Mr Spongebob Squarepantsftqhtxnztze",
+        "expected_output": "Spongebob Squarepantsftqhtxnztze",
+        "expected_span": [
+          3,
+          35
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-V04-1"
+        ]
+      },
+      {
+        "case_id": "T063-Cbe02a2edd98cf02ff576",
+        "task_id": "T063",
+        "input": "Mr Spongebob Squarepantsahtkwueocsmzuidqptcdf",
+        "expected_output": "Spongebob Squarepantsahtkwueocsmzuidqptcdf",
+        "expected_span": [
+          3,
+          45
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-V04-2"
+        ]
+      },
+      {
+        "case_id": "T063-Cd8f45c18cfdc7844445b",
+        "task_id": "T063",
+        "input": "Mr Spongebob Squarepantspxwzzehzlocbkrsaregogqgluoiolrvpotfltyuwkkoldqekmejuzwuvokfzber",
+        "expected_output": "Spongebob Squarepantspxwzzehzlocbkrsaregogqgluoiolrvpotfltyuwkkoldqekmejuzwuvokfzber",
+        "expected_span": [
+          3,
+          87
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-V04-3"
+        ]
+      },
+      {
+        "case_id": "T063-Cdc883804213378ba597d",
+        "task_id": "T063",
+        "input": "OICCCQWWIVTK Mr Spongebob Squarepants",
+        "expected_output": "Mr Spongebob Squarepants",
+        "expected_span": [
+          13,
+          37
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-S01-1"
+        ]
+      },
+      {
+        "case_id": "T063-Ccffdfb74d2df3ab7679b",
+        "task_id": "T063",
+        "input": "YLYMDXKEXPPH Mr Spongebob Squarepants",
+        "expected_output": "Mr Spongebob Squarepants",
+        "expected_span": [
+          13,
+          37
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-S01-2"
+        ]
+      },
+      {
+        "case_id": "T063-C52faee3a7bd5741ea684",
+        "task_id": "T063",
+        "input": "Mr Spongebob Squarepants DEQRXBKHFEJZ",
+        "expected_output": "Spongebob Squarepants DEQRXBKHFEJZ",
+        "expected_span": [
+          3,
+          37
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-S01-3"
+        ]
+      },
+      {
+        "case_id": "T063-Cb3dbf173f375668c8ef1",
+        "task_id": "T063",
+        "input": "Mr Spongebob Squarepants GYYXLOFGVYTR",
+        "expected_output": "Spongebob Squarepants GYYXLOFGVYTR",
+        "expected_span": [
+          3,
+          37
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T063-B2-S01-4"
+        ]
+      }
+    ],
+    "obligations": [
+      {
+        "obligation_id": "T063-B1-V01-1",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Ce912b895dc474a00f85f",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 19,
+          "end": 28,
+          "replacement": "xfkawwxjn"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Mxfkawwxjn"
+          },
+          {
+            "assertion_id": "T063-B1-V01-1-relation",
+            "base_id": "T063-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 9,
+            "end": 18,
+            "replacement": "xfkawwxjn"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-V01-2",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C3777e252aff0bff70370",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 19,
+          "end": 28,
+          "replacement": "wdnfoniny"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Mwdnfoniny"
+          },
+          {
+            "assertion_id": "T063-B1-V01-2-relation",
+            "base_id": "T063-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 9,
+            "end": 18,
+            "replacement": "wdnfoniny"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-V01-3",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C73eea43756665eea2a64",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 19,
+          "end": 28,
+          "replacement": "yxbsnpuun"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Myxbsnpuun"
+          },
+          {
+            "assertion_id": "T063-B1-V01-3-relation",
+            "base_id": "T063-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 9,
+            "end": 18,
+            "replacement": "yxbsnpuun"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-V02-1",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Cde70757d21020509bee0",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 9,
+          "replacement": "owikmffe"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Mcgonagall"
+          },
+          {
+            "assertion_id": "T063-B1-V02-1-relation",
+            "base_id": "T063-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-V02-2",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C13e1af0aa3ea8f6b7316",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 9,
+          "replacement": "snkburkp"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Mcgonagall"
+          },
+          {
+            "assertion_id": "T063-B1-V02-2-relation",
+            "base_id": "T063-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-V02-3",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Cd089e7c78528e432d60f",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 9,
+          "replacement": "tlnukubs"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Mcgonagall"
+          },
+          {
+            "assertion_id": "T063-B1-V02-3-relation",
+            "base_id": "T063-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-V03-1",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 14
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C960cc332be31d9b5868a",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 9,
+            "test_value": 14,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 9,
+          "replacement": "rofessormzjrt"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-V03-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Mcgonagall"
+          },
+          {
+            "assertion_id": "T063-B1-V03-1-relation",
+            "base_id": "T063-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-V03-2",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 18
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Cfa2d6184e994284aa770",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 9,
+            "test_value": 18,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 9,
+          "replacement": "rofessorntiigsjyo"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-V03-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Mcgonagall"
+          },
+          {
+            "assertion_id": "T063-B1-V03-2-relation",
+            "base_id": "T063-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-V03-3",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 36
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C29425918d064c9668787",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 9,
+            "test_value": 36,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 9,
+          "replacement": "rofessorycooirwdybmyudgqekhkcooggif"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-V03-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Mcgonagall"
+          },
+          {
+            "assertion_id": "T063-B1-V03-3-relation",
+            "base_id": "T063-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-V04-1",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 32
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C9b060feb7b4458b843c6",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 18,
+            "observed_max": 21,
+            "test_value": 32,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 19,
+          "end": 28,
+          "replacement": "cgonagallhteabedztumqjd"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Mcgonagallhteabedztumqjd"
+          },
+          {
+            "assertion_id": "T063-B1-V04-1-relation",
+            "base_id": "T063-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 9,
+            "end": 18,
+            "replacement": "cgonagallhteabedztumqjd"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-V04-2",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 42
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Cc336ebe29a8367d54a9b",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 18,
+            "observed_max": 21,
+            "test_value": 42,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 19,
+          "end": 28,
+          "replacement": "cgonagalldoqneptakepvearbjnrlhhzw"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Mcgonagalldoqneptakepvearbjnrlhhzw"
+          },
+          {
+            "assertion_id": "T063-B1-V04-2-relation",
+            "base_id": "T063-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 9,
+            "end": 18,
+            "replacement": "cgonagalldoqneptakepvearbjnrlhhzw"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-V04-3",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 84
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C5b7e245fff268d35e6db",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 18,
+            "observed_max": 21,
+            "test_value": 84,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 19,
+          "end": 28,
+          "replacement": "cgonagallgmfnuchvwdrgxxfqypxpafmskzhbegfyybhxefdlemvhndlfrszxrokubcytlisvbd"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Mcgonagallgmfnuchvwdrgxxfqypxpafmskzhbegfyybhxefdlemvhndlfrszxrokubcytlisvbd"
+          },
+          {
+            "assertion_id": "T063-B1-V04-3-relation",
+            "base_id": "T063-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 9,
+            "end": 18,
+            "replacement": "cgonagallgmfnuchvwdrgxxfqypxpafmskzhbegfyybhxefdlemvhndlfrszxrokubcytlisvbd"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-V05-1",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure"
+      },
+      {
+        "obligation_id": "T063-B1-S01-1",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C5f41b9c1178f2e5ed3c1",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "before",
+          "dummy_field": "WETVRDRPNEOJ"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Professor Minerva Mcgonagall"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-S01-2",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C02dc282a9a698ead2240",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "before",
+          "dummy_field": "GKDLTJTLQKYP"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Professor Minerva Mcgonagall"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-S01-3",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Cb3b6b1cd33f125afdba6",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "after",
+          "dummy_field": "YPCJICYOBJGR"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Mcgonagall YPCJICYOBJGR"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B1-S01-4",
+        "task_id": "T063",
+        "base_id": "T063-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C5ca33bf2cf72997bb5e5",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "after",
+          "dummy_field": "VCVOJATAOLAY"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B1-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Minerva Mcgonagall VCVOJATAOLAY"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-V01-1",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C4940d50e14f6aa566bf3",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 14,
+          "end": 24,
+          "replacement": "karkqwdela"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Skarkqwdela"
+          },
+          {
+            "assertion_id": "T063-B2-V01-1-relation",
+            "base_id": "T063-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 11,
+            "end": 21,
+            "replacement": "karkqwdela"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-V01-2",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C1ca099861e5e751f8837",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 14,
+          "end": 24,
+          "replacement": "hnoijqrujy"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Shnoijqrujy"
+          },
+          {
+            "assertion_id": "T063-B2-V01-2-relation",
+            "base_id": "T063-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 11,
+            "end": 21,
+            "replacement": "hnoijqrujy"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-V01-3",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Cca431923e80101d14326",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 14,
+          "end": 24,
+          "replacement": "jvzuagjxpu"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Sjvzuagjxpu"
+          },
+          {
+            "assertion_id": "T063-B2-V01-3-relation",
+            "base_id": "T063-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 11,
+            "end": 21,
+            "replacement": "jvzuagjxpu"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-V02-1",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Cd317cc7b4eb8cc4650a3",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 0,
+          "end": 1,
+          "replacement": "K"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Squarepants"
+          },
+          {
+            "assertion_id": "T063-B2-V02-1-relation",
+            "base_id": "T063-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-V02-2",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Cb463f8b290bce0342d73",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 0,
+          "end": 1,
+          "replacement": "B"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Squarepants"
+          },
+          {
+            "assertion_id": "T063-B2-V02-2-relation",
+            "base_id": "T063-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-V02-3",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C715d7d8f6678a73bbd15",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 0,
+          "end": 1,
+          "replacement": "N"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Squarepants"
+          },
+          {
+            "assertion_id": "T063-B2-V02-3-relation",
+            "base_id": "T063-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-V03-1",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 14
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C81ed0447993cac9eb043",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 9,
+            "test_value": 14,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 0,
+          "end": 1,
+          "replacement": "MLQLXRUKMFCXU"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-V03-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Squarepants"
+          },
+          {
+            "assertion_id": "T063-B2-V03-1-relation",
+            "base_id": "T063-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-V03-2",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 18
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C96022e96224ba291b999",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 9,
+            "test_value": 18,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 0,
+          "end": 1,
+          "replacement": "MGPLMAFYTDAJOBIAL"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-V03-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Squarepants"
+          },
+          {
+            "assertion_id": "T063-B2-V03-2-relation",
+            "base_id": "T063-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-V03-3",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 36
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Cb639225a0e3d7aeddc24",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 9,
+            "test_value": 36,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 0,
+          "end": 1,
+          "replacement": "MPBIQAANRWBYEHGKNJJQRVRDDSIJFBTYHMM"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-V03-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Squarepants"
+          },
+          {
+            "assertion_id": "T063-B2-V03-3-relation",
+            "base_id": "T063-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-V04-1",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 32
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C7acd4e88bf0c5ce8dc77",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 18,
+            "observed_max": 21,
+            "test_value": 32,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 14,
+          "end": 24,
+          "replacement": "quarepantsftqhtxnztze"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Squarepantsftqhtxnztze"
+          },
+          {
+            "assertion_id": "T063-B2-V04-1-relation",
+            "base_id": "T063-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 11,
+            "end": 21,
+            "replacement": "quarepantsftqhtxnztze"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-V04-2",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 42
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Cbe02a2edd98cf02ff576",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 18,
+            "observed_max": 21,
+            "test_value": 42,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 14,
+          "end": 24,
+          "replacement": "quarepantsahtkwueocsmzuidqptcdf"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Squarepantsahtkwueocsmzuidqptcdf"
+          },
+          {
+            "assertion_id": "T063-B2-V04-2-relation",
+            "base_id": "T063-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 11,
+            "end": 21,
+            "replacement": "quarepantsahtkwueocsmzuidqptcdf"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-V04-3",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 84
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Cd8f45c18cfdc7844445b",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 18,
+            "observed_max": 21,
+            "test_value": 84,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 14,
+          "end": 24,
+          "replacement": "quarepantspxwzzehzlocbkrsaregogqgluoiolrvpotfltyuwkkoldqekmejuzwuvokfzber"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Squarepantspxwzzehzlocbkrsaregogqgluoiolrvpotfltyuwkkoldqekmejuzwuvokfzber"
+          },
+          {
+            "assertion_id": "T063-B2-V04-3-relation",
+            "base_id": "T063-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 11,
+            "end": 21,
+            "replacement": "quarepantspxwzzehzlocbkrsaregogqgluoiolrvpotfltyuwkkoldqekmejuzwuvokfzber"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-V05-1",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure"
+      },
+      {
+        "obligation_id": "T063-B2-S01-1",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Cdc883804213378ba597d",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "before",
+          "dummy_field": "OICCCQWWIVTK"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Mr Spongebob Squarepants"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-S01-2",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Ccffdfb74d2df3ab7679b",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "before",
+          "dummy_field": "YLYMDXKEXPPH"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Mr Spongebob Squarepants"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-S01-3",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-C52faee3a7bd5741ea684",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "after",
+          "dummy_field": "DEQRXBKHFEJZ"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Squarepants DEQRXBKHFEJZ"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T063-B2-S01-4",
+        "task_id": "T063",
+        "base_id": "T063-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T063-Cb3dbf173f375668c8ef1",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "after",
+          "dummy_field": "GYYXLOFGVYTR"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T063-B2-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Spongebob Squarepants GYYXLOFGVYTR"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      }
+    ],
+    "applicability": [
+      {
+        "task_id": "T063",
+        "operator_id": "V01",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T063",
+        "operator_id": "V02",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T063",
+        "operator_id": "V03",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T063",
+        "operator_id": "V04",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T063",
+        "operator_id": "V05",
+        "obligations": 2,
+        "statuses": {
+          "not_applicable_to_operator": 2
+        },
+        "unique_cases": 0,
+        "reasons": {
+          "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure": 2
+        }
+      },
+      {
+        "task_id": "T063",
+        "operator_id": "S01",
+        "obligations": 8,
+        "statuses": {
+          "planned": 8
+        },
+        "unique_cases": 8,
+        "reasons": {}
+      }
+    ]
+  },
+  "generation_seed": 103
+}

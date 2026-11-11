@@ -1,0 +1,162 @@
+{
+  "task_id": "T240",
+  "family_id": "field-extraction-v1",
+  "field": "Book content field",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        ">"
+      ],
+      [
+        "before",
+        "</book>"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0717"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "<book id=\"bk106\"><price>1.95</price></book>"
+      ],
+      "output": "<price>1.95</price>",
+      "pair_sha256": "9b791fd7a74327e03c1c1fef19af395d019263c3c05b3fe0c624f48929d36980",
+      "provenance": [
+        {
+          "occurrence_id": "O0717",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:224/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<book id=\"bk107\"><price>2.95</price></book>"
+      ],
+      "output": "<price>2.95</price>",
+      "pair_sha256": "ece64175be2a08d12c70bf3d252bc01982939c86fc65c9afb37b1523ed13573f",
+      "provenance": [
+        {
+          "occurrence_id": "O0717",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:224/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<book id=\"bk101\"><price>44.95</price></book>"
+      ],
+      "output": "<price>44.95</price>",
+      "pair_sha256": "2f09d8c130f1c808a31ee318ebed578009d8450d18bf8ea641adb414b1b15a21",
+      "provenance": [
+        {
+          "occurrence_id": "O0717",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:224/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<book id=\"bk108\"><price>12.95</price></book>"
+      ],
+      "output": "<price>12.95</price>",
+      "pair_sha256": "cb34931573aa395fb53135415a2bc27ff0ba37328cac89885c7880de4aa1ad84",
+      "provenance": [
+        {
+          "occurrence_id": "O0717",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:224/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<book id=\"bk105\"><price>5.95</price></book>"
+      ],
+      "output": "<price>5.95</price>",
+      "pair_sha256": "ba14c3c1dfe4da75d4be2f3b2a0ee010b1292202ef383534387926e391fe6826",
+      "provenance": [
+        {
+          "occurrence_id": "O0717",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:224/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 43,
+      "max": 44
+    },
+    "output_lengths": {
+      "min": 19,
+      "max": 20
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Der gesamte innere Markupbereich ist das Zielfeld. Das passt zum vereinbarten zusammenhängenden Bereich, ist aber kein atomarer Preiswert."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "<book id=\"bk105\"><price>5.95</price></book>",
+        "output": "<price>5.95</price>"
+      },
+      {
+        "input": "<book id=\"bk107\"><price>2.95</price></book>",
+        "output": "<price>2.95</price>"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "<book id=\"bk108\"><price>12.95</price></book>",
+        "output": "<price>12.95</price>"
+      },
+      {
+        "input": "<book id=\"bk106\"><price>1.95</price></book>",
+        "output": "<price>1.95</price>"
+      },
+      {
+        "input": "<book id=\"bk101\"><price>44.95</price></book>",
+        "output": "<price>44.95</price>"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 134
+}

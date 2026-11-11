@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " - " " - First call" "," "-" "/" "/1/20" "11/1" "11/1/2088 - First call" "11/15/2015-follow-up,interested" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "12/1/2015 - First call/n12/3/2015-order placed/n11/15/2015-follow-up,interested") "11/15/2015-follow-up,interested"))
+(constraint (= (f "11/1/2088 - First call") "11/1/2088 - First call"))
+(check-synth)

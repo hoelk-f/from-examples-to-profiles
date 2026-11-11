@@ -1,0 +1,8 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " "/" "25/33" "29/39" "=" "= " "hyundai" "subaru" "super sonata" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "model= super sonata") "super sonata"))
+(constraint (= (f "make= hyundai") "hyundai"))
+(constraint (= (f "make= subaru") "subaru"))
+(constraint (= (f "fuel economy= 29/39") "29/39"))
+(constraint (= (f "fuel economy= 25/33") "25/33"))
+(check-synth)

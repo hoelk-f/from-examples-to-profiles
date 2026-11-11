@@ -1,0 +1,121 @@
+{
+  "task_id": "T188",
+  "family_id": "field-extraction-v1",
+  "field": "Address line 4",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "token",
+        "\n",
+        3
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0007"
+  ],
+  "collections": [
+    "PROSE"
+  ],
+  "unique_example_count": 3,
+  "source_example_row_count": 3,
+  "examples": [
+    {
+      "input": [
+        "Cong Garayewa\n3456 48th Pkwy\nReno\nMN\n41230"
+      ],
+      "output": "MN",
+      "pair_sha256": "d010dea68c7340faaf6ae7c3b6c424a09ae9e2abe250e85b97cc65e08f9f8f71",
+      "provenance": [
+        {
+          "occurrence_id": "O0007",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000007/spec.json",
+          "location": "/Examples/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Yashita Vasala\n1234 Elm Ct\nFullerton\nME\n41230"
+      ],
+      "output": "ME",
+      "pair_sha256": "81451df7daec48ab0817d7894e8e75d4cd756b68e63c907631fffd41514d1b95",
+      "provenance": [
+        {
+          "occurrence_id": "O0007",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000007/spec.json",
+          "location": "/Examples/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Esmira Vogli\n89 First St\nBhopal\nME\n03719"
+      ],
+      "output": "ME",
+      "pair_sha256": "1e072617648d2f704b1bdcef077506ae7b663bfe087730eefaebe626c9355c7c",
+      "provenance": [
+        {
+          "occurrence_id": "O0007",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000007/spec.json",
+          "location": "/Examples/2"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 40,
+      "max": 45
+    },
+    "output_lengths": {
+      "min": 2,
+      "max": 2
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Das vierte Zeilenfeld liefert die vorhandene Bundesstaatsabkürzung."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Cong Garayewa\n3456 48th Pkwy\nReno\nMN\n41230",
+        "output": "MN"
+      },
+      {
+        "input": "Yashita Vasala\n1234 Elm Ct\nFullerton\nME\n41230",
+        "output": "ME"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "Esmira Vogli\n89 First St\nBhopal\nME\n03719",
+        "output": "ME"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 4
+}

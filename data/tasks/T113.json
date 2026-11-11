@@ -1,0 +1,2231 @@
+{
+  "task_id": "T113",
+  "family_id": "field-extraction-v1",
+  "field": "Street name",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "before",
+        ","
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0808"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "Piazza Giuseppe Garibaldi, 2402 43010-Castelguelfo PR, Italy"
+      ],
+      "output": "Piazza Giuseppe Garibaldi",
+      "pair_sha256": "93e7241df10c5a1dd676e7e1f1421dedddfec683c815f78624499f61e6bc9218",
+      "provenance": [
+        {
+          "occurrence_id": "O0808",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:261/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Via Valpantena, 9266 84032-Buonabitacolo SA, Italy"
+      ],
+      "output": "Via Valpantena",
+      "pair_sha256": "282fc057568d5482e41c888e63ffb49fa859ee4f77bb2014c0e00e1680a36c3a",
+      "provenance": [
+        {
+          "occurrence_id": "O0808",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:261/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Via Santa Teresa, 9341 53049-Torrita Di Siena SI, Italy"
+      ],
+      "output": "Via Santa Teresa",
+      "pair_sha256": "04fb7038e453a253f5a7897bac35d90a58cd824af019bc9ff0ca5490182da9c5",
+      "provenance": [
+        {
+          "occurrence_id": "O0808",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:261/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Via Duomo, 7754 57024-Donoratico LI, Italy"
+      ],
+      "output": "Via Duomo",
+      "pair_sha256": "b47bcc9a6d73dd590a3b82ecd729b1d61afef827a2c30a8728a453aaf190b3e4",
+      "provenance": [
+        {
+          "occurrence_id": "O0808",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:261/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Via Matteo Schilizzi, 1513 16045-Lorsica GE, Italy"
+      ],
+      "output": "Via Matteo Schilizzi",
+      "pair_sha256": "11df8be9bd7cd5748b2f2e17d5743a06d5ada2fd9ab3c9d9b0823ef0c7c0d0ec",
+      "provenance": [
+        {
+          "occurrence_id": "O0808",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:261/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 42,
+      "max": 60
+    },
+    "output_lengths": {
+      "min": 9,
+      "max": 25
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Der vollständige italienische Straßenname endet am ersten Komma und kann mehrere Wörter enthalten."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Piazza Giuseppe Garibaldi, 2402 43010-Castelguelfo PR, Italy",
+        "output": "Piazza Giuseppe Garibaldi"
+      },
+      {
+        "input": "Via Santa Teresa, 9341 53049-Torrita Di Siena SI, Italy",
+        "output": "Via Santa Teresa"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "Via Matteo Schilizzi, 1513 16045-Lorsica GE, Italy",
+        "output": "Via Matteo Schilizzi"
+      },
+      {
+        "input": "Via Duomo, 7754 57024-Donoratico LI, Italy",
+        "output": "Via Duomo"
+      },
+      {
+        "input": "Via Valpantena, 9266 84032-Buonabitacolo SA, Italy",
+        "output": "Via Valpantena"
+      }
+    ]
+  },
+  "behavioral": {
+    "bases": [
+      {
+        "base_id": "T113-B1",
+        "task_id": "T113",
+        "input": "Piazza Giuseppe Garibaldi, 2402 43010-Castelguelfo PR, Italy",
+        "expected_output": "Piazza Giuseppe Garibaldi",
+        "expected_span": [
+          0,
+          25
+        ],
+        "source_path": "data/tasks/T113.json#split.training",
+        "source_index": 0,
+        "role": "synthesis_example_for_paired_assertions_only"
+      },
+      {
+        "base_id": "T113-B2",
+        "task_id": "T113",
+        "input": "Via Santa Teresa, 9341 53049-Torrita Di Siena SI, Italy",
+        "expected_output": "Via Santa Teresa",
+        "expected_span": [
+          0,
+          16
+        ],
+        "source_path": "data/tasks/T113.json#split.training",
+        "source_index": 1,
+        "role": "synthesis_example_for_paired_assertions_only"
+      }
+    ],
+    "cases": [
+      {
+        "case_id": "T113-Cd4bf59ce24f8f724eeac",
+        "task_id": "T113",
+        "input": "Piazza Giuseppe Ggzodpiqk, 2402 43010-Castelguelfo PR, Italy",
+        "expected_output": "Piazza Giuseppe Ggzodpiqk",
+        "expected_span": [
+          0,
+          25
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B1-V01-1"
+        ]
+      },
+      {
+        "case_id": "T113-C2fb3463d46aad36af5e1",
+        "task_id": "T113",
+        "input": "Piazza Giuseppe Gvmjjobho, 2402 43010-Castelguelfo PR, Italy",
+        "expected_output": "Piazza Giuseppe Gvmjjobho",
+        "expected_span": [
+          0,
+          25
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B1-V01-2"
+        ]
+      },
+      {
+        "case_id": "T113-Cfa5d23da4208a271c7a6",
+        "task_id": "T113",
+        "input": "Piazza Giuseppe Gvypijtux, 2402 43010-Castelguelfo PR, Italy",
+        "expected_output": "Piazza Giuseppe Gvypijtux",
+        "expected_span": [
+          0,
+          25
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B1-V01-3"
+        ]
+      },
+      {
+        "case_id": "T113-Caed1e6a1083e28dc5a70",
+        "task_id": "T113",
+        "input": "Piazza Giuseppe Garibaldi, 2402 43010-Cjwndpflvsjg PR, Italy",
+        "expected_output": "Piazza Giuseppe Garibaldi",
+        "expected_span": [
+          0,
+          25
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B1-V02-1"
+        ]
+      },
+      {
+        "case_id": "T113-C591638ed152a8bce940a",
+        "task_id": "T113",
+        "input": "Piazza Giuseppe Garibaldi, 2402 43010-Cyjytmfccelg PR, Italy",
+        "expected_output": "Piazza Giuseppe Garibaldi",
+        "expected_span": [
+          0,
+          25
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B1-V02-2"
+        ]
+      },
+      {
+        "case_id": "T113-Cc80c25511658bb3bbfc5",
+        "task_id": "T113",
+        "input": "Piazza Giuseppe Garibaldi, 2402 43010-Cxpzgyqvkeaw PR, Italy",
+        "expected_output": "Piazza Giuseppe Garibaldi",
+        "expected_span": [
+          0,
+          25
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B1-V02-3"
+        ]
+      },
+      {
+        "case_id": "T113-C3c68dff7d334b79e320c",
+        "task_id": "T113",
+        "input": "Piazza Giuseppe Garibaldiyvsbriczjcjyt, 2402 43010-Castelguelfo PR, Italy",
+        "expected_output": "Piazza Giuseppe Garibaldiyvsbriczjcjyt",
+        "expected_span": [
+          0,
+          38
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B1-V04-1"
+        ]
+      },
+      {
+        "case_id": "T113-Cd8fcd11f7599d44030b9",
+        "task_id": "T113",
+        "input": "Piazza Giuseppe Garibalditiqenemumfmcdlnhginftwujc, 2402 43010-Castelguelfo PR, Italy",
+        "expected_output": "Piazza Giuseppe Garibalditiqenemumfmcdlnhginftwujc",
+        "expected_span": [
+          0,
+          50
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B1-V04-2"
+        ]
+      },
+      {
+        "case_id": "T113-C3bd8f33f23f3468ab096",
+        "task_id": "T113",
+        "input": "Piazza Giuseppe Garibaldiyyfuyqditwidmcpgyilfihisnvzlhumtqjrzyobopafkrlapmxcqnnepzviiwkfxbuqqmupkvcl, 2402 43010-Castelguelfo PR, Italy",
+        "expected_output": "Piazza Giuseppe Garibaldiyyfuyqditwidmcpgyilfihisnvzlhumtqjrzyobopafkrlapmxcqnnepzviiwkfxbuqqmupkvcl",
+        "expected_span": [
+          0,
+          100
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B1-V04-3"
+        ]
+      },
+      {
+        "case_id": "T113-Cb87bf38928f4a79f7d41",
+        "task_id": "T113",
+        "input": "EAVLBYHJVLAX,Piazza Giuseppe Garibaldi, 2402 43010-Castelguelfo PR, Italy",
+        "expected_output": "EAVLBYHJVLAX",
+        "expected_span": [
+          0,
+          12
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B1-S01-1"
+        ]
+      },
+      {
+        "case_id": "T113-C7de500da094a50850008",
+        "task_id": "T113",
+        "input": "JEOELKLSZUGU,Piazza Giuseppe Garibaldi, 2402 43010-Castelguelfo PR, Italy",
+        "expected_output": "JEOELKLSZUGU",
+        "expected_span": [
+          0,
+          12
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B1-S01-2"
+        ]
+      },
+      {
+        "case_id": "T113-C4558cde4b4bd53d9f8a3",
+        "task_id": "T113",
+        "input": "Piazza Giuseppe Garibaldi, 2402 43010-Castelguelfo PR, Italy,MGSICJAWSSSA",
+        "expected_output": "Piazza Giuseppe Garibaldi",
+        "expected_span": [
+          0,
+          25
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B1-S01-3"
+        ]
+      },
+      {
+        "case_id": "T113-C7a2a93771c7702089923",
+        "task_id": "T113",
+        "input": "Piazza Giuseppe Garibaldi, 2402 43010-Castelguelfo PR, Italy,QAJPRGVIZMAS",
+        "expected_output": "Piazza Giuseppe Garibaldi",
+        "expected_span": [
+          0,
+          25
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B1-S01-4"
+        ]
+      },
+      {
+        "case_id": "T113-C4753ce7615526255c5f6",
+        "task_id": "T113",
+        "input": "Via Santa Tlodrl, 9341 53049-Torrita Di Siena SI, Italy",
+        "expected_output": "Via Santa Tlodrl",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B2-V01-1"
+        ]
+      },
+      {
+        "case_id": "T113-C4134b836a984373bc7ef",
+        "task_id": "T113",
+        "input": "Via Santa Tjyilr, 9341 53049-Torrita Di Siena SI, Italy",
+        "expected_output": "Via Santa Tjyilr",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B2-V01-2"
+        ]
+      },
+      {
+        "case_id": "T113-C9b5cf27e30a5fdd2e976",
+        "task_id": "T113",
+        "input": "Via Santa Thfoio, 9341 53049-Torrita Di Siena SI, Italy",
+        "expected_output": "Via Santa Thfoio",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B2-V01-3"
+        ]
+      },
+      {
+        "case_id": "T113-C5abf2fc693d432dd5203",
+        "task_id": "T113",
+        "input": "Via Santa Teresa, 9341 53049-Tkgtxmc Di Siena SI, Italy",
+        "expected_output": "Via Santa Teresa",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B2-V02-1"
+        ]
+      },
+      {
+        "case_id": "T113-C808a3f440af1746f9762",
+        "task_id": "T113",
+        "input": "Via Santa Teresa, 9341 53049-Tjssdiw Di Siena SI, Italy",
+        "expected_output": "Via Santa Teresa",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B2-V02-2"
+        ]
+      },
+      {
+        "case_id": "T113-Cd67dcb6165ec9c5a8cba",
+        "task_id": "T113",
+        "input": "Via Santa Teresa, 9341 53049-Trnnsne Di Siena SI, Italy",
+        "expected_output": "Via Santa Teresa",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B2-V02-3"
+        ]
+      },
+      {
+        "case_id": "T113-C0b7af563e07a20d52343",
+        "task_id": "T113",
+        "input": "Via Santa Teresadbtrcggkmmsmsnomopkixl, 9341 53049-Torrita Di Siena SI, Italy",
+        "expected_output": "Via Santa Teresadbtrcggkmmsmsnomopkixl",
+        "expected_span": [
+          0,
+          38
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B2-V04-1"
+        ]
+      },
+      {
+        "case_id": "T113-Cf5aab298c246aeb17d5d",
+        "task_id": "T113",
+        "input": "Via Santa Teresazizfevllejqypzbqujaialfqhaznjdymed, 9341 53049-Torrita Di Siena SI, Italy",
+        "expected_output": "Via Santa Teresazizfevllejqypzbqujaialfqhaznjdymed",
+        "expected_span": [
+          0,
+          50
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B2-V04-2"
+        ]
+      },
+      {
+        "case_id": "T113-C752739d2b8fd4c34ad45",
+        "task_id": "T113",
+        "input": "Via Santa Teresazcxggjskhwfcyyedzwezkbttyghcdcjsgywqepwltlicjrqjqgmumyxrkagrezksrejzrefhwkjkmpdpposj, 9341 53049-Torrita Di Siena SI, Italy",
+        "expected_output": "Via Santa Teresazcxggjskhwfcyyedzwezkbttyghcdcjsgywqepwltlicjrqjqgmumyxrkagrezksrejzrefhwkjkmpdpposj",
+        "expected_span": [
+          0,
+          100
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B2-V04-3"
+        ]
+      },
+      {
+        "case_id": "T113-Cd00e7c83c5ff84ad61fc",
+        "task_id": "T113",
+        "input": "RPBDXPJMXSWE,Via Santa Teresa, 9341 53049-Torrita Di Siena SI, Italy",
+        "expected_output": "RPBDXPJMXSWE",
+        "expected_span": [
+          0,
+          12
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B2-S01-1"
+        ]
+      },
+      {
+        "case_id": "T113-Cde80c06b49454606f00e",
+        "task_id": "T113",
+        "input": "SEZKXVZZFXWU,Via Santa Teresa, 9341 53049-Torrita Di Siena SI, Italy",
+        "expected_output": "SEZKXVZZFXWU",
+        "expected_span": [
+          0,
+          12
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B2-S01-2"
+        ]
+      },
+      {
+        "case_id": "T113-C6a3253e674f1dfd9e376",
+        "task_id": "T113",
+        "input": "Via Santa Teresa, 9341 53049-Torrita Di Siena SI, Italy,QDUJRCSRVYQN",
+        "expected_output": "Via Santa Teresa",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B2-S01-3"
+        ]
+      },
+      {
+        "case_id": "T113-Ca642f9d16837d275289e",
+        "task_id": "T113",
+        "input": "Via Santa Teresa, 9341 53049-Torrita Di Siena SI, Italy,KRIJKFNRRGRM",
+        "expected_output": "Via Santa Teresa",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T113-B2-S01-4"
+        ]
+      }
+    ],
+    "obligations": [
+      {
+        "obligation_id": "T113-B1-V01-1",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-Cd4bf59ce24f8f724eeac",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 17,
+          "end": 25,
+          "replacement": "gzodpiqk"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B1-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Piazza Giuseppe Ggzodpiqk"
+          },
+          {
+            "assertion_id": "T113-B1-V01-1-relation",
+            "base_id": "T113-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 17,
+            "end": 25,
+            "replacement": "gzodpiqk"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B1-V01-2",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C2fb3463d46aad36af5e1",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 17,
+          "end": 25,
+          "replacement": "vmjjobho"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B1-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Piazza Giuseppe Gvmjjobho"
+          },
+          {
+            "assertion_id": "T113-B1-V01-2-relation",
+            "base_id": "T113-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 17,
+            "end": 25,
+            "replacement": "vmjjobho"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B1-V01-3",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-Cfa5d23da4208a271c7a6",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 17,
+          "end": 25,
+          "replacement": "vypijtux"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B1-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Piazza Giuseppe Gvypijtux"
+          },
+          {
+            "assertion_id": "T113-B1-V01-3-relation",
+            "base_id": "T113-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 17,
+            "end": 25,
+            "replacement": "vypijtux"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B1-V02-1",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-Caed1e6a1083e28dc5a70",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 39,
+          "end": 50,
+          "replacement": "jwndpflvsjg"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B1-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Piazza Giuseppe Garibaldi"
+          },
+          {
+            "assertion_id": "T113-B1-V02-1-relation",
+            "base_id": "T113-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B1-V02-2",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C591638ed152a8bce940a",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 39,
+          "end": 50,
+          "replacement": "yjytmfccelg"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B1-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Piazza Giuseppe Garibaldi"
+          },
+          {
+            "assertion_id": "T113-B1-V02-2-relation",
+            "base_id": "T113-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B1-V02-3",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-Cc80c25511658bb3bbfc5",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 39,
+          "end": 50,
+          "replacement": "xpzgyqvkeaw"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B1-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Piazza Giuseppe Garibaldi"
+          },
+          {
+            "assertion_id": "T113-B1-V02-3-relation",
+            "base_id": "T113-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B1-V03-1",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T113-B1-V03-2",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T113-B1-V03-3",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T113-B1-V04-1",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 38
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C3c68dff7d334b79e320c",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 16,
+            "observed_max": 25,
+            "test_value": 38,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 17,
+          "end": 25,
+          "replacement": "aribaldiyvsbriczjcjyt"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B1-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Piazza Giuseppe Garibaldiyvsbriczjcjyt"
+          },
+          {
+            "assertion_id": "T113-B1-V04-1-relation",
+            "base_id": "T113-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 17,
+            "end": 25,
+            "replacement": "aribaldiyvsbriczjcjyt"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B1-V04-2",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 50
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-Cd8fcd11f7599d44030b9",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 16,
+            "observed_max": 25,
+            "test_value": 50,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 17,
+          "end": 25,
+          "replacement": "aribalditiqenemumfmcdlnhginftwujc"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B1-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Piazza Giuseppe Garibalditiqenemumfmcdlnhginftwujc"
+          },
+          {
+            "assertion_id": "T113-B1-V04-2-relation",
+            "base_id": "T113-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 17,
+            "end": 25,
+            "replacement": "aribalditiqenemumfmcdlnhginftwujc"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B1-V04-3",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 100
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C3bd8f33f23f3468ab096",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 16,
+            "observed_max": 25,
+            "test_value": 100,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 17,
+          "end": 25,
+          "replacement": "aribaldiyyfuyqditwidmcpgyilfihisnvzlhumtqjrzyobopafkrlapmxcqnnepzviiwkfxbuqqmupkvcl"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B1-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Piazza Giuseppe Garibaldiyyfuyqditwidmcpgyilfihisnvzlhumtqjrzyobopafkrlapmxcqnnepzviiwkfxbuqqmupkvcl"
+          },
+          {
+            "assertion_id": "T113-B1-V04-3-relation",
+            "base_id": "T113-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 17,
+            "end": 25,
+            "replacement": "aribaldiyyfuyqditwidmcpgyilfihisnvzlhumtqjrzyobopafkrlapmxcqnnepzviiwkfxbuqqmupkvcl"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B1-V05-1",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure"
+      },
+      {
+        "obligation_id": "T113-B1-S01-1",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-Cb87bf38928f4a79f7d41",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "before",
+          "dummy_field": "EAVLBYHJVLAX"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B1-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "EAVLBYHJVLAX"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B1-S01-2",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C7de500da094a50850008",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "before",
+          "dummy_field": "JEOELKLSZUGU"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B1-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "JEOELKLSZUGU"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B1-S01-3",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C4558cde4b4bd53d9f8a3",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "after",
+          "dummy_field": "MGSICJAWSSSA"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B1-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Piazza Giuseppe Garibaldi"
+          },
+          {
+            "assertion_id": "T113-B1-S01-3-relation",
+            "base_id": "T113-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B1-S01-4",
+        "task_id": "T113",
+        "base_id": "T113-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C7a2a93771c7702089923",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "after",
+          "dummy_field": "QAJPRGVIZMAS"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B1-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Piazza Giuseppe Garibaldi"
+          },
+          {
+            "assertion_id": "T113-B1-S01-4-relation",
+            "base_id": "T113-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B2-V01-1",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C4753ce7615526255c5f6",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 11,
+          "end": 16,
+          "replacement": "lodrl"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B2-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Via Santa Tlodrl"
+          },
+          {
+            "assertion_id": "T113-B2-V01-1-relation",
+            "base_id": "T113-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 11,
+            "end": 16,
+            "replacement": "lodrl"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B2-V01-2",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C4134b836a984373bc7ef",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 11,
+          "end": 16,
+          "replacement": "jyilr"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B2-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Via Santa Tjyilr"
+          },
+          {
+            "assertion_id": "T113-B2-V01-2-relation",
+            "base_id": "T113-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 11,
+            "end": 16,
+            "replacement": "jyilr"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B2-V01-3",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C9b5cf27e30a5fdd2e976",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 11,
+          "end": 16,
+          "replacement": "hfoio"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B2-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Via Santa Thfoio"
+          },
+          {
+            "assertion_id": "T113-B2-V01-3-relation",
+            "base_id": "T113-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 11,
+            "end": 16,
+            "replacement": "hfoio"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B2-V02-1",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C5abf2fc693d432dd5203",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 30,
+          "end": 36,
+          "replacement": "kgtxmc"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B2-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Via Santa Teresa"
+          },
+          {
+            "assertion_id": "T113-B2-V02-1-relation",
+            "base_id": "T113-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B2-V02-2",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C808a3f440af1746f9762",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 30,
+          "end": 36,
+          "replacement": "jssdiw"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B2-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Via Santa Teresa"
+          },
+          {
+            "assertion_id": "T113-B2-V02-2-relation",
+            "base_id": "T113-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B2-V02-3",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-Cd67dcb6165ec9c5a8cba",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 30,
+          "end": 36,
+          "replacement": "rnnsne"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B2-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Via Santa Teresa"
+          },
+          {
+            "assertion_id": "T113-B2-V02-3-relation",
+            "base_id": "T113-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B2-V03-1",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T113-B2-V03-2",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T113-B2-V03-3",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T113-B2-V04-1",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 38
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C0b7af563e07a20d52343",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 16,
+            "observed_max": 25,
+            "test_value": 38,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 11,
+          "end": 16,
+          "replacement": "eresadbtrcggkmmsmsnomopkixl"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B2-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Via Santa Teresadbtrcggkmmsmsnomopkixl"
+          },
+          {
+            "assertion_id": "T113-B2-V04-1-relation",
+            "base_id": "T113-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 11,
+            "end": 16,
+            "replacement": "eresadbtrcggkmmsmsnomopkixl"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B2-V04-2",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 50
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-Cf5aab298c246aeb17d5d",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 16,
+            "observed_max": 25,
+            "test_value": 50,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 11,
+          "end": 16,
+          "replacement": "eresazizfevllejqypzbqujaialfqhaznjdymed"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B2-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Via Santa Teresazizfevllejqypzbqujaialfqhaznjdymed"
+          },
+          {
+            "assertion_id": "T113-B2-V04-2-relation",
+            "base_id": "T113-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 11,
+            "end": 16,
+            "replacement": "eresazizfevllejqypzbqujaialfqhaznjdymed"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B2-V04-3",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 100
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C752739d2b8fd4c34ad45",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 16,
+            "observed_max": 25,
+            "test_value": 100,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 11,
+          "end": 16,
+          "replacement": "eresazcxggjskhwfcyyedzwezkbttyghcdcjsgywqepwltlicjrqjqgmumyxrkagrezksrejzrefhwkjkmpdpposj"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B2-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Via Santa Teresazcxggjskhwfcyyedzwezkbttyghcdcjsgywqepwltlicjrqjqgmumyxrkagrezksrejzrefhwkjkmpdpposj"
+          },
+          {
+            "assertion_id": "T113-B2-V04-3-relation",
+            "base_id": "T113-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 11,
+            "end": 16,
+            "replacement": "eresazcxggjskhwfcyyedzwezkbttyghcdcjsgywqepwltlicjrqjqgmumyxrkagrezksrejzrefhwkjkmpdpposj"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B2-V05-1",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure"
+      },
+      {
+        "obligation_id": "T113-B2-S01-1",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-Cd00e7c83c5ff84ad61fc",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "before",
+          "dummy_field": "RPBDXPJMXSWE"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B2-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "RPBDXPJMXSWE"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B2-S01-2",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-Cde80c06b49454606f00e",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "before",
+          "dummy_field": "SEZKXVZZFXWU"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B2-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "SEZKXVZZFXWU"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B2-S01-3",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-C6a3253e674f1dfd9e376",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "after",
+          "dummy_field": "QDUJRCSRVYQN"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B2-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Via Santa Teresa"
+          },
+          {
+            "assertion_id": "T113-B2-S01-3-relation",
+            "base_id": "T113-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T113-B2-S01-4",
+        "task_id": "T113",
+        "base_id": "T113-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T113-Ca642f9d16837d275289e",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "after",
+          "dummy_field": "KRIJKFNRRGRM"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T113-B2-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Via Santa Teresa"
+          },
+          {
+            "assertion_id": "T113-B2-S01-4-relation",
+            "base_id": "T113-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      }
+    ],
+    "applicability": [
+      {
+        "task_id": "T113",
+        "operator_id": "V01",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T113",
+        "operator_id": "V02",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T113",
+        "operator_id": "V03",
+        "obligations": 6,
+        "statuses": {
+          "not_applicable_to_operator": 6
+        },
+        "unique_cases": 0,
+        "reasons": {
+          "no_unprotected_ascii_alphanumeric_run_in_required_region": 6
+        }
+      },
+      {
+        "task_id": "T113",
+        "operator_id": "V04",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T113",
+        "operator_id": "V05",
+        "obligations": 2,
+        "statuses": {
+          "not_applicable_to_operator": 2
+        },
+        "unique_cases": 0,
+        "reasons": {
+          "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure": 2
+        }
+      },
+      {
+        "task_id": "T113",
+        "operator_id": "S01",
+        "obligations": 8,
+        "statuses": {
+          "planned": 8
+        },
+        "unique_cases": 8,
+        "reasons": {}
+      }
+    ]
+  },
+  "generation_seed": 191
+}

@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " College, " " St, Oxford OX1 3" "," ", " "Exeter College" "Hertford College" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "Exeter College, Turl St, Oxford OX1 3DP") "Exeter College"))
+(constraint (= (f "Hertford College, Catte St, Oxford OX1 3BW") "Hertford College"))
+(check-synth)

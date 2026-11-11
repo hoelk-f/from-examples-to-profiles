@@ -1,0 +1,2547 @@
+{
+  "task_id": "T054",
+  "family_id": "field-extraction-v1",
+  "field": "Phrase after first word",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        " "
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0650"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "Very Large Data Bases"
+      ],
+      "output": "Large Data Bases",
+      "pair_sha256": "879b35aa0ace4a02b66e53710e827bb0ff422e8a3e839d335fd620b25649a28b",
+      "provenance": [
+        {
+          "occurrence_id": "O0650",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:283/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Computer Aided Verification"
+      ],
+      "output": "Aided Verification",
+      "pair_sha256": "1b25f4ea2b931f66db3c91f6131db638d6ea3d56f901fdd8a1e04659e9da7801",
+      "provenance": [
+        {
+          "occurrence_id": "O0650",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:283/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Algorithmic Learning Theory"
+      ],
+      "output": "Learning Theory",
+      "pair_sha256": "6376c230bd0ebf97bc35fbfeac9094c3f5faf8781a7dcd2e9fe4901cb3a8b72c",
+      "provenance": [
+        {
+          "occurrence_id": "O0650",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:283/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "International Semantic Web Conference"
+      ],
+      "output": "Semantic Web Conference",
+      "pair_sha256": "69621a7c1b9165843236081908741487732a7f97f519970030104ccc84bfb9fb",
+      "provenance": [
+        {
+          "occurrence_id": "O0650",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:283/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Design Automation Conference"
+      ],
+      "output": "Automation Conference",
+      "pair_sha256": "42eb661e679071c39ea844f8315f7175b67cfc91b684e6f0a1bcda02fb3baad5",
+      "provenance": [
+        {
+          "occurrence_id": "O0650",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:283/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 21,
+      "max": 37
+    },
+    "output_lengths": {
+      "min": 15,
+      "max": 23
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Der Rest einer Phrase nach dem ersten Wort ist ein zusammenhängender Textbereich."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Design Automation Conference",
+        "output": "Automation Conference"
+      },
+      {
+        "input": "International Semantic Web Conference",
+        "output": "Semantic Web Conference"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "Very Large Data Bases",
+        "output": "Large Data Bases"
+      },
+      {
+        "input": "Algorithmic Learning Theory",
+        "output": "Learning Theory"
+      },
+      {
+        "input": "Computer Aided Verification",
+        "output": "Aided Verification"
+      }
+    ]
+  },
+  "behavioral": {
+    "cases": [
+      {
+        "case_id": "T054-C5d83dc18e16a6722ec9e",
+        "task_id": "T054",
+        "input": "Design Arsfbwsafe Conference",
+        "expected_output": "Arsfbwsafe Conference",
+        "expected_span": [
+          7,
+          28
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-V01-1"
+        ]
+      },
+      {
+        "case_id": "T054-Cd5df9f06ef3a22f3f53b",
+        "task_id": "T054",
+        "input": "Design Aknnpxxltc Conference",
+        "expected_output": "Aknnpxxltc Conference",
+        "expected_span": [
+          7,
+          28
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-V01-2"
+        ]
+      },
+      {
+        "case_id": "T054-C468faeb08df26f498a05",
+        "task_id": "T054",
+        "input": "Design Ackwfleuch Conference",
+        "expected_output": "Ackwfleuch Conference",
+        "expected_span": [
+          7,
+          28
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-V01-3"
+        ]
+      },
+      {
+        "case_id": "T054-C96a3dc37bc072778fd7b",
+        "task_id": "T054",
+        "input": "Dvzsji Automation Conference",
+        "expected_output": "Automation Conference",
+        "expected_span": [
+          7,
+          28
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-V02-1"
+        ]
+      },
+      {
+        "case_id": "T054-C50f1bf3768d7aa9baeee",
+        "task_id": "T054",
+        "input": "Dxfstj Automation Conference",
+        "expected_output": "Automation Conference",
+        "expected_span": [
+          7,
+          28
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-V02-2"
+        ]
+      },
+      {
+        "case_id": "T054-C766d4b76a5382474f7dd",
+        "task_id": "T054",
+        "input": "Dqlctu Automation Conference",
+        "expected_output": "Automation Conference",
+        "expected_span": [
+          7,
+          28
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-V02-3"
+        ]
+      },
+      {
+        "case_id": "T054-Cff7f5c1bba2eff273cc8",
+        "task_id": "T054",
+        "input": "Designjfdhgyzdunxbjc Automation Conference",
+        "expected_output": "Automation Conference",
+        "expected_span": [
+          21,
+          42
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-V03-1"
+        ]
+      },
+      {
+        "case_id": "T054-Ce66e2a018bcac3b7fb2e",
+        "task_id": "T054",
+        "input": "Designfrczqtfgnfbwuvxpnvup Automation Conference",
+        "expected_output": "Automation Conference",
+        "expected_span": [
+          27,
+          48
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-V03-2"
+        ]
+      },
+      {
+        "case_id": "T054-C1186d58d01c1aa847484",
+        "task_id": "T054",
+        "input": "Designctjgxbfjdhlhurqvhrvtdsaetkmwnprphuwpuglzkkqdgn Automation Conference",
+        "expected_output": "Automation Conference",
+        "expected_span": [
+          53,
+          74
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-V03-3"
+        ]
+      },
+      {
+        "case_id": "T054-Cfe8038e77bee3edce5ca",
+        "task_id": "T054",
+        "input": "Design Automationsyroonuddjhkob Conference",
+        "expected_output": "Automationsyroonuddjhkob Conference",
+        "expected_span": [
+          7,
+          42
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-V04-1"
+        ]
+      },
+      {
+        "case_id": "T054-C3d9cdd67151933f6c066",
+        "task_id": "T054",
+        "input": "Design Automationwzzmptioiexdrifwrfrhddstw Conference",
+        "expected_output": "Automationwzzmptioiexdrifwrfrhddstw Conference",
+        "expected_span": [
+          7,
+          53
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-V04-2"
+        ]
+      },
+      {
+        "case_id": "T054-C6bbc25e83aaa9b595431",
+        "task_id": "T054",
+        "input": "Design Automationgfflauiuyzphdhfllxdnpryqwzoadqgcipjzugiaodzncgojlyjimlkzcxsijpdehghscaf Conference",
+        "expected_output": "Automationgfflauiuyzphdhfllxdnpryqwzoadqgcipjzugiaodzncgojlyjimlkzcxsijpdehghscaf Conference",
+        "expected_span": [
+          7,
+          99
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-V04-3"
+        ]
+      },
+      {
+        "case_id": "T054-Cc0ec7a621058c569b756",
+        "task_id": "T054",
+        "input": "QQDQWCIULQPC Design Automation Conference",
+        "expected_output": "Design Automation Conference",
+        "expected_span": [
+          13,
+          41
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-S01-1"
+        ]
+      },
+      {
+        "case_id": "T054-Cff26cdd91e99c81807b9",
+        "task_id": "T054",
+        "input": "TBMOIFQLTVJC Design Automation Conference",
+        "expected_output": "Design Automation Conference",
+        "expected_span": [
+          13,
+          41
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-S01-2"
+        ]
+      },
+      {
+        "case_id": "T054-C29cf595e94f23df21532",
+        "task_id": "T054",
+        "input": "Design Automation Conference BILLVVWINIIA",
+        "expected_output": "Automation Conference BILLVVWINIIA",
+        "expected_span": [
+          7,
+          41
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-S01-3"
+        ]
+      },
+      {
+        "case_id": "T054-C0011e7ad634deb0ce869",
+        "task_id": "T054",
+        "input": "Design Automation Conference MWMTNHLJSDZJ",
+        "expected_output": "Automation Conference MWMTNHLJSDZJ",
+        "expected_span": [
+          7,
+          41
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B1-S01-4"
+        ]
+      },
+      {
+        "case_id": "T054-C3b2ed5e0e53831d971d9",
+        "task_id": "T054",
+        "input": "International Semantic Web Czphujulbt",
+        "expected_output": "Semantic Web Czphujulbt",
+        "expected_span": [
+          14,
+          37
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-V01-1"
+        ]
+      },
+      {
+        "case_id": "T054-Ce3b3195b71a9c2b9da3f",
+        "task_id": "T054",
+        "input": "International Semantic Web Ctlcactvgd",
+        "expected_output": "Semantic Web Ctlcactvgd",
+        "expected_span": [
+          14,
+          37
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-V01-2"
+        ]
+      },
+      {
+        "case_id": "T054-Cdb0c38d7cfbd4a4818ee",
+        "task_id": "T054",
+        "input": "International Semantic Web Cvwgfmotfd",
+        "expected_output": "Semantic Web Cvwgfmotfd",
+        "expected_span": [
+          14,
+          37
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-V01-3"
+        ]
+      },
+      {
+        "case_id": "T054-Cb8bb61f041561ef306eb",
+        "task_id": "T054",
+        "input": "Irpfibrxnkfku Semantic Web Conference",
+        "expected_output": "Semantic Web Conference",
+        "expected_span": [
+          14,
+          37
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-V02-1"
+        ]
+      },
+      {
+        "case_id": "T054-Cee25d9cca91c766d3fdb",
+        "task_id": "T054",
+        "input": "Ipnvgjxfmsyuk Semantic Web Conference",
+        "expected_output": "Semantic Web Conference",
+        "expected_span": [
+          14,
+          37
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-V02-2"
+        ]
+      },
+      {
+        "case_id": "T054-Cd8efe6e70f39ec803a19",
+        "task_id": "T054",
+        "input": "Idylxyhmurxsu Semantic Web Conference",
+        "expected_output": "Semantic Web Conference",
+        "expected_span": [
+          14,
+          37
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-V02-3"
+        ]
+      },
+      {
+        "case_id": "T054-C4243c5a3695d3b083ad8",
+        "task_id": "T054",
+        "input": "Internationalwdocfxb Semantic Web Conference",
+        "expected_output": "Semantic Web Conference",
+        "expected_span": [
+          21,
+          44
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-V03-1"
+        ]
+      },
+      {
+        "case_id": "T054-C2a924f145efa44caaf33",
+        "task_id": "T054",
+        "input": "Internationalsjprlybncbajm Semantic Web Conference",
+        "expected_output": "Semantic Web Conference",
+        "expected_span": [
+          27,
+          50
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-V03-2"
+        ]
+      },
+      {
+        "case_id": "T054-C1f9f4e9acc5efe62452a",
+        "task_id": "T054",
+        "input": "Internationalusknaohdnescdytkpqelsfxsxqwouvzedtnihjq Semantic Web Conference",
+        "expected_output": "Semantic Web Conference",
+        "expected_span": [
+          53,
+          76
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-V03-3"
+        ]
+      },
+      {
+        "case_id": "T054-Cf016b4f6890f209f53d4",
+        "task_id": "T054",
+        "input": "International Semantic Web Conferenceefaobozualwf",
+        "expected_output": "Semantic Web Conferenceefaobozualwf",
+        "expected_span": [
+          14,
+          49
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-V04-1"
+        ]
+      },
+      {
+        "case_id": "T054-Cd254bca03149e2e8a65c",
+        "task_id": "T054",
+        "input": "International Semantic Web Conferencersuzxhanruaalpdfirojxhj",
+        "expected_output": "Semantic Web Conferencersuzxhanruaalpdfirojxhj",
+        "expected_span": [
+          14,
+          60
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-V04-2"
+        ]
+      },
+      {
+        "case_id": "T054-Ccddededce282ddda5499",
+        "task_id": "T054",
+        "input": "International Semantic Web Conferenceoryhdvxgnjbwljnoujvikfpgxdobhfshzjrjpnyaedegovfsmpdqmlfxfnaheiqhyjzjy",
+        "expected_output": "Semantic Web Conferenceoryhdvxgnjbwljnoujvikfpgxdobhfshzjrjpnyaedegovfsmpdqmlfxfnaheiqhyjzjy",
+        "expected_span": [
+          14,
+          106
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-V04-3"
+        ]
+      },
+      {
+        "case_id": "T054-C664e4497c664d4b90293",
+        "task_id": "T054",
+        "input": "WZQKXEOODOKS International Semantic Web Conference",
+        "expected_output": "International Semantic Web Conference",
+        "expected_span": [
+          13,
+          50
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-S01-1"
+        ]
+      },
+      {
+        "case_id": "T054-Cf5c7afc1d671471260ae",
+        "task_id": "T054",
+        "input": "FHGMXGWYFBBL International Semantic Web Conference",
+        "expected_output": "International Semantic Web Conference",
+        "expected_span": [
+          13,
+          50
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-S01-2"
+        ]
+      },
+      {
+        "case_id": "T054-C6a1620052fbeaac6e000",
+        "task_id": "T054",
+        "input": "International Semantic Web Conference MFOBBSQLILHX",
+        "expected_output": "Semantic Web Conference MFOBBSQLILHX",
+        "expected_span": [
+          14,
+          50
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-S01-3"
+        ]
+      },
+      {
+        "case_id": "T054-C21cf7f1ead3534db9e24",
+        "task_id": "T054",
+        "input": "International Semantic Web Conference FGDJOUVEFELM",
+        "expected_output": "Semantic Web Conference FGDJOUVEFELM",
+        "expected_span": [
+          14,
+          50
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T054-B2-S01-4"
+        ]
+      }
+    ],
+    "obligations": [
+      {
+        "obligation_id": "T054-B1-V01-1",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C5d83dc18e16a6722ec9e",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 17,
+          "replacement": "rsfbwsafe"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Arsfbwsafe Conference"
+          },
+          {
+            "assertion_id": "T054-B1-V01-1-relation",
+            "base_id": "T054-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 10,
+            "replacement": "rsfbwsafe"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-V01-2",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Cd5df9f06ef3a22f3f53b",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 17,
+          "replacement": "knnpxxltc"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Aknnpxxltc Conference"
+          },
+          {
+            "assertion_id": "T054-B1-V01-2-relation",
+            "base_id": "T054-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 10,
+            "replacement": "knnpxxltc"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-V01-3",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C468faeb08df26f498a05",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 17,
+          "replacement": "ckwfleuch"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Ackwfleuch Conference"
+          },
+          {
+            "assertion_id": "T054-B1-V01-3-relation",
+            "base_id": "T054-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 10,
+            "replacement": "ckwfleuch"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-V02-1",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C96a3dc37bc072778fd7b",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 6,
+          "replacement": "vzsji"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Automation Conference"
+          },
+          {
+            "assertion_id": "T054-B1-V02-1-relation",
+            "base_id": "T054-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-V02-2",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C50f1bf3768d7aa9baeee",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 6,
+          "replacement": "xfstj"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Automation Conference"
+          },
+          {
+            "assertion_id": "T054-B1-V02-2-relation",
+            "base_id": "T054-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-V02-3",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C766d4b76a5382474f7dd",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 6,
+          "replacement": "qlctu"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Automation Conference"
+          },
+          {
+            "assertion_id": "T054-B1-V02-3-relation",
+            "base_id": "T054-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-V03-1",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 20
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Cff7f5c1bba2eff273cc8",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 6,
+            "observed_max": 13,
+            "test_value": 20,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 6,
+          "replacement": "esignjfdhgyzdunxbjc"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-V03-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Automation Conference"
+          },
+          {
+            "assertion_id": "T054-B1-V03-1-relation",
+            "base_id": "T054-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-V03-2",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 26
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Ce66e2a018bcac3b7fb2e",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 6,
+            "observed_max": 13,
+            "test_value": 26,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 6,
+          "replacement": "esignfrczqtfgnfbwuvxpnvup"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-V03-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Automation Conference"
+          },
+          {
+            "assertion_id": "T054-B1-V03-2-relation",
+            "base_id": "T054-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-V03-3",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 52
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C1186d58d01c1aa847484",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 6,
+            "observed_max": 13,
+            "test_value": 52,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 6,
+          "replacement": "esignctjgxbfjdhlhurqvhrvtdsaetkmwnprphuwpuglzkkqdgn"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-V03-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Automation Conference"
+          },
+          {
+            "assertion_id": "T054-B1-V03-3-relation",
+            "base_id": "T054-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-V04-1",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 35
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Cfe8038e77bee3edce5ca",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 21,
+            "observed_max": 23,
+            "test_value": 35,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 17,
+          "replacement": "utomationsyroonuddjhkob"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Automationsyroonuddjhkob Conference"
+          },
+          {
+            "assertion_id": "T054-B1-V04-1-relation",
+            "base_id": "T054-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 10,
+            "replacement": "utomationsyroonuddjhkob"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-V04-2",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 46
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C3d9cdd67151933f6c066",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 21,
+            "observed_max": 23,
+            "test_value": 46,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 17,
+          "replacement": "utomationwzzmptioiexdrifwrfrhddstw"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Automationwzzmptioiexdrifwrfrhddstw Conference"
+          },
+          {
+            "assertion_id": "T054-B1-V04-2-relation",
+            "base_id": "T054-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 10,
+            "replacement": "utomationwzzmptioiexdrifwrfrhddstw"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-V04-3",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 92
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C6bbc25e83aaa9b595431",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 21,
+            "observed_max": 23,
+            "test_value": 92,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 17,
+          "replacement": "utomationgfflauiuyzphdhfllxdnpryqwzoadqgcipjzugiaodzncgojlyjimlkzcxsijpdehghscaf"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Automationgfflauiuyzphdhfllxdnpryqwzoadqgcipjzugiaodzncgojlyjimlkzcxsijpdehghscaf Conference"
+          },
+          {
+            "assertion_id": "T054-B1-V04-3-relation",
+            "base_id": "T054-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 10,
+            "replacement": "utomationgfflauiuyzphdhfllxdnpryqwzoadqgcipjzugiaodzncgojlyjimlkzcxsijpdehghscaf"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-V05-1",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure"
+      },
+      {
+        "obligation_id": "T054-B1-S01-1",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Cc0ec7a621058c569b756",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Interpolation",
+            "observed_min": 2,
+            "observed_max": 3,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "before",
+          "dummy_field": "QQDQWCIULQPC"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Design Automation Conference"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-S01-2",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Cff26cdd91e99c81807b9",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Interpolation",
+            "observed_min": 2,
+            "observed_max": 3,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "before",
+          "dummy_field": "TBMOIFQLTVJC"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Design Automation Conference"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-S01-3",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C29cf595e94f23df21532",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Interpolation",
+            "observed_min": 2,
+            "observed_max": 3,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "after",
+          "dummy_field": "BILLVVWINIIA"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Automation Conference BILLVVWINIIA"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B1-S01-4",
+        "task_id": "T054",
+        "base_id": "T054-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C0011e7ad634deb0ce869",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Interpolation",
+            "observed_min": 2,
+            "observed_max": 3,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "after",
+          "dummy_field": "MWMTNHLJSDZJ"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B1-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Automation Conference MWMTNHLJSDZJ"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-V01-1",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C3b2ed5e0e53831d971d9",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 28,
+          "end": 37,
+          "replacement": "zphujulbt"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Czphujulbt"
+          },
+          {
+            "assertion_id": "T054-B2-V01-1-relation",
+            "base_id": "T054-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 14,
+            "end": 23,
+            "replacement": "zphujulbt"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-V01-2",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Ce3b3195b71a9c2b9da3f",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 28,
+          "end": 37,
+          "replacement": "tlcactvgd"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Ctlcactvgd"
+          },
+          {
+            "assertion_id": "T054-B2-V01-2-relation",
+            "base_id": "T054-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 14,
+            "end": 23,
+            "replacement": "tlcactvgd"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-V01-3",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Cdb0c38d7cfbd4a4818ee",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 28,
+          "end": 37,
+          "replacement": "vwgfmotfd"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Cvwgfmotfd"
+          },
+          {
+            "assertion_id": "T054-B2-V01-3-relation",
+            "base_id": "T054-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 14,
+            "end": 23,
+            "replacement": "vwgfmotfd"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-V02-1",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Cb8bb61f041561ef306eb",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 13,
+          "replacement": "rpfibrxnkfku"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Conference"
+          },
+          {
+            "assertion_id": "T054-B2-V02-1-relation",
+            "base_id": "T054-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-V02-2",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Cee25d9cca91c766d3fdb",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 13,
+          "replacement": "pnvgjxfmsyuk"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Conference"
+          },
+          {
+            "assertion_id": "T054-B2-V02-2-relation",
+            "base_id": "T054-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-V02-3",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Cd8efe6e70f39ec803a19",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 13,
+          "replacement": "dylxyhmurxsu"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Conference"
+          },
+          {
+            "assertion_id": "T054-B2-V02-3-relation",
+            "base_id": "T054-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-V03-1",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 20
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C4243c5a3695d3b083ad8",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 6,
+            "observed_max": 13,
+            "test_value": 20,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 13,
+          "replacement": "nternationalwdocfxb"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-V03-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Conference"
+          },
+          {
+            "assertion_id": "T054-B2-V03-1-relation",
+            "base_id": "T054-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-V03-2",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 26
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C2a924f145efa44caaf33",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 6,
+            "observed_max": 13,
+            "test_value": 26,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 13,
+          "replacement": "nternationalsjprlybncbajm"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-V03-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Conference"
+          },
+          {
+            "assertion_id": "T054-B2-V03-2-relation",
+            "base_id": "T054-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-V03-3",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 52
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C1f9f4e9acc5efe62452a",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 6,
+            "observed_max": 13,
+            "test_value": 52,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 13,
+          "replacement": "nternationalusknaohdnescdytkpqelsfxsxqwouvzedtnihjq"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-V03-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Conference"
+          },
+          {
+            "assertion_id": "T054-B2-V03-3-relation",
+            "base_id": "T054-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-V04-1",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 35
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Cf016b4f6890f209f53d4",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 21,
+            "observed_max": 23,
+            "test_value": 35,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 28,
+          "end": 37,
+          "replacement": "onferenceefaobozualwf"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Conferenceefaobozualwf"
+          },
+          {
+            "assertion_id": "T054-B2-V04-1-relation",
+            "base_id": "T054-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 14,
+            "end": 23,
+            "replacement": "onferenceefaobozualwf"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-V04-2",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 46
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Cd254bca03149e2e8a65c",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 21,
+            "observed_max": 23,
+            "test_value": 46,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 28,
+          "end": 37,
+          "replacement": "onferencersuzxhanruaalpdfirojxhj"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Conferencersuzxhanruaalpdfirojxhj"
+          },
+          {
+            "assertion_id": "T054-B2-V04-2-relation",
+            "base_id": "T054-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 14,
+            "end": 23,
+            "replacement": "onferencersuzxhanruaalpdfirojxhj"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-V04-3",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 92
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Ccddededce282ddda5499",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 21,
+            "observed_max": 23,
+            "test_value": 92,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 28,
+          "end": 37,
+          "replacement": "onferenceoryhdvxgnjbwljnoujvikfpgxdobhfshzjrjpnyaedegovfsmpdqmlfxfnaheiqhyjzjy"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Conferenceoryhdvxgnjbwljnoujvikfpgxdobhfshzjrjpnyaedegovfsmpdqmlfxfnaheiqhyjzjy"
+          },
+          {
+            "assertion_id": "T054-B2-V04-3-relation",
+            "base_id": "T054-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 14,
+            "end": 23,
+            "replacement": "onferenceoryhdvxgnjbwljnoujvikfpgxdobhfshzjrjpnyaedegovfsmpdqmlfxfnaheiqhyjzjy"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-V05-1",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure"
+      },
+      {
+        "obligation_id": "T054-B2-S01-1",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C664e4497c664d4b90293",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 3,
+            "test_value": 4,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "before",
+          "dummy_field": "WZQKXEOODOKS"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "International Semantic Web Conference"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-S01-2",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-Cf5c7afc1d671471260ae",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 3,
+            "test_value": 4,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "before",
+          "dummy_field": "FHGMXGWYFBBL"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "International Semantic Web Conference"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-S01-3",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C6a1620052fbeaac6e000",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 3,
+            "test_value": 4,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "after",
+          "dummy_field": "MFOBBSQLILHX"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Conference MFOBBSQLILHX"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T054-B2-S01-4",
+        "task_id": "T054",
+        "base_id": "T054-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T054-C21cf7f1ead3534db9e24",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 3,
+            "test_value": 4,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "after",
+          "dummy_field": "FGDJOUVEFELM"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T054-B2-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Semantic Web Conference FGDJOUVEFELM"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      }
+    ],
+    "bases": [
+      {
+        "base_id": "T054-B1",
+        "task_id": "T054",
+        "input": "Design Automation Conference",
+        "expected_output": "Automation Conference",
+        "expected_span": [
+          7,
+          28
+        ],
+        "source_path": "data/tasks/T054.json#split.training",
+        "source_index": 0,
+        "role": "synthesis_example_for_paired_assertions_only"
+      },
+      {
+        "base_id": "T054-B2",
+        "task_id": "T054",
+        "input": "International Semantic Web Conference",
+        "expected_output": "Semantic Web Conference",
+        "expected_span": [
+          14,
+          37
+        ],
+        "source_path": "data/tasks/T054.json#split.training",
+        "source_index": 1,
+        "role": "synthesis_example_for_paired_assertions_only"
+      }
+    ],
+    "applicability": [
+      {
+        "task_id": "T054",
+        "operator_id": "V01",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T054",
+        "operator_id": "V02",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T054",
+        "operator_id": "V03",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T054",
+        "operator_id": "V04",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T054",
+        "operator_id": "V05",
+        "obligations": 2,
+        "statuses": {
+          "not_applicable_to_operator": 2
+        },
+        "unique_cases": 0,
+        "reasons": {
+          "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure": 2
+        }
+      },
+      {
+        "task_id": "T054",
+        "operator_id": "S01",
+        "obligations": 8,
+        "statuses": {
+          "planned": 8
+        },
+        "unique_cases": 8,
+        "reasons": {}
+      }
+    ]
+  },
+  "generation_seed": 93
+}

@@ -1,0 +1,166 @@
+{
+  "task_id": "T263",
+  "family_id": "field-extraction-v1",
+  "field": "Postal-code field",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        ", "
+      ],
+      [
+        "after",
+        " "
+      ],
+      [
+        "before",
+        "-"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0812"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "Via Foria, 9145 71030-Macchia FG, Italy"
+      ],
+      "output": "71030",
+      "pair_sha256": "a18cd8959f4267ed394f988d974c36016d4219b57cc03ca334463f2eafc7cbe4",
+      "provenance": [
+        {
+          "occurrence_id": "O0812",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:244/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Piazza Trieste e Trento, 1005 12078-Ormea CN, Italy"
+      ],
+      "output": "12078",
+      "pair_sha256": "abc4177ecdd6888e79f0d76b846f0b62be58b1527916ea4d3241dd24ced53ef3",
+      "provenance": [
+        {
+          "occurrence_id": "O0812",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:244/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Piazza Giuseppe Garibaldi, 2402 43010-Castelguelfo PR, Italy"
+      ],
+      "output": "43010",
+      "pair_sha256": "c0e63b577abe200dc6edfbdf6f5938f8e420e0a91db31e5d07421a00ff0ae8f1",
+      "provenance": [
+        {
+          "occurrence_id": "O0812",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:244/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Via Duomo, 7754 57024-Donoratico LI, Italy"
+      ],
+      "output": "57024",
+      "pair_sha256": "aa0b12eaa99d97c86c3c63bdb5ef3fd7972fc0134196c80deea7b6407dbff91b",
+      "provenance": [
+        {
+          "occurrence_id": "O0812",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:244/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Corso Garibaldi, 6254 03010-Patrica FR, Italy"
+      ],
+      "output": "03010",
+      "pair_sha256": "c42d3b59029b47a03742a845dc4150199eb6a1281934f0c48b0285895833bf3b",
+      "provenance": [
+        {
+          "occurrence_id": "O0812",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:244/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 39,
+      "max": 60
+    },
+    "output_lengths": {
+      "min": 5,
+      "max": 5
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Der Postcode liegt zwischen Hausnummern-Leerzeichen und Bindestrich. Führende Nullen bleiben erhalten."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Via Duomo, 7754 57024-Donoratico LI, Italy",
+        "output": "57024"
+      },
+      {
+        "input": "Corso Garibaldi, 6254 03010-Patrica FR, Italy",
+        "output": "03010"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "Via Foria, 9145 71030-Macchia FG, Italy",
+        "output": "71030"
+      },
+      {
+        "input": "Piazza Trieste e Trento, 1005 12078-Ormea CN, Italy",
+        "output": "12078"
+      },
+      {
+        "input": "Piazza Giuseppe Garibaldi, 2402 43010-Castelguelfo PR, Italy",
+        "output": "43010"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 195
+}

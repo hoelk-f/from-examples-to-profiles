@@ -1,0 +1,162 @@
+{
+  "task_id": "T247",
+  "family_id": "field-extraction-v1",
+  "field": "Library name",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "library("
+      ],
+      [
+        "before",
+        ")"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0769"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        ":-use_module(library(python))."
+      ],
+      "output": "python",
+      "pair_sha256": "82a76a755924ec2903706601cba26fc92b1481f5d4a3690f291fc5becc01eddb",
+      "provenance": [
+        {
+          "occurrence_id": "O0769",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:245/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        ":-use_module(library(pairs))."
+      ],
+      "output": "pairs",
+      "pair_sha256": "b576a3f18a6fd0f853e72c8d560736b15041767ef7e81104b900904d9a706ac7",
+      "provenance": [
+        {
+          "occurrence_id": "O0769",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:245/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        ":-use_module(library(timeout))."
+      ],
+      "output": "timeout",
+      "pair_sha256": "ccc9b917977910b84e89e76b052965515352acf3cae2aad9609dce008198a6c9",
+      "provenance": [
+        {
+          "occurrence_id": "O0769",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:245/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        ":-use_module(library(lists))."
+      ],
+      "output": "lists",
+      "pair_sha256": "7b14615a075ae91d9ede98abd5daaad5661dc11e01b53270c0e1ca3f0722c211",
+      "provenance": [
+        {
+          "occurrence_id": "O0769",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:245/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        ":-use_module(library(error))."
+      ],
+      "output": "error",
+      "pair_sha256": "f1cf93769f87eca949af7efe56f6a3abf87fde201885c0b9deed7c15e97cafb0",
+      "provenance": [
+        {
+          "occurrence_id": "O0769",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:245/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 29,
+      "max": 31
+    },
+    "output_lengths": {
+      "min": 5,
+      "max": 7
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Der Bibliotheksname ist das Argument innerhalb von library-Klammern."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": ":-use_module(library(timeout)).",
+        "output": "timeout"
+      },
+      {
+        "input": ":-use_module(library(pairs)).",
+        "output": "pairs"
+      }
+    ],
+    "heldout": [
+      {
+        "input": ":-use_module(library(lists)).",
+        "output": "lists"
+      },
+      {
+        "input": ":-use_module(library(python)).",
+        "output": "python"
+      },
+      {
+        "input": ":-use_module(library(error)).",
+        "output": "error"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 163
+}

@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " A" " Revi" " S" "-" ":" ": " ":  " "Long-Term Outcomes of Bariatric Surgery in Adolescents: A Systematic Review and Meta-analysis" "Revisiting the Causes of World War I: New Perspectives from Archival Sources" "d " "es of " "ew " "m " (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "Medicine:  Long-Term Outcomes of Bariatric Surgery in Adolescents: A Systematic Review and Meta-analysis") "Long-Term Outcomes of Bariatric Surgery in Adolescents: A Systematic Review and Meta-analysis"))
+(constraint (= (f "History:  Revisiting the Causes of World War I: New Perspectives from Archival Sources") "Revisiting the Causes of World War I: New Perspectives from Archival Sources"))
+(check-synth)

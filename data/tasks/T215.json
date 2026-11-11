@@ -1,0 +1,162 @@
+{
+  "task_id": "T215",
+  "family_id": "field-extraction-v1",
+  "field": "Team label after season marker",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "season|"
+      ],
+      [
+        "before",
+        "]]"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0400"
+  ],
+  "collections": [
+    "TDE"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "| styple = \"background #d0e7ff;\"|{{Sort|Green Bay Packers 01|[[1966 Green Bay Packers season|Green Bay Packers]]<sup>^</sup>}}"
+      ],
+      "output": "Green Bay Packers",
+      "pair_sha256": "cd43ac0e006c902e9700701da37eb9f428465865501b09b9f125b20d5c56abd0",
+      "provenance": [
+        {
+          "occurrence_id": "O0400",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_duke_ds_2.txt",
+          "location": "line:1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "| styple = \"background #d0e7ff;\"|{{Sort|Green Bay Packers 02|[[1967 Green Bay Packers season|Green Bay Packers]]<sup>^</sup>}}"
+      ],
+      "output": "Green Bay Packers",
+      "pair_sha256": "766dd5d8b73e3a7db0b770a55b0bb0ba799e62965ffbb5cba8ea3a2181ba8b58",
+      "provenance": [
+        {
+          "occurrence_id": "O0400",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_duke_ds_2.txt",
+          "location": "line:2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "| styple = \"background #d0e7ff;\"|{{Sort|New York Jets 01|[[1968 Green Bay Packers season|New York Jets]]<sup>^</sup>}}"
+      ],
+      "output": "New York Jets",
+      "pair_sha256": "ddd9a0eb4741d9e9119c5dc17f30f26a014022e16b766f1fccccc6fe1b3d7af5",
+      "provenance": [
+        {
+          "occurrence_id": "O0400",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_duke_ds_2.txt",
+          "location": "line:3"
+        }
+      ]
+    },
+    {
+      "input": [
+        "| styple = \"background #d0e7ff;\"|{{Sort|San Francisco 49ers 01|[[1981 San Francisco 49ers season|San Francisco 49ers]]<sup>^</sup>}}"
+      ],
+      "output": "San Francisco 49ers",
+      "pair_sha256": "8e22913484bf3413849f7b0e4b526381589564df5655ace7d37203dcf563d7f5",
+      "provenance": [
+        {
+          "occurrence_id": "O0400",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_duke_ds_2.txt",
+          "location": "line:4"
+        }
+      ]
+    },
+    {
+      "input": [
+        "| styple = \"background #d0e7ff;\"|{{Sort|Green Bay Packers 02|[[1911 Green Bay Packers season|Green Bay Packers]]<sup>^</sup>}}"
+      ],
+      "output": "Green Bay Packers",
+      "pair_sha256": "5536ab4aa082e99dfb0a173a0a2af9f133861654ae652866b204bc13362eadf8",
+      "provenance": [
+        {
+          "occurrence_id": "O0400",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_duke_ds_2.txt",
+          "location": "line:5"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 118,
+      "max": 132
+    },
+    "output_lengths": {
+      "min": 13,
+      "max": 19
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Der Marker season und der Abschluss des Wiki-Links begrenzen das Teamfeld."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "| styple = \"background #d0e7ff;\"|{{Sort|Green Bay Packers 02|[[1967 Green Bay Packers season|Green Bay Packers]]<sup>^</sup>}}",
+        "output": "Green Bay Packers"
+      },
+      {
+        "input": "| styple = \"background #d0e7ff;\"|{{Sort|Green Bay Packers 02|[[1911 Green Bay Packers season|Green Bay Packers]]<sup>^</sup>}}",
+        "output": "Green Bay Packers"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "| styple = \"background #d0e7ff;\"|{{Sort|New York Jets 01|[[1968 Green Bay Packers season|New York Jets]]<sup>^</sup>}}",
+        "output": "New York Jets"
+      },
+      {
+        "input": "| styple = \"background #d0e7ff;\"|{{Sort|San Francisco 49ers 01|[[1981 San Francisco 49ers season|San Francisco 49ers]]<sup>^</sup>}}",
+        "output": "San Francisco 49ers"
+      },
+      {
+        "input": "| styple = \"background #d0e7ff;\"|{{Sort|Green Bay Packers 01|[[1966 Green Bay Packers season|Green Bay Packers]]<sup>^</sup>}}",
+        "output": "Green Bay Packers"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 70
+}

@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " for all support request" "." ".com for all support req" "_" "ask help_robot." "com for all support requ" "for all support requests" "help_robot.com" "help_robot.google.com" "m for all support reques" "om for all support reque" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "ask help_robot.com for all support requests") "help_robot.com"))
+(constraint (= (f "ask help_robot.google.com for all support requests") "help_robot.google.com"))
+(check-synth)

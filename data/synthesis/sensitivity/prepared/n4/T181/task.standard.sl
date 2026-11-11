@@ -1,0 +1,7 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " (" " -> " " 0" "(" ")" ") -> " "); " "," ", " "-" "01:00 PM -> 05:00 PM" "03:00 AM -> 11:00 AM" "07:00 AM -> 10:00 AM" "12:00 PM -> 09:00 PM" ":" ":00 " ";" "; " ">" "M -> " (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "LH789; MUC -> JFK; 01:00 PM -> 05:00 PM") "01:00 PM -> 05:00 PM"))
+(constraint (= (f "AA789; JFK (New York, USA) -> LAX (Los Angeles, USA); 07:00 AM -> 10:00 AM") "07:00 AM -> 10:00 AM"))
+(constraint (= (f "AF567; CDG (Paris Charles de Gaulle, France) -> DXB (Dubai, UAE); 03:00 AM -> 11:00 AM") "03:00 AM -> 11:00 AM"))
+(constraint (= (f "BA321; LHR (London Heathrow, UK) -> DXB; 12:00 PM -> 09:00 PM") "12:00 PM -> 09:00 PM"))
+(check-synth)

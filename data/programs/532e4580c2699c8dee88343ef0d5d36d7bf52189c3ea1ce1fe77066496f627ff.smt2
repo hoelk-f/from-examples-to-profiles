@@ -1,0 +1,1 @@
+(define-fun f ((x String)) String (str.++ (str.++ (list.at (str.split (str.++ (int.to.str (list.len (str.++ x x))) x) e"") (str.count (int.to.str (list.len x)) (int.to.str 1))) (int.to.str 3)) (str.++ (list.at (str.split (int.to.str (list.len (str.join (str.split x e"") x))) e"") 4) (str.head (list.at (str.split x (int.to.str 3)) -1) 4))))

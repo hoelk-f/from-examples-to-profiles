@@ -1,0 +1,1 @@
+(define-fun f ((x String)) String (str.substr (str.++ (str.++ "/Proj/Numerical/NBody/" ".") "/usr/local/bin/") (str.indexof (str.++ x "/Proj/Numerical/NBody/") "/Proj/Numerical/NBody/" 0) (str.len "/Proj/Numerical/NBody/")))

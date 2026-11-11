@@ -1,0 +1,159 @@
+{
+  "task_id": "T233",
+  "family_id": "field-extraction-v1",
+  "field": "Quoted team code",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "token",
+        "\"",
+        3
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0704"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "\"Kenji Johjima\", \"SEA\", \"Catcher\""
+      ],
+      "output": "SEA",
+      "pair_sha256": "86c211b7e8d165ba7da983fcf842d327396185892f66290482cc74d17f1c9a9a",
+      "provenance": [
+        {
+          "occurrence_id": "O0704",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:287/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Scott Podsednik\", \"CWS\", \"Outfielder\""
+      ],
+      "output": "CWS",
+      "pair_sha256": "75ee0c3dd3e3f599acb273eb6b6b84b964456e79179b616fc452262d6063264b",
+      "provenance": [
+        {
+          "occurrence_id": "O0704",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:287/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Barry Bonds\", \"SF\", \"Outfielder\""
+      ],
+      "output": "SF",
+      "pair_sha256": "afa03286f35d4279a10e8283eeec20abb41e5717996d91e1aed6c209831b234d",
+      "provenance": [
+        {
+          "occurrence_id": "O0704",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:287/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Roberto Novoa\", \"CHC\", \"Relief Pitcher\""
+      ],
+      "output": "CHC",
+      "pair_sha256": "e99d0727c8dde3835b8cc4af03047fa3dbd0d16ac682df6b424ac880c9dc06df",
+      "provenance": [
+        {
+          "occurrence_id": "O0704",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:287/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Albert Pujols\", \"STL\", \"First Baseman\""
+      ],
+      "output": "STL",
+      "pair_sha256": "4f67acb803ce30d1c1aafa0511c984c899dca1f57f1092a11c40f39cd1b83701",
+      "provenance": [
+        {
+          "occurrence_id": "O0704",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:287/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 33,
+      "max": 40
+    },
+    "output_lengths": {
+      "min": 2,
+      "max": 3
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Das dritte Quote-Token bildet das zweite zitierte Feld. Die feste Quote-Struktur muss erhalten bleiben."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "\"Barry Bonds\", \"SF\", \"Outfielder\"",
+        "output": "SF"
+      },
+      {
+        "input": "\"Kenji Johjima\", \"SEA\", \"Catcher\"",
+        "output": "SEA"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "\"Albert Pujols\", \"STL\", \"First Baseman\"",
+        "output": "STL"
+      },
+      {
+        "input": "\"Scott Podsednik\", \"CWS\", \"Outfielder\"",
+        "output": "CWS"
+      },
+      {
+        "input": "\"Roberto Novoa\", \"CHC\", \"Relief Pitcher\"",
+        "output": "CHC"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 125
+}

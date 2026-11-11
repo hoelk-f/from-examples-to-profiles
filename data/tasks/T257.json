@@ -1,0 +1,162 @@
+{
+  "task_id": "T257",
+  "family_id": "field-extraction-v1",
+  "field": "City field",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "before_last",
+        ", "
+      ],
+      [
+        "after_last",
+        " "
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0800"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "30, Place de la Gare 5036 COLOMIERS, France"
+      ],
+      "output": "COLOMIERS",
+      "pair_sha256": "42b0fe3e8bb062479fd14b8060c4a04696203e04ffcd2de9ac2dd847426d77e2",
+      "provenance": [
+        {
+          "occurrence_id": "O0800",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:307/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "43, Faubourg Saint Honore 9489 PARIS, France"
+      ],
+      "output": "PARIS",
+      "pair_sha256": "d6cb5fa7ddf40834594e866a645d339ecf2e8a19c85cc53bbd3e9137cad31013",
+      "provenance": [
+        {
+          "occurrence_id": "O0800",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:307/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "65, boulevard Bryas 2619 COURBEVOIE, France"
+      ],
+      "output": "COURBEVOIE",
+      "pair_sha256": "b1e3836fc6811446f6ceaa97389691604051dac23af3f2b3803036b047596f99",
+      "provenance": [
+        {
+          "occurrence_id": "O0800",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:307/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "55, rue Descartes 5306 SURESNES, France"
+      ],
+      "output": "SURESNES",
+      "pair_sha256": "a8370fe49fa94760a51ed44556e5452d99c38e3a832da488eb32bf680e3dc7fd",
+      "provenance": [
+        {
+          "occurrence_id": "O0800",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:307/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "16, Chemin Du Lavarin Sud 2935 CAEN, France"
+      ],
+      "output": "CAEN",
+      "pair_sha256": "749db0132ce84651529a44fba3f8b6a6af6f63d0c8ac05cfb8fd5d33db8e0d34",
+      "provenance": [
+        {
+          "occurrence_id": "O0800",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:307/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 39,
+      "max": 44
+    },
+    "output_lengths": {
+      "min": 4,
+      "max": 10
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Das letzte Wort vor dem Länderfeld ist nur bei einwortigen Orten der vollständige Ortsname."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "43, Faubourg Saint Honore 9489 PARIS, France",
+        "output": "PARIS"
+      },
+      {
+        "input": "30, Place de la Gare 5036 COLOMIERS, France",
+        "output": "COLOMIERS"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "16, Chemin Du Lavarin Sud 2935 CAEN, France",
+        "output": "CAEN"
+      },
+      {
+        "input": "65, boulevard Bryas 2619 COURBEVOIE, France",
+        "output": "COURBEVOIE"
+      },
+      {
+        "input": "55, rue Descartes 5306 SURESNES, France",
+        "output": "SURESNES"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 187
+}

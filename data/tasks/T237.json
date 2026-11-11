@@ -1,0 +1,159 @@
+{
+  "task_id": "T237",
+  "family_id": "field-extraction-v1",
+  "field": "Quoted gender field",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "token",
+        "\"",
+        3
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0712"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "\"Hank\",\"M\",30,71,158"
+      ],
+      "output": "M",
+      "pair_sha256": "e0570c34dc2a62a301372c8f75457ad1fd3a3381181faf33f88efe865843e7b1",
+      "provenance": [
+        {
+          "occurrence_id": "O0712",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:217/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Alex\",\"M\",41,74,170"
+      ],
+      "output": "M",
+      "pair_sha256": "c1e0fd720909b6d29f039cede43598c26e0d7f026466e7a600c59187091c9d68",
+      "provenance": [
+        {
+          "occurrence_id": "O0712",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:217/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Carly\",\"F\",32,70,155"
+      ],
+      "output": "F",
+      "pair_sha256": "5c021542679bbfec9e758e7d8c3ab768a051c9edc66f1572c8114897083b8461",
+      "provenance": [
+        {
+          "occurrence_id": "O0712",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:217/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Bert\",\"M\",42,68,166"
+      ],
+      "output": "M",
+      "pair_sha256": "ec64cc5ada29c58d5e43761184660efedebf95d8f20771f11bb91a9e1dda3fd7",
+      "provenance": [
+        {
+          "occurrence_id": "O0712",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:217/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Fran\",\"F\",33,66,115"
+      ],
+      "output": "F",
+      "pair_sha256": "12e5ee6d0be6a7ead4ff015744444bd93ec44afb0998838fe469cff63c793ed4",
+      "provenance": [
+        {
+          "occurrence_id": "O0712",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:217/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 20,
+      "max": 21
+    },
+    "output_lengths": {
+      "min": 1,
+      "max": 1
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Das zweite zitierte Feld liefert beide beobachteten Geschlechtscodes. Die Quote-Struktur ist Teil des Formats."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "\"Bert\",\"M\",42,68,166",
+        "output": "M"
+      },
+      {
+        "input": "\"Alex\",\"M\",41,74,170",
+        "output": "M"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "\"Carly\",\"F\",32,70,155",
+        "output": "F"
+      },
+      {
+        "input": "\"Fran\",\"F\",33,66,115",
+        "output": "F"
+      },
+      {
+        "input": "\"Hank\",\"M\",30,71,158",
+        "output": "M"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 129
+}

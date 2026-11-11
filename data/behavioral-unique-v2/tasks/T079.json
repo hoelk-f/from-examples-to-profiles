@@ -1,0 +1,2231 @@
+{
+  "task_id": "T079",
+  "family_id": "field-extraction-v1",
+  "field": "College name",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "before",
+        ","
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0720"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "New College, Holywell St, Oxford OX1 3BN"
+      ],
+      "output": "New College",
+      "pair_sha256": "a7ec925123bf2ad91d44940a7d18fb977174714cf4bead158c626eef172ca282",
+      "provenance": [
+        {
+          "occurrence_id": "O0720",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:209/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "University College, High Street, Oxford OX1 4BH"
+      ],
+      "output": "University College",
+      "pair_sha256": "e1cfef7f6ce143461ca3510ce43f558e849dd7993d171cbfc8fddcd9b0118252",
+      "provenance": [
+        {
+          "occurrence_id": "O0720",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:209/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Hertford College, Catte St, Oxford OX1 3BW"
+      ],
+      "output": "Hertford College",
+      "pair_sha256": "107e8596645707eebfa47d8260ae74a66e6f4cb5e3df20feb1657c4c0d605de8",
+      "provenance": [
+        {
+          "occurrence_id": "O0720",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:209/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Worcester College, 1 Walton St, Oxford OX1 2HB"
+      ],
+      "output": "Worcester College",
+      "pair_sha256": "f93d4fdd83039c6973e1fcacb560b8fa52d0f4e4f4066dd84fc382546220942a",
+      "provenance": [
+        {
+          "occurrence_id": "O0720",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:209/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Exeter College, Turl St, Oxford OX1 3DP"
+      ],
+      "output": "Exeter College",
+      "pair_sha256": "59cf2db09bbf3015b1407803812a5882e9242fe37d71047f809b05e2a1ba07a1",
+      "provenance": [
+        {
+          "occurrence_id": "O0720",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:209/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 39,
+      "max": 47
+    },
+    "output_lengths": {
+      "min": 11,
+      "max": 18
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Der College-Name ist durch das erste Komma vollständig abgegrenzt."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Exeter College, Turl St, Oxford OX1 3DP",
+        "output": "Exeter College"
+      },
+      {
+        "input": "Hertford College, Catte St, Oxford OX1 3BW",
+        "output": "Hertford College"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "New College, Holywell St, Oxford OX1 3BN",
+        "output": "New College"
+      },
+      {
+        "input": "Worcester College, 1 Walton St, Oxford OX1 2HB",
+        "output": "Worcester College"
+      },
+      {
+        "input": "University College, High Street, Oxford OX1 4BH",
+        "output": "University College"
+      }
+    ]
+  },
+  "behavioral": {
+    "cases": [
+      {
+        "case_id": "T079-C6f3123179a6d952aa024",
+        "task_id": "T079",
+        "input": "Exeter Cgsaiso, Turl St, Oxford OX1 3DP",
+        "expected_output": "Exeter Cgsaiso",
+        "expected_span": [
+          0,
+          14
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B1-V01-1"
+        ]
+      },
+      {
+        "case_id": "T079-C0ae0a3eba1b6bf2a6d00",
+        "task_id": "T079",
+        "input": "Exeter Czxanlu, Turl St, Oxford OX1 3DP",
+        "expected_output": "Exeter Czxanlu",
+        "expected_span": [
+          0,
+          14
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B1-V01-2"
+        ]
+      },
+      {
+        "case_id": "T079-C6ad2cc6bc5f555d36b7c",
+        "task_id": "T079",
+        "input": "Exeter Cdoygkk, Turl St, Oxford OX1 3DP",
+        "expected_output": "Exeter Cdoygkk",
+        "expected_span": [
+          0,
+          14
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B1-V01-3"
+        ]
+      },
+      {
+        "case_id": "T079-C59210ea0bfa4c6b742fa",
+        "task_id": "T079",
+        "input": "Exeter College, Turl St, Oeuvzn OX1 3DP",
+        "expected_output": "Exeter College",
+        "expected_span": [
+          0,
+          14
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B1-V02-1"
+        ]
+      },
+      {
+        "case_id": "T079-C6a00e0130cd58847b553",
+        "task_id": "T079",
+        "input": "Exeter College, Turl St, Ofsjhe OX1 3DP",
+        "expected_output": "Exeter College",
+        "expected_span": [
+          0,
+          14
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B1-V02-2"
+        ]
+      },
+      {
+        "case_id": "T079-Cf38510813362e211fc5c",
+        "task_id": "T079",
+        "input": "Exeter College, Turl St, Ozvphy OX1 3DP",
+        "expected_output": "Exeter College",
+        "expected_span": [
+          0,
+          14
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B1-V02-3"
+        ]
+      },
+      {
+        "case_id": "T079-Cfdb6daf2fda3d9a4c8dc",
+        "task_id": "T079",
+        "input": "Exeter Collegezfcusujnai, Turl St, Oxford OX1 3DP",
+        "expected_output": "Exeter Collegezfcusujnai",
+        "expected_span": [
+          0,
+          24
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B1-V04-1"
+        ]
+      },
+      {
+        "case_id": "T079-C2d9b67919b769cd9a09c",
+        "task_id": "T079",
+        "input": "Exeter Collegevuruplqrowmvhlvzui, Turl St, Oxford OX1 3DP",
+        "expected_output": "Exeter Collegevuruplqrowmvhlvzui",
+        "expected_span": [
+          0,
+          32
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B1-V04-2"
+        ]
+      },
+      {
+        "case_id": "T079-C9528f604538cafb7fcde",
+        "task_id": "T079",
+        "input": "Exeter Collegevqvpaixqnlguyfbwgxjthksjtfqwmkbchnkivycocqzanevliy, Turl St, Oxford OX1 3DP",
+        "expected_output": "Exeter Collegevqvpaixqnlguyfbwgxjthksjtfqwmkbchnkivycocqzanevliy",
+        "expected_span": [
+          0,
+          64
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B1-V04-3"
+        ]
+      },
+      {
+        "case_id": "T079-C802315afb0eea0d669a4",
+        "task_id": "T079",
+        "input": "YBCGCERDWCSJ,Exeter College, Turl St, Oxford OX1 3DP",
+        "expected_output": "YBCGCERDWCSJ",
+        "expected_span": [
+          0,
+          12
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B1-S01-1"
+        ]
+      },
+      {
+        "case_id": "T079-C462eb1bf475206e87552",
+        "task_id": "T079",
+        "input": "NRNXLCUNZVUO,Exeter College, Turl St, Oxford OX1 3DP",
+        "expected_output": "NRNXLCUNZVUO",
+        "expected_span": [
+          0,
+          12
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B1-S01-2"
+        ]
+      },
+      {
+        "case_id": "T079-C0bdb048a46ab7a80e8ce",
+        "task_id": "T079",
+        "input": "Exeter College, Turl St, Oxford OX1 3DP,PRPMPRBEIRCY",
+        "expected_output": "Exeter College",
+        "expected_span": [
+          0,
+          14
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B1-S01-3"
+        ]
+      },
+      {
+        "case_id": "T079-C0378923e614da2bec286",
+        "task_id": "T079",
+        "input": "Exeter College, Turl St, Oxford OX1 3DP,VNSMFUWEKZDL",
+        "expected_output": "Exeter College",
+        "expected_span": [
+          0,
+          14
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B1-S01-4"
+        ]
+      },
+      {
+        "case_id": "T079-C00c051b9200f6770aa3b",
+        "task_id": "T079",
+        "input": "Htejwwxz College, Catte St, Oxford OX1 3BW",
+        "expected_output": "Htejwwxz College",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B2-V01-1"
+        ]
+      },
+      {
+        "case_id": "T079-C335eb9341dd659fe06d5",
+        "task_id": "T079",
+        "input": "Hnognhgu College, Catte St, Oxford OX1 3BW",
+        "expected_output": "Hnognhgu College",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B2-V01-2"
+        ]
+      },
+      {
+        "case_id": "T079-Cb8aae10b8b33eae7c8c7",
+        "task_id": "T079",
+        "input": "Hwmqayvh College, Catte St, Oxford OX1 3BW",
+        "expected_output": "Hwmqayvh College",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B2-V01-3"
+        ]
+      },
+      {
+        "case_id": "T079-Ced3b07a53f9eb32cd880",
+        "task_id": "T079",
+        "input": "Hertford College, Catte St, Oniehz OX1 3BW",
+        "expected_output": "Hertford College",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B2-V02-1"
+        ]
+      },
+      {
+        "case_id": "T079-C3b1aa4e0c1a693b4eead",
+        "task_id": "T079",
+        "input": "Hertford College, Catte St, Oppjyb OX1 3BW",
+        "expected_output": "Hertford College",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B2-V02-2"
+        ]
+      },
+      {
+        "case_id": "T079-C1addc266e896061c5f21",
+        "task_id": "T079",
+        "input": "Hertford College, Catte St, Ofange OX1 3BW",
+        "expected_output": "Hertford College",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B2-V02-3"
+        ]
+      },
+      {
+        "case_id": "T079-C7367ac04b0aaeea76656",
+        "task_id": "T079",
+        "input": "Hertfordgnevephp College, Catte St, Oxford OX1 3BW",
+        "expected_output": "Hertfordgnevephp College",
+        "expected_span": [
+          0,
+          24
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B2-V04-1"
+        ]
+      },
+      {
+        "case_id": "T079-C97ad08addfbef1ab3b49",
+        "task_id": "T079",
+        "input": "Hertfordigckrusvucmdxkqp College, Catte St, Oxford OX1 3BW",
+        "expected_output": "Hertfordigckrusvucmdxkqp College",
+        "expected_span": [
+          0,
+          32
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B2-V04-2"
+        ]
+      },
+      {
+        "case_id": "T079-C638326002d42c3eb234a",
+        "task_id": "T079",
+        "input": "Hertfordpedgyotyidhmbqxepaumibepjpphpzbncjdjlyahqrgnljrh College, Catte St, Oxford OX1 3BW",
+        "expected_output": "Hertfordpedgyotyidhmbqxepaumibepjpphpzbncjdjlyahqrgnljrh College",
+        "expected_span": [
+          0,
+          64
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B2-V04-3"
+        ]
+      },
+      {
+        "case_id": "T079-Cbe2f41e57a6dfa04c6a2",
+        "task_id": "T079",
+        "input": "XXZGSMDFDSRK,Hertford College, Catte St, Oxford OX1 3BW",
+        "expected_output": "XXZGSMDFDSRK",
+        "expected_span": [
+          0,
+          12
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B2-S01-1"
+        ]
+      },
+      {
+        "case_id": "T079-Ca3b6d712cf021b240183",
+        "task_id": "T079",
+        "input": "FOZUGJVHLBTF,Hertford College, Catte St, Oxford OX1 3BW",
+        "expected_output": "FOZUGJVHLBTF",
+        "expected_span": [
+          0,
+          12
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B2-S01-2"
+        ]
+      },
+      {
+        "case_id": "T079-Ca01aac51f81308cba926",
+        "task_id": "T079",
+        "input": "Hertford College, Catte St, Oxford OX1 3BW,HCEENQMOUMGL",
+        "expected_output": "Hertford College",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B2-S01-3"
+        ]
+      },
+      {
+        "case_id": "T079-Cf9fab37fabb1a57567d1",
+        "task_id": "T079",
+        "input": "Hertford College, Catte St, Oxford OX1 3BW,IJMTBOVMELIO",
+        "expected_output": "Hertford College",
+        "expected_span": [
+          0,
+          16
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T079-B2-S01-4"
+        ]
+      }
+    ],
+    "obligations": [
+      {
+        "obligation_id": "T079-B1-V01-1",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C6f3123179a6d952aa024",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 14,
+          "replacement": "gsaiso"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B1-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Exeter Cgsaiso"
+          },
+          {
+            "assertion_id": "T079-B1-V01-1-relation",
+            "base_id": "T079-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 8,
+            "end": 14,
+            "replacement": "gsaiso"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B1-V01-2",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C0ae0a3eba1b6bf2a6d00",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 14,
+          "replacement": "zxanlu"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B1-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Exeter Czxanlu"
+          },
+          {
+            "assertion_id": "T079-B1-V01-2-relation",
+            "base_id": "T079-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 8,
+            "end": 14,
+            "replacement": "zxanlu"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B1-V01-3",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C6ad2cc6bc5f555d36b7c",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 14,
+          "replacement": "doygkk"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B1-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Exeter Cdoygkk"
+          },
+          {
+            "assertion_id": "T079-B1-V01-3-relation",
+            "base_id": "T079-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 8,
+            "end": 14,
+            "replacement": "doygkk"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B1-V02-1",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C59210ea0bfa4c6b742fa",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 26,
+          "end": 31,
+          "replacement": "euvzn"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B1-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Exeter College"
+          },
+          {
+            "assertion_id": "T079-B1-V02-1-relation",
+            "base_id": "T079-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B1-V02-2",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C6a00e0130cd58847b553",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 26,
+          "end": 31,
+          "replacement": "fsjhe"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B1-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Exeter College"
+          },
+          {
+            "assertion_id": "T079-B1-V02-2-relation",
+            "base_id": "T079-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B1-V02-3",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-Cf38510813362e211fc5c",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 26,
+          "end": 31,
+          "replacement": "zvphy"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B1-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Exeter College"
+          },
+          {
+            "assertion_id": "T079-B1-V02-3-relation",
+            "base_id": "T079-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B1-V03-1",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T079-B1-V03-2",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T079-B1-V03-3",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T079-B1-V04-1",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 24
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-Cfdb6daf2fda3d9a4c8dc",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 14,
+            "observed_max": 16,
+            "test_value": 24,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 14,
+          "replacement": "ollegezfcusujnai"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B1-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Exeter Collegezfcusujnai"
+          },
+          {
+            "assertion_id": "T079-B1-V04-1-relation",
+            "base_id": "T079-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 8,
+            "end": 14,
+            "replacement": "ollegezfcusujnai"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B1-V04-2",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 32
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C2d9b67919b769cd9a09c",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 14,
+            "observed_max": 16,
+            "test_value": 32,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 14,
+          "replacement": "ollegevuruplqrowmvhlvzui"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B1-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Exeter Collegevuruplqrowmvhlvzui"
+          },
+          {
+            "assertion_id": "T079-B1-V04-2-relation",
+            "base_id": "T079-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 8,
+            "end": 14,
+            "replacement": "ollegevuruplqrowmvhlvzui"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B1-V04-3",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 64
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C9528f604538cafb7fcde",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 14,
+            "observed_max": 16,
+            "test_value": 64,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 14,
+          "replacement": "ollegevqvpaixqnlguyfbwgxjthksjtfqwmkbchnkivycocqzanevliy"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B1-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Exeter Collegevqvpaixqnlguyfbwgxjthksjtfqwmkbchnkivycocqzanevliy"
+          },
+          {
+            "assertion_id": "T079-B1-V04-3-relation",
+            "base_id": "T079-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 8,
+            "end": 14,
+            "replacement": "ollegevqvpaixqnlguyfbwgxjthksjtfqwmkbchnkivycocqzanevliy"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B1-V05-1",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure"
+      },
+      {
+        "obligation_id": "T079-B1-S01-1",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C802315afb0eea0d669a4",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "before",
+          "dummy_field": "YBCGCERDWCSJ"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B1-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "YBCGCERDWCSJ"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B1-S01-2",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C462eb1bf475206e87552",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "before",
+          "dummy_field": "NRNXLCUNZVUO"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B1-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "NRNXLCUNZVUO"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B1-S01-3",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C0bdb048a46ab7a80e8ce",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "after",
+          "dummy_field": "PRPMPRBEIRCY"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B1-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Exeter College"
+          },
+          {
+            "assertion_id": "T079-B1-S01-3-relation",
+            "base_id": "T079-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B1-S01-4",
+        "task_id": "T079",
+        "base_id": "T079-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C0378923e614da2bec286",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "after",
+          "dummy_field": "VNSMFUWEKZDL"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B1-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Exeter College"
+          },
+          {
+            "assertion_id": "T079-B1-S01-4-relation",
+            "base_id": "T079-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B2-V01-1",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C00c051b9200f6770aa3b",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 8,
+          "replacement": "tejwwxz"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B2-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Htejwwxz College"
+          },
+          {
+            "assertion_id": "T079-B2-V01-1-relation",
+            "base_id": "T079-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 8,
+            "replacement": "tejwwxz"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B2-V01-2",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C335eb9341dd659fe06d5",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 8,
+          "replacement": "nognhgu"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B2-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Hnognhgu College"
+          },
+          {
+            "assertion_id": "T079-B2-V01-2-relation",
+            "base_id": "T079-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 8,
+            "replacement": "nognhgu"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B2-V01-3",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-Cb8aae10b8b33eae7c8c7",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 8,
+          "replacement": "wmqayvh"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B2-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Hwmqayvh College"
+          },
+          {
+            "assertion_id": "T079-B2-V01-3-relation",
+            "base_id": "T079-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 8,
+            "replacement": "wmqayvh"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B2-V02-1",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-Ced3b07a53f9eb32cd880",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 29,
+          "end": 34,
+          "replacement": "niehz"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B2-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Hertford College"
+          },
+          {
+            "assertion_id": "T079-B2-V02-1-relation",
+            "base_id": "T079-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B2-V02-2",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C3b1aa4e0c1a693b4eead",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 29,
+          "end": 34,
+          "replacement": "ppjyb"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B2-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Hertford College"
+          },
+          {
+            "assertion_id": "T079-B2-V02-2-relation",
+            "base_id": "T079-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B2-V02-3",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C1addc266e896061c5f21",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 29,
+          "end": 34,
+          "replacement": "fange"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B2-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Hertford College"
+          },
+          {
+            "assertion_id": "T079-B2-V02-3-relation",
+            "base_id": "T079-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B2-V03-1",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T079-B2-V03-2",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T079-B2-V03-3",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T079-B2-V04-1",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 24
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C7367ac04b0aaeea76656",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 14,
+            "observed_max": 16,
+            "test_value": 24,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 8,
+          "replacement": "ertfordgnevephp"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B2-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Hertfordgnevephp College"
+          },
+          {
+            "assertion_id": "T079-B2-V04-1-relation",
+            "base_id": "T079-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 8,
+            "replacement": "ertfordgnevephp"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B2-V04-2",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 32
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C97ad08addfbef1ab3b49",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 14,
+            "observed_max": 16,
+            "test_value": 32,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 8,
+          "replacement": "ertfordigckrusvucmdxkqp"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B2-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Hertfordigckrusvucmdxkqp College"
+          },
+          {
+            "assertion_id": "T079-B2-V04-2-relation",
+            "base_id": "T079-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 8,
+            "replacement": "ertfordigckrusvucmdxkqp"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B2-V04-3",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 64
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-C638326002d42c3eb234a",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 14,
+            "observed_max": 16,
+            "test_value": 64,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 8,
+          "replacement": "ertfordpedgyotyidhmbqxepaumibepjpphpzbncjdjlyahqrgnljrh"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B2-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Hertfordpedgyotyidhmbqxepaumibepjpphpzbncjdjlyahqrgnljrh College"
+          },
+          {
+            "assertion_id": "T079-B2-V04-3-relation",
+            "base_id": "T079-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 8,
+            "replacement": "ertfordpedgyotyidhmbqxepaumibepjpphpzbncjdjlyahqrgnljrh"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B2-V05-1",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure"
+      },
+      {
+        "obligation_id": "T079-B2-S01-1",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-Cbe2f41e57a6dfa04c6a2",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "before",
+          "dummy_field": "XXZGSMDFDSRK"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B2-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "XXZGSMDFDSRK"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B2-S01-2",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-Ca3b6d712cf021b240183",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "before",
+          "dummy_field": "FOZUGJVHLBTF"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B2-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "FOZUGJVHLBTF"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B2-S01-3",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-Ca01aac51f81308cba926",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "after",
+          "dummy_field": "HCEENQMOUMGL"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B2-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Hertford College"
+          },
+          {
+            "assertion_id": "T079-B2-S01-3-relation",
+            "base_id": "T079-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T079-B2-S01-4",
+        "task_id": "T079",
+        "base_id": "T079-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T079-Cf9fab37fabb1a57567d1",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples",
+            "marker": ","
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": ","
+          },
+          "side": "after",
+          "dummy_field": "IJMTBOVMELIO"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T079-B2-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Hertford College"
+          },
+          {
+            "assertion_id": "T079-B2-S01-4-relation",
+            "base_id": "T079-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      }
+    ],
+    "bases": [
+      {
+        "base_id": "T079-B1",
+        "task_id": "T079",
+        "input": "Exeter College, Turl St, Oxford OX1 3DP",
+        "expected_output": "Exeter College",
+        "expected_span": [
+          0,
+          14
+        ],
+        "source_path": "data/tasks/T079.json#split.training",
+        "source_index": 0,
+        "role": "synthesis_example_for_paired_assertions_only"
+      },
+      {
+        "base_id": "T079-B2",
+        "task_id": "T079",
+        "input": "Hertford College, Catte St, Oxford OX1 3BW",
+        "expected_output": "Hertford College",
+        "expected_span": [
+          0,
+          16
+        ],
+        "source_path": "data/tasks/T079.json#split.training",
+        "source_index": 1,
+        "role": "synthesis_example_for_paired_assertions_only"
+      }
+    ],
+    "applicability": [
+      {
+        "task_id": "T079",
+        "operator_id": "V01",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T079",
+        "operator_id": "V02",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T079",
+        "operator_id": "V03",
+        "obligations": 6,
+        "statuses": {
+          "not_applicable_to_operator": 6
+        },
+        "unique_cases": 0,
+        "reasons": {
+          "no_unprotected_ascii_alphanumeric_run_in_required_region": 6
+        }
+      },
+      {
+        "task_id": "T079",
+        "operator_id": "V04",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T079",
+        "operator_id": "V05",
+        "obligations": 2,
+        "statuses": {
+          "not_applicable_to_operator": 2
+        },
+        "unique_cases": 0,
+        "reasons": {
+          "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure": 2
+        }
+      },
+      {
+        "task_id": "T079",
+        "operator_id": "S01",
+        "obligations": 8,
+        "statuses": {
+          "planned": 8
+        },
+        "unique_cases": 8,
+        "reasons": {}
+      }
+    ]
+  },
+  "generation_seed": 137
+}

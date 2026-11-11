@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " 3" " 8" "1Z " "2 " "24 " "39V" "GU2" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "1Z GU2 T24 89 4205 353 5") "GU2"))
+(constraint (= (f "1Z 39V 80D 24 0712 870 8") "39V"))
+(check-synth)

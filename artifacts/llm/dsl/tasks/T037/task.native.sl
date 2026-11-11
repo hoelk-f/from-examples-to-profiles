@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " (" " SE; rv:" "(" ")" ") " "." ".5" "/" "/7" "0." ":" ";" "; " "Linux SE" "iPhone SE" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "IE/0.4 (iPhone SE; rv:26.5) Gecko/76.93") "iPhone SE"))
+(constraint (= (f "Firefox/2.6 (Linux SE; rv:50.0) Chrome/23.57 OPR/79.20") "Linux SE"))
+(check-synth)

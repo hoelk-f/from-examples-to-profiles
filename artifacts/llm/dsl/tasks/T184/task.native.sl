@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " by " " in " "(" ")" "-" "." ". (" "2023" "2024" ":" ": " ":  " "e " "n et al. (202" "on " "s " "tion: A " (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "Literature:  Postcolonial Narratives in Contemporary African Fiction: A Comparative Study by Sarah Johnson et al. (2024)") "2024"))
+(constraint (= (f "Education:  The Impact of Technology Integration in Mathematics Education: A Meta-analysis by David Brown et al. (2023)") "2023"))
+(check-synth)

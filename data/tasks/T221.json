@@ -1,0 +1,148 @@
+{
+  "task_id": "T221",
+  "family_id": "field-extraction-v1",
+  "field": "First field of second brace-delimited group",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "}, {"
+      ],
+      [
+        "before",
+        "}"
+      ],
+      [
+        "token",
+        ", ",
+        0
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0628"
+  ],
+  "collections": [
+    "TDE"
+  ],
+  "unique_example_count": 4,
+  "source_example_row_count": 4,
+  "examples": [
+    {
+      "input": [
+        "{{aaa, bbb}, {ccc, ddd}, {eee, fff}}"
+      ],
+      "output": "ccc",
+      "pair_sha256": "37e663f7f08204bd13f3b08890c79516190463ce701df84fedd4b0b3873689db",
+      "provenance": [
+        {
+          "occurrence_id": "O0628",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-stackoverflow/46.txt",
+          "location": "line:2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "{{x, y}, {z, zz}}"
+      ],
+      "output": "z",
+      "pair_sha256": "a08bf99677b75895fb3a2149e9b84858c8b035e9c4749f73594c31b76c04a7bd",
+      "provenance": [
+        {
+          "occurrence_id": "O0628",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-stackoverflow/46.txt",
+          "location": "line:3"
+        }
+      ]
+    },
+    {
+      "input": [
+        "{{a}, {bb}, {ccc, ddd, eee, fff}}"
+      ],
+      "output": "bb",
+      "pair_sha256": "357ec5ca360e963296f4e2e81f2c06b3583c1e1421c32eb3920c7cf13ed35da8",
+      "provenance": [
+        {
+          "occurrence_id": "O0628",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-stackoverflow/46.txt",
+          "location": "line:4"
+        }
+      ]
+    },
+    {
+      "input": [
+        "{{p, q}, {r, s, t}, {u, v, w}}"
+      ],
+      "output": "r",
+      "pair_sha256": "98853ea18bd579f8e6768559b895af874719224978c590236a84a70076722e17",
+      "provenance": [
+        {
+          "occurrence_id": "O0628",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-stackoverflow/46.txt",
+          "location": "line:5"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 17,
+      "max": 36
+    },
+    "output_lengths": {
+      "min": 1,
+      "max": 3
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Die Quelle bezeichnet ausdrücklich das erste Element der zweiten Gruppe. Die flache feste Klammerschreibweise ist Voraussetzung."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "{{aaa, bbb}, {ccc, ddd}, {eee, fff}}",
+        "output": "ccc"
+      },
+      {
+        "input": "{{x, y}, {z, zz}}",
+        "output": "z"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "{{p, q}, {r, s, t}, {u, v, w}}",
+        "output": "r"
+      },
+      {
+        "input": "{{a}, {bb}, {ccc, ddd, eee, fff}}",
+        "output": "bb"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 83
+}

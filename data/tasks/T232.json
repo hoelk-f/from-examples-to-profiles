@@ -1,0 +1,162 @@
+{
+  "task_id": "T232",
+  "family_id": "field-extraction-v1",
+  "field": "Quoted player name",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "\""
+      ],
+      [
+        "before",
+        "\""
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0703"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "\"Albert Pujols\", \"STL\", \"First Baseman\""
+      ],
+      "output": "Albert Pujols",
+      "pair_sha256": "917ea9f12e114b3e3d852a37cfcb254f6330b1cf66c236ef556776badfd0281c",
+      "provenance": [
+        {
+          "occurrence_id": "O0703",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:286/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Alex Rodriguez\", \"NYY\", \"Third Baseman\""
+      ],
+      "output": "Alex Rodriguez",
+      "pair_sha256": "31719ccb1bb5c94dd894b8e0dd2aa8de6a13a70fe6d845fd4778381e6d827dbc",
+      "provenance": [
+        {
+          "occurrence_id": "O0703",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:286/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Jeff Mathis\", \"ANA\", \"Catcher\""
+      ],
+      "output": "Jeff Mathis",
+      "pair_sha256": "88e11abdcb688b7c98264f3b546ce0270ce418d9c9255bfa3f86a883fb5fcc88",
+      "provenance": [
+        {
+          "occurrence_id": "O0703",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:286/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Barry Bonds\", \"SF\", \"Outfielder\""
+      ],
+      "output": "Barry Bonds",
+      "pair_sha256": "d48fc1fe27ab8da16311598c9dd4240821d198e912e5b6831329d6e5ef38289f",
+      "provenance": [
+        {
+          "occurrence_id": "O0703",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:286/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Vladimir Guerrero\", \"ANA\", \"Outfielder\""
+      ],
+      "output": "Vladimir Guerrero",
+      "pair_sha256": "83c086499e96e6b71cb4ca9896e1ed628002f24b52707b3a9ad0a0d901bbac44",
+      "provenance": [
+        {
+          "occurrence_id": "O0703",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:286/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 31,
+      "max": 40
+    },
+    "output_lengths": {
+      "min": 11,
+      "max": 17
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Der erste zitierte CSV-artige Wert ist unterstützt. Escaped Quotes würden eine zusätzliche Parsingregel verlangen."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "\"Vladimir Guerrero\", \"ANA\", \"Outfielder\"",
+        "output": "Vladimir Guerrero"
+      },
+      {
+        "input": "\"Alex Rodriguez\", \"NYY\", \"Third Baseman\"",
+        "output": "Alex Rodriguez"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "\"Barry Bonds\", \"SF\", \"Outfielder\"",
+        "output": "Barry Bonds"
+      },
+      {
+        "input": "\"Jeff Mathis\", \"ANA\", \"Catcher\"",
+        "output": "Jeff Mathis"
+      },
+      {
+        "input": "\"Albert Pujols\", \"STL\", \"First Baseman\"",
+        "output": "Albert Pujols"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 124
+}

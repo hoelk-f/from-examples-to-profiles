@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " "," ", " ", 201" "-" "ILP 201" "ILP 2015" "ILP 2016" "n, " (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "ILP 2015, Kyoto, Japan, August 20-22, 2015") "ILP 2015"))
+(constraint (= (f "ILP 2016, London, UK, September 4-6, 2016") "ILP 2016"))
+(check-synth)

@@ -1,0 +1,12 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You synthesize string transformation programs from input/output examples.\nReturn exactly one expression derived from nonterminal S of the supplied grammar.\nUse SMT-LIB string syntax. Return only the expression, without Markdown, explanations,\na define-fun wrapper or additional expressions. Use only the supplied productions,\nvariables and literal constants. The expression must satisfy both constraints.\nThe examples are the only task-specific specification you receive."
+    },
+    {
+      "role": "user",
+      "content": "Synthesize f(x). The grammar and both examples are:\n\n(set-logic SLIA)\n(synth-fun f ((x String)) String ((S String (x \"\" \" \" \" (\" \" SE; rv:\" \"(\" \")\" \") \" \".\" \".5\" \"/\" \"/7\" \"0.\" \":\" \";\" \"; \" \"Linux SE\" \"iPhone SE\" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))\n(constraint (= (f \"IE/0.4 (iPhone SE; rv:26.5) Gecko/76.93\") \"iPhone SE\"))\n(constraint (= (f \"Firefox/2.6 (Linux SE; rv:50.0) Chrome/23.57 OPR/79.20\") \"Linux SE\"))\n(check-synth)\n"
+    }
+  ]
+}

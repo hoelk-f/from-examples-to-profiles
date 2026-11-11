@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " "," ", " ", C" "A " "Cory" "Massachusetts" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "77 Massachusetts Ave, Cambridge, MA 02139") "Massachusetts"))
+(constraint (= (f "253 Cory Hall, Berkeley, CA 94720") "Cory"))
+(check-synth)

@@ -1,0 +1,158 @@
+{
+  "task_id": "T260",
+  "family_id": "field-extraction-v1",
+  "field": "Country",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after_last",
+        ", "
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0804"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "Scharnweberstrasse 7308 9751 Mannheim Friedrichsfeld, Germany"
+      ],
+      "output": "Germany",
+      "pair_sha256": "102c562f0e7b2fc6a10728bd8d56450bdd4f375aadf140f29ebb7781bd460860",
+      "provenance": [
+        {
+          "occurrence_id": "O0804",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:257/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Paderborner Strasse 6836 5660 Sielenbach, Germany"
+      ],
+      "output": "Germany",
+      "pair_sha256": "bde827b88c5804eeb620e4fec4560d76e62650fe5869ec152d460a579a5e4b8b",
+      "provenance": [
+        {
+          "occurrence_id": "O0804",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:257/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Ellmenreichstrasse 7660 5523 Adelsdorf, Germany"
+      ],
+      "output": "Germany",
+      "pair_sha256": "43f3688e21b702f1495855467a44d94a06c92e18f1c417f79a9b45bffb6df122",
+      "provenance": [
+        {
+          "occurrence_id": "O0804",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:257/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Flughafenstrasse 2472 5370 Leonberg, Germany"
+      ],
+      "output": "Germany",
+      "pair_sha256": "c8ffc7c9a39becdd28c8e6914b220a24dce5702fb2c0348320b3009a75b6d477",
+      "provenance": [
+        {
+          "occurrence_id": "O0804",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:257/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Ufnau Strasse 1464 2320 Fellheim, Germany"
+      ],
+      "output": "Germany",
+      "pair_sha256": "e9b8e12d538f4c95088919929752cb2ae033877a41f4b6687883cd8094e9e913",
+      "provenance": [
+        {
+          "occurrence_id": "O0804",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:257/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 41,
+      "max": 61
+    },
+    "output_lengths": {
+      "min": 7,
+      "max": 7
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Alle Ausgaben sind Germany. Mehrwortige Städte stören das Kommafeld nicht, aber der Länderwert variiert nicht."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Paderborner Strasse 6836 5660 Sielenbach, Germany",
+        "output": "Germany"
+      },
+      {
+        "input": "Ufnau Strasse 1464 2320 Fellheim, Germany",
+        "output": "Germany"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "Scharnweberstrasse 7308 9751 Mannheim Friedrichsfeld, Germany",
+        "output": "Germany"
+      },
+      {
+        "input": "Flughafenstrasse 2472 5370 Leonberg, Germany",
+        "output": "Germany"
+      },
+      {
+        "input": "Ellmenreichstrasse 7660 5523 Adelsdorf, Germany",
+        "output": "Germany"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 190
+}

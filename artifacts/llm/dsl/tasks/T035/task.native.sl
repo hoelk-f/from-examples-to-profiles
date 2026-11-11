@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" "-" "." ".7." "/" "/xPhone-" "6.7.8" "9.7" "MFM-" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "MFM-5.7.12/xPhone-9.7") "9.7"))
+(constraint (= (f "MFM-8.2.94/xPhone-6.7.8") "6.7.8"))
+(check-synth)

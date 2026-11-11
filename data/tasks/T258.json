@@ -1,0 +1,168 @@
+{
+  "task_id": "T258",
+  "family_id": "field-extraction-v1",
+  "field": "Street-name field",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        ", "
+      ],
+      [
+        "before_last",
+        ", "
+      ],
+      [
+        "token_span",
+        " ",
+        0,
+        -3
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0801"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "27, avenue de Bouvines 2867 SCHOELCHER, France"
+      ],
+      "output": "avenue de Bouvines",
+      "pair_sha256": "6c8ec4afdc4a35d3b883b557458e903e471b750cd29a1b0640be5add2ad776de",
+      "provenance": [
+        {
+          "occurrence_id": "O0801",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:258/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "43, Faubourg Saint Honore 9489 PARIS, France"
+      ],
+      "output": "Faubourg Saint Honore",
+      "pair_sha256": "9d6f6884cdcc9a0436c569da9aa706067f8094ae89233eb34c00e8cf7a69bd76",
+      "provenance": [
+        {
+          "occurrence_id": "O0801",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:258/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "4, Chemin Des Bateliers 2663 ANGLET, France"
+      ],
+      "output": "Chemin Des Bateliers",
+      "pair_sha256": "02fee123b855e5c304e61493fdf6fbc799b3b7a71d49d2a314dddffc9acb0c6e",
+      "provenance": [
+        {
+          "occurrence_id": "O0801",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:258/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "57, Rue Roussy 6711 ORANGE, France"
+      ],
+      "output": "Rue Roussy",
+      "pair_sha256": "4d1669a86e1417be99ed65e4c43311ca6751dddb4ba5d6f517f0389018e20b8d",
+      "provenance": [
+        {
+          "occurrence_id": "O0801",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:258/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "55, rue Descartes 5306 SURESNES, France"
+      ],
+      "output": "rue Descartes",
+      "pair_sha256": "2663bdfbd438b5c92bc9cd5a04eb9412e71cab362b011c990247c0af82f4e5b6",
+      "provenance": [
+        {
+          "occurrence_id": "O0801",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:258/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 34,
+      "max": 46
+    },
+    "output_lengths": {
+      "min": 10,
+      "max": 21
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Die Straßengrenze setzt ein einwortiges Postcodefeld und einen einwortigen Ort voraus."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "55, rue Descartes 5306 SURESNES, France",
+        "output": "rue Descartes"
+      },
+      {
+        "input": "27, avenue de Bouvines 2867 SCHOELCHER, France",
+        "output": "avenue de Bouvines"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "57, Rue Roussy 6711 ORANGE, France",
+        "output": "Rue Roussy"
+      },
+      {
+        "input": "4, Chemin Des Bateliers 2663 ANGLET, France",
+        "output": "Chemin Des Bateliers"
+      },
+      {
+        "input": "43, Faubourg Saint Honore 9489 PARIS, France",
+        "output": "Faubourg Saint Honore"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 188
+}

@@ -1,0 +1,162 @@
+{
+  "task_id": "T229",
+  "family_id": "field-extraction-v1",
+  "field": "HTML identifier",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "id=\""
+      ],
+      [
+        "before",
+        "\""
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0698"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "<h2 id=\"2011\">22. IJCAI 2011: Barcelona, Catalonia, Spain</h2>"
+      ],
+      "output": "2011",
+      "pair_sha256": "52027392af717a0f5c14401a5a81be96c8f181b8f62683be438acb631f225047",
+      "provenance": [
+        {
+          "occurrence_id": "O0698",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:236/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<h2 id=\"2003\">18. IJCAI 2003: Acapulco, Mexico</h2>"
+      ],
+      "output": "2003",
+      "pair_sha256": "ea8ddef1552fd9ef4a91c888a7e73fe992bc2bbaadbebfd05caeb8426536fe1f",
+      "provenance": [
+        {
+          "occurrence_id": "O0698",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:236/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<h2 id=\"2007\">20. IJCAI 2007: Hyderabad, India</h2>"
+      ],
+      "output": "2007",
+      "pair_sha256": "55b6c4a1d074bf52e7805cfb286f16a8c80030a2c07db10d568bbc9a3d842603",
+      "provenance": [
+        {
+          "occurrence_id": "O0698",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:236/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<h2 id=\"2005\">19. IJCAI 2005: Edinburgh, Scotland, UK</h2>"
+      ],
+      "output": "2005",
+      "pair_sha256": "0da47a9ff660d3a79eb6d24190ac84926083ea8acd708edc07846bf2de0daf3a",
+      "provenance": [
+        {
+          "occurrence_id": "O0698",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:236/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<h2 id=\"2015\">24. IJCAI 2015: Buenos Aires, Argentina</h2>"
+      ],
+      "output": "2015",
+      "pair_sha256": "e3e4b39b4625281174c09a9fcc767683eec838bcde4c12872003d90af65bead9",
+      "provenance": [
+        {
+          "occurrence_id": "O0698",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:236/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 51,
+      "max": 62
+    },
+    "output_lengths": {
+      "min": 4,
+      "max": 4
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Der zitierte id-Attributwert wird ausgewählt. Weitere Jahreszahlen in derselben Eingabe machen die Zielposition relevant."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "<h2 id=\"2007\">20. IJCAI 2007: Hyderabad, India</h2>",
+        "output": "2007"
+      },
+      {
+        "input": "<h2 id=\"2015\">24. IJCAI 2015: Buenos Aires, Argentina</h2>",
+        "output": "2015"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "<h2 id=\"2011\">22. IJCAI 2011: Barcelona, Catalonia, Spain</h2>",
+        "output": "2011"
+      },
+      {
+        "input": "<h2 id=\"2003\">18. IJCAI 2003: Acapulco, Mexico</h2>",
+        "output": "2003"
+      },
+      {
+        "input": "<h2 id=\"2005\">19. IJCAI 2005: Edinburgh, Scotland, UK</h2>",
+        "output": "2005"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 120
+}

@@ -1,0 +1,143 @@
+{
+  "task_id": "T190",
+  "family_id": "field-extraction-v1",
+  "field": "City field between first and second comma",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "token",
+        ",",
+        1
+      ],
+      [
+        "trim"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0010"
+  ],
+  "collections": [
+    "PROSE"
+  ],
+  "unique_example_count": 4,
+  "source_example_row_count": 4,
+  "examples": [
+    {
+      "input": [
+        "4594 133TH PLACE NE, Independence, DE 41230"
+      ],
+      "output": "Independence",
+      "pair_sha256": "ac31af63412ffe756d3e5905fbbdebc7b9d8908811f8db84e64689660ad1b5d4",
+      "provenance": [
+        {
+          "occurrence_id": "O0010",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000010/spec.json",
+          "location": "/Examples/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "One Madeup Street, Lancaster, MD 58712"
+      ],
+      "output": "Lancaster",
+      "pair_sha256": "a99c18368f4f00c37fd9d78daa5f13c62a16092a8c7f4e5f0957b3059ce5c43f",
+      "provenance": [
+        {
+          "occurrence_id": "O0010",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000010/spec.json",
+          "location": "/Examples/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "12 1st Way, Dalian, NJ 41230"
+      ],
+      "output": "Dalian",
+      "pair_sha256": "0e12e7cc4426aaa5dd8387982d0bd658d0847ef68b40f57e6b7c098aa44965ec",
+      "provenance": [
+        {
+          "occurrence_id": "O0010",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000010/spec.json",
+          "location": "/Examples/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "840 SW 126th Way, Oakland, CT 03719"
+      ],
+      "output": "Oakland",
+      "pair_sha256": "b4e9065abdb8d54c203bd24c64ba05c1ff9bb6b58e065e3b6853f1b7696f5d40",
+      "provenance": [
+        {
+          "occurrence_id": "O0010",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000010/spec.json",
+          "location": "/Examples/3"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 28,
+      "max": 43
+    },
+    "output_lengths": {
+      "min": 6,
+      "max": 12
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Das zweite Kommafeld wird gewählt. Äußere Leerzeichen werden durch die Feldgrenzen ausgeschlossen."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "840 SW 126th Way, Oakland, CT 03719",
+        "output": "Oakland"
+      },
+      {
+        "input": "4594 133TH PLACE NE, Independence, DE 41230",
+        "output": "Independence"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "12 1st Way, Dalian, NJ 41230",
+        "output": "Dalian"
+      },
+      {
+        "input": "One Madeup Street, Lancaster, MD 58712",
+        "output": "Lancaster"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 6
+}

@@ -1,0 +1,167 @@
+{
+  "task_id": "T264",
+  "family_id": "field-extraction-v1",
+  "field": "State name",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "Zip: "
+      ],
+      [
+        "token",
+        ", ",
+        1
+      ],
+      [
+        "before",
+        "("
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0843"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "City, State, Zip: Chicago, Illinois(IL), 60606"
+      ],
+      "output": "Illinois",
+      "pair_sha256": "9ce7b5905324acc33c3ff848b57bee074513c4218254879320ee71f33cb609fc",
+      "provenance": [
+        {
+          "occurrence_id": "O0843",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:146/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "City, State, Zip: North St Paul, Minnesota(MN), 55109"
+      ],
+      "output": "Minnesota",
+      "pair_sha256": "ede2a3d77e48d5d53ddb140b00353b4be34bfb0fee75eaf99d4802fd7e047d8b",
+      "provenance": [
+        {
+          "occurrence_id": "O0843",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:146/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "City, State, Zip: Terre Haute, Indiana(IN), 47807"
+      ],
+      "output": "Indiana",
+      "pair_sha256": "85b814cab60476bddb61e4cddb78a982a4491b5aaa2f229e50cad3eb085103c8",
+      "provenance": [
+        {
+          "occurrence_id": "O0843",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:146/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "City, State, Zip: Bethpage, New York(NY), 11714"
+      ],
+      "output": "New York",
+      "pair_sha256": "930a669420114ba8b1f5735f1ef27765468c97a413d6424ba0db91a9e5f3951a",
+      "provenance": [
+        {
+          "occurrence_id": "O0843",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:146/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "City, State, Zip: Houston, Texas(TX), 77587"
+      ],
+      "output": "Texas",
+      "pair_sha256": "4c0c6a8803fd0163bc0e6ba8ebce59ece973eac5c59f488d4e8291431d0c9822",
+      "provenance": [
+        {
+          "occurrence_id": "O0843",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:146/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 43,
+      "max": 53
+    },
+    "output_lengths": {
+      "min": 5,
+      "max": 9
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Das Bundesstaatsfeld nach dem Zip-Header enthält auch New York und endet vor seinem Klammerkürzel."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "City, State, Zip: Bethpage, New York(NY), 11714",
+        "output": "New York"
+      },
+      {
+        "input": "City, State, Zip: Chicago, Illinois(IL), 60606",
+        "output": "Illinois"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "City, State, Zip: Houston, Texas(TX), 77587",
+        "output": "Texas"
+      },
+      {
+        "input": "City, State, Zip: Terre Haute, Indiana(IN), 47807",
+        "output": "Indiana"
+      },
+      {
+        "input": "City, State, Zip: North St Paul, Minnesota(MN), 55109",
+        "output": "Minnesota"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 211
+}

@@ -1,0 +1,2647 @@
+{
+  "task_id": "T096",
+  "family_id": "field-extraction-v1",
+  "field": "Book title",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        ". "
+      ],
+      [
+        "before",
+        ", $"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0762"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "5. Harry Potter and the Prisoner of Azkaban, $17.99"
+      ],
+      "output": "Harry Potter and the Prisoner of Azkaban",
+      "pair_sha256": "b956946e7e3a3d4644d60f80a33b3dd06a1ca5a76c88d5e01068efbff3b123aa",
+      "provenance": [
+        {
+          "occurrence_id": "O0762",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:115/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "9. The Sun and Her Flowers, $6.49"
+      ],
+      "output": "The Sun and Her Flowers",
+      "pair_sha256": "b2cf60427e3b58573d0586eb2d1aa14011c1b6f22b69260e98b100e633cedb4f",
+      "provenance": [
+        {
+          "occurrence_id": "O0762",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:115/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "8. Leonardo da Vinci, $14.88"
+      ],
+      "output": "Leonardo da Vinci",
+      "pair_sha256": "7e948edb897103c79e2d0379dcb75c3ace39a9eef09eec2bd9a31dd2de5a8822",
+      "provenance": [
+        {
+          "occurrence_id": "O0762",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:115/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "1. Wonder, $6.37"
+      ],
+      "output": "Wonder",
+      "pair_sha256": "13d30d3807d38d6871d591ed195367cbb9ee2b04698b8fa56b7c547f7e45347e",
+      "provenance": [
+        {
+          "occurrence_id": "O0762",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:115/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "2. Giraffes Cant Dance, $2.32"
+      ],
+      "output": "Giraffes Cant Dance",
+      "pair_sha256": "9c22d99d3e41c5acd1d622772d43d7424a4937d036a4245c44175c2581b587fa",
+      "provenance": [
+        {
+          "occurrence_id": "O0762",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:115/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 16,
+      "max": 51
+    },
+    "output_lengths": {
+      "min": 6,
+      "max": 40
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Der Buchtitel liegt zwischen Rangpunkt und Komma-Dollar-Marker."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "5. Harry Potter and the Prisoner of Azkaban, $17.99",
+        "output": "Harry Potter and the Prisoner of Azkaban"
+      },
+      {
+        "input": "1. Wonder, $6.37",
+        "output": "Wonder"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "2. Giraffes Cant Dance, $2.32",
+        "output": "Giraffes Cant Dance"
+      },
+      {
+        "input": "9. The Sun and Her Flowers, $6.49",
+        "output": "The Sun and Her Flowers"
+      },
+      {
+        "input": "8. Leonardo da Vinci, $14.88",
+        "output": "Leonardo da Vinci"
+      }
+    ]
+  },
+  "behavioral": {
+    "bases": [
+      {
+        "base_id": "T096-B1",
+        "task_id": "T096",
+        "input": "5. Harry Potter and the Prisoner of Azkaban, $17.99",
+        "expected_output": "Harry Potter and the Prisoner of Azkaban",
+        "expected_span": [
+          3,
+          43
+        ],
+        "source_path": "data/tasks/T096.json#split.training",
+        "source_index": 0,
+        "role": "synthesis_example_for_paired_assertions_only"
+      },
+      {
+        "base_id": "T096-B2",
+        "task_id": "T096",
+        "input": "1. Wonder, $6.37",
+        "expected_output": "Wonder",
+        "expected_span": [
+          3,
+          9
+        ],
+        "source_path": "data/tasks/T096.json#split.training",
+        "source_index": 1,
+        "role": "synthesis_example_for_paired_assertions_only"
+      }
+    ],
+    "cases": [
+      {
+        "case_id": "T096-C9c051ac7a151c30285a3",
+        "task_id": "T096",
+        "input": "5. Harry Potter and the Pbnkmxgo of Azkaban, $17.99",
+        "expected_output": "Harry Potter and the Pbnkmxgo of Azkaban",
+        "expected_span": [
+          3,
+          43
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-V01-1"
+        ]
+      },
+      {
+        "case_id": "T096-Cd624258ceb2e87eaa232",
+        "task_id": "T096",
+        "input": "5. Harry Potter and the Phdcfrhv of Azkaban, $17.99",
+        "expected_output": "Harry Potter and the Phdcfrhv of Azkaban",
+        "expected_span": [
+          3,
+          43
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-V01-2"
+        ]
+      },
+      {
+        "case_id": "T096-C9cc4242eefd0a0580c2b",
+        "task_id": "T096",
+        "input": "5. Harry Potter and the Pgyrchkv of Azkaban, $17.99",
+        "expected_output": "Harry Potter and the Pgyrchkv of Azkaban",
+        "expected_span": [
+          3,
+          43
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-V01-3"
+        ]
+      },
+      {
+        "case_id": "T096-Cb245bc0352dcfc65d4f0",
+        "task_id": "T096",
+        "input": "5. Harry Potter and the Prisoner of Azkaban, $51.99",
+        "expected_output": "Harry Potter and the Prisoner of Azkaban",
+        "expected_span": [
+          3,
+          43
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-V02-1"
+        ]
+      },
+      {
+        "case_id": "T096-Cff9f1c224be2632d47bb",
+        "task_id": "T096",
+        "input": "5. Harry Potter and the Prisoner of Azkaban, $41.99",
+        "expected_output": "Harry Potter and the Prisoner of Azkaban",
+        "expected_span": [
+          3,
+          43
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-V02-2"
+        ]
+      },
+      {
+        "case_id": "T096-Cdb27ef4e046f2c87b967",
+        "task_id": "T096",
+        "input": "5. Harry Potter and the Prisoner of Azkaban, $64.99",
+        "expected_output": "Harry Potter and the Prisoner of Azkaban",
+        "expected_span": [
+          3,
+          43
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-V02-3"
+        ]
+      },
+      {
+        "case_id": "T096-Cf0dce27bffd7eeb079d4",
+        "task_id": "T096",
+        "input": "56. Harry Potter and the Prisoner of Azkaban, $17.99",
+        "expected_output": "Harry Potter and the Prisoner of Azkaban",
+        "expected_span": [
+          4,
+          44
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-V03-1"
+        ]
+      },
+      {
+        "case_id": "T096-Cba85f307a770d8c7047e",
+        "task_id": "T096",
+        "input": "58. Harry Potter and the Prisoner of Azkaban, $17.99",
+        "expected_output": "Harry Potter and the Prisoner of Azkaban",
+        "expected_span": [
+          4,
+          44
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-V03-2"
+        ]
+      },
+      {
+        "case_id": "T096-C07a39b833c95cf2f99dc",
+        "task_id": "T096",
+        "input": "5655. Harry Potter and the Prisoner of Azkaban, $17.99",
+        "expected_output": "Harry Potter and the Prisoner of Azkaban",
+        "expected_span": [
+          6,
+          46
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-V03-3"
+        ]
+      },
+      {
+        "case_id": "T096-C1b6d2dd4512e96abe7e7",
+        "task_id": "T096",
+        "input": "5. Harry Potter and the Prisonerqtkwznlbeiyaxyegebgr of Azkaban, $17.99",
+        "expected_output": "Harry Potter and the Prisonerqtkwznlbeiyaxyegebgr of Azkaban",
+        "expected_span": [
+          3,
+          63
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-V04-1"
+        ]
+      },
+      {
+        "case_id": "T096-C74602172bd4545a9f8fb",
+        "task_id": "T096",
+        "input": "5. Harry Potter and the Prisonerrnytzjgceqfauikmjlnjxashpksfmbumuqdmaibh of Azkaban, $17.99",
+        "expected_output": "Harry Potter and the Prisonerrnytzjgceqfauikmjlnjxashpksfmbumuqdmaibh of Azkaban",
+        "expected_span": [
+          3,
+          83
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-V04-2"
+        ]
+      },
+      {
+        "case_id": "T096-C38b4c7a5c74b0b57dfc0",
+        "task_id": "T096",
+        "input": "5. Harry Potter and the Prisonercmlqlgppikmferoowwrszuyjtnlzutylrfccxtozwttmcjpmhpbhbjmhcikgslkdrzfkwztzmusanbkofbddvqbxdpxumdegghrrxknmpumieqfwszlfpcfe of Azkaban, $17.99",
+        "expected_output": "Harry Potter and the Prisonercmlqlgppikmferoowwrszuyjtnlzutylrfccxtozwttmcjpmhpbhbjmhcikgslkdrzfkwztzmusanbkofbddvqbxdpxumdegghrrxknmpumieqfwszlfpcfe of Azkaban",
+        "expected_span": [
+          3,
+          163
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-V04-3"
+        ]
+      },
+      {
+        "case_id": "T096-C1a301bf06a1b0afb3391",
+        "task_id": "T096",
+        "input": ". QZJQUMTKMUTJ, $5. Harry Potter and the Prisoner of Azkaban, $17.99",
+        "expected_output": "QZJQUMTKMUTJ",
+        "expected_span": [
+          2,
+          14
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-S01-1"
+        ]
+      },
+      {
+        "case_id": "T096-C17a80027211bb435f7ea",
+        "task_id": "T096",
+        "input": ". VSVQKMDPGMSJ, $5. Harry Potter and the Prisoner of Azkaban, $17.99",
+        "expected_output": "VSVQKMDPGMSJ",
+        "expected_span": [
+          2,
+          14
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-S01-2"
+        ]
+      },
+      {
+        "case_id": "T096-Cee9d74cefe929aa2d286",
+        "task_id": "T096",
+        "input": "5. Harry Potter and the Prisoner of Azkaban, $17.99. QFGEMTNCQKSU, $",
+        "expected_output": "Harry Potter and the Prisoner of Azkaban",
+        "expected_span": [
+          3,
+          43
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-S01-3"
+        ]
+      },
+      {
+        "case_id": "T096-C124cfd283ee693032b73",
+        "task_id": "T096",
+        "input": "5. Harry Potter and the Prisoner of Azkaban, $17.99. TUCQPQAROMAK, $",
+        "expected_output": "Harry Potter and the Prisoner of Azkaban",
+        "expected_span": [
+          3,
+          43
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B1-S01-4"
+        ]
+      },
+      {
+        "case_id": "T096-C1fe4382d3235df988141",
+        "task_id": "T096",
+        "input": "1. Waenga, $6.37",
+        "expected_output": "Waenga",
+        "expected_span": [
+          3,
+          9
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-V01-1"
+        ]
+      },
+      {
+        "case_id": "T096-C2df16e202115bebff919",
+        "task_id": "T096",
+        "input": "1. Wrxmwp, $6.37",
+        "expected_output": "Wrxmwp",
+        "expected_span": [
+          3,
+          9
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-V01-2"
+        ]
+      },
+      {
+        "case_id": "T096-C2afd705ebcf43b0516b1",
+        "task_id": "T096",
+        "input": "1. Wviqdd, $6.37",
+        "expected_output": "Wviqdd",
+        "expected_span": [
+          3,
+          9
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-V01-3"
+        ]
+      },
+      {
+        "case_id": "T096-Cb8aeddbeaa5e0b19aa57",
+        "task_id": "T096",
+        "input": "1. Wonder, $6.28",
+        "expected_output": "Wonder",
+        "expected_span": [
+          3,
+          9
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-V02-1"
+        ]
+      },
+      {
+        "case_id": "T096-Ccc6ec362bdcba99e26a1",
+        "task_id": "T096",
+        "input": "1. Wonder, $6.53",
+        "expected_output": "Wonder",
+        "expected_span": [
+          3,
+          9
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-V02-2"
+        ]
+      },
+      {
+        "case_id": "T096-Cdb38fcc89535d5b776c4",
+        "task_id": "T096",
+        "input": "1. Wonder, $6.76",
+        "expected_output": "Wonder",
+        "expected_span": [
+          3,
+          9
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-V02-3"
+        ]
+      },
+      {
+        "case_id": "T096-C2b66dbaadc7f72a82fb1",
+        "task_id": "T096",
+        "input": "14. Wonder, $6.37",
+        "expected_output": "Wonder",
+        "expected_span": [
+          4,
+          10
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-V03-1"
+        ]
+      },
+      {
+        "case_id": "T096-C109c34c471e88967bc83",
+        "task_id": "T096",
+        "input": "17. Wonder, $6.37",
+        "expected_output": "Wonder",
+        "expected_span": [
+          4,
+          10
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-V03-2"
+        ]
+      },
+      {
+        "case_id": "T096-Cba548e88814e7d8bc13b",
+        "task_id": "T096",
+        "input": "1963. Wonder, $6.37",
+        "expected_output": "Wonder",
+        "expected_span": [
+          6,
+          12
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-V03-3"
+        ]
+      },
+      {
+        "case_id": "T096-C68376c9ae058846a487d",
+        "task_id": "T096",
+        "input": "1. Wonderbwalqgchgaimewcqafohnvnvdruufqqbvqregjeokfaxwlkutbdwxs, $6.37",
+        "expected_output": "Wonderbwalqgchgaimewcqafohnvnvdruufqqbvqregjeokfaxwlkutbdwxs",
+        "expected_span": [
+          3,
+          63
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-V04-1"
+        ]
+      },
+      {
+        "case_id": "T096-C2d3a79c8434bc225de9d",
+        "task_id": "T096",
+        "input": "1. Wonderpwndpbytlrfinfrffrkpltqqaotubisasnvpofnkgevqpifohfyskmlmpsxyiapvqaofwvsbml, $6.37",
+        "expected_output": "Wonderpwndpbytlrfinfrffrkpltqqaotubisasnvpofnkgevqpifohfyskmlmpsxyiapvqaofwvsbml",
+        "expected_span": [
+          3,
+          83
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-V04-2"
+        ]
+      },
+      {
+        "case_id": "T096-Cb3a8f4f631c7f0099b25",
+        "task_id": "T096",
+        "input": "1. Wondervgengqpgafeuezhmhoaodmvjbtuyldbjzlswplketgqxznlcrtytrrlnrankijtnnbuvmmrmxpveatddfeoandcrvuepncmstwvndmhhwpdtcbvtbdsgzengarqcsgplopcqomswgdrblfoosoydubcuzr, $6.37",
+        "expected_output": "Wondervgengqpgafeuezhmhoaodmvjbtuyldbjzlswplketgqxznlcrtytrrlnrankijtnnbuvmmrmxpveatddfeoandcrvuepncmstwvndmhhwpdtcbvtbdsgzengarqcsgplopcqomswgdrblfoosoydubcuzr",
+        "expected_span": [
+          3,
+          163
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-V04-3"
+        ]
+      },
+      {
+        "case_id": "T096-C9d20854100b0fcb466e8",
+        "task_id": "T096",
+        "input": "1. H, $6.37",
+        "expected_output": "H",
+        "expected_span": [
+          3,
+          4
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-V05-1"
+        ]
+      },
+      {
+        "case_id": "T096-C597bab050ab044308e9b",
+        "task_id": "T096",
+        "input": ". RJAGHX, $1. Wonder, $6.37",
+        "expected_output": "RJAGHX",
+        "expected_span": [
+          2,
+          8
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-S01-1"
+        ]
+      },
+      {
+        "case_id": "T096-Cdac7f26d5468077cb890",
+        "task_id": "T096",
+        "input": ". RLMTJH, $1. Wonder, $6.37",
+        "expected_output": "RLMTJH",
+        "expected_span": [
+          2,
+          8
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-S01-2"
+        ]
+      },
+      {
+        "case_id": "T096-Ced0f075b7cd90ec28dda",
+        "task_id": "T096",
+        "input": "1. Wonder, $6.37. SZWSWG, $",
+        "expected_output": "Wonder",
+        "expected_span": [
+          3,
+          9
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-S01-3"
+        ]
+      },
+      {
+        "case_id": "T096-Cdfa14fcfae7b520454a8",
+        "task_id": "T096",
+        "input": "1. Wonder, $6.37. IXWSBL, $",
+        "expected_output": "Wonder",
+        "expected_span": [
+          3,
+          9
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T096-B2-S01-4"
+        ]
+      }
+    ],
+    "obligations": [
+      {
+        "obligation_id": "T096-B1-V01-1",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C9c051ac7a151c30285a3",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 25,
+          "end": 32,
+          "replacement": "bnkmxgo"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Pbnkmxgo of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-V01-1-relation",
+            "base_id": "T096-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 22,
+            "end": 29,
+            "replacement": "bnkmxgo"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-V01-2",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Cd624258ceb2e87eaa232",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 25,
+          "end": 32,
+          "replacement": "hdcfrhv"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Phdcfrhv of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-V01-2-relation",
+            "base_id": "T096-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 22,
+            "end": 29,
+            "replacement": "hdcfrhv"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-V01-3",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C9cc4242eefd0a0580c2b",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 25,
+          "end": 32,
+          "replacement": "gyrchkv"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Pgyrchkv of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-V01-3-relation",
+            "base_id": "T096-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 22,
+            "end": 29,
+            "replacement": "gyrchkv"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-V02-1",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Cb245bc0352dcfc65d4f0",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 46,
+          "end": 48,
+          "replacement": "51"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Prisoner of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-V02-1-relation",
+            "base_id": "T096-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-V02-2",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Cff9f1c224be2632d47bb",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 46,
+          "end": 48,
+          "replacement": "41"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Prisoner of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-V02-2-relation",
+            "base_id": "T096-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-V02-3",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Cdb27ef4e046f2c87b967",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 46,
+          "end": 48,
+          "replacement": "64"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Prisoner of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-V02-3-relation",
+            "base_id": "T096-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-V03-1",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Cf0dce27bffd7eeb079d4",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 0,
+          "end": 1,
+          "replacement": "56"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-V03-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Prisoner of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-V03-1-relation",
+            "base_id": "T096-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-V03-2",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Cba85f307a770d8c7047e",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 0,
+          "end": 1,
+          "replacement": "58"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-V03-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Prisoner of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-V03-2-relation",
+            "base_id": "T096-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-V03-3",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 4
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C07a39b833c95cf2f99dc",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 4,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 0,
+          "end": 1,
+          "replacement": "5655"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-V03-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Prisoner of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-V03-3-relation",
+            "base_id": "T096-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-V04-1",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 60
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C1b6d2dd4512e96abe7e7",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 6,
+            "observed_max": 40,
+            "test_value": 60,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 25,
+          "end": 32,
+          "replacement": "risonerqtkwznlbeiyaxyegebgr"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Prisonerqtkwznlbeiyaxyegebgr of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-V04-1-relation",
+            "base_id": "T096-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 22,
+            "end": 29,
+            "replacement": "risonerqtkwznlbeiyaxyegebgr"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-V04-2",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 80
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C74602172bd4545a9f8fb",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 6,
+            "observed_max": 40,
+            "test_value": 80,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 25,
+          "end": 32,
+          "replacement": "risonerrnytzjgceqfauikmjlnjxashpksfmbumuqdmaibh"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Prisonerrnytzjgceqfauikmjlnjxashpksfmbumuqdmaibh of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-V04-2-relation",
+            "base_id": "T096-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 22,
+            "end": 29,
+            "replacement": "risonerrnytzjgceqfauikmjlnjxashpksfmbumuqdmaibh"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-V04-3",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 160
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C38b4c7a5c74b0b57dfc0",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 6,
+            "observed_max": 40,
+            "test_value": 160,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 25,
+          "end": 32,
+          "replacement": "risonercmlqlgppikmferoowwrszuyjtnlzutylrfccxtozwttmcjpmhpbhbjmhcikgslkdrzfkwztzmusanbkofbddvqbxdpxumdegghrrxknmpumieqfwszlfpcfe"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Prisonercmlqlgppikmferoowwrszuyjtnlzutylrfccxtozwttmcjpmhpbhbjmhcikgslkdrzfkwztzmusanbkofbddvqbxdpxumdegghrrxknmpumieqfwszlfpcfe of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-V04-3-relation",
+            "base_id": "T096-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 22,
+            "end": 29,
+            "replacement": "risonercmlqlgppikmferoowwrszuyjtnlzutylrfccxtozwttmcjpmhpbhbjmhcikgslkdrzfkwztzmusanbkofbddvqbxdpxumdegghrrxknmpumieqfwszlfpcfe"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-V05-1",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure"
+      },
+      {
+        "obligation_id": "T096-B1-S01-1",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C1a301bf06a1b0afb3391",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": ". "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": ". ",
+            "closing_marker": ", $"
+          },
+          "side": "before",
+          "dummy_field": "QZJQUMTKMUTJ"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "QZJQUMTKMUTJ"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-S01-2",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C17a80027211bb435f7ea",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": ". "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": ". ",
+            "closing_marker": ", $"
+          },
+          "side": "before",
+          "dummy_field": "VSVQKMDPGMSJ"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "VSVQKMDPGMSJ"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-S01-3",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Cee9d74cefe929aa2d286",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": ". "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": ". ",
+            "closing_marker": ", $"
+          },
+          "side": "after",
+          "dummy_field": "QFGEMTNCQKSU"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Prisoner of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-S01-3-relation",
+            "base_id": "T096-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B1-S01-4",
+        "task_id": "T096",
+        "base_id": "T096-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C124cfd283ee693032b73",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": ". "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": ". ",
+            "closing_marker": ", $"
+          },
+          "side": "after",
+          "dummy_field": "TUCQPQAROMAK"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B1-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Harry Potter and the Prisoner of Azkaban"
+          },
+          {
+            "assertion_id": "T096-B1-S01-4-relation",
+            "base_id": "T096-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-V01-1",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C1fe4382d3235df988141",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 4,
+          "end": 9,
+          "replacement": "aenga"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Waenga"
+          },
+          {
+            "assertion_id": "T096-B2-V01-1-relation",
+            "base_id": "T096-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 6,
+            "replacement": "aenga"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-V01-2",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C2df16e202115bebff919",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 4,
+          "end": 9,
+          "replacement": "rxmwp"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Wrxmwp"
+          },
+          {
+            "assertion_id": "T096-B2-V01-2-relation",
+            "base_id": "T096-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 6,
+            "replacement": "rxmwp"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-V01-3",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C2afd705ebcf43b0516b1",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 4,
+          "end": 9,
+          "replacement": "viqdd"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Wviqdd"
+          },
+          {
+            "assertion_id": "T096-B2-V01-3-relation",
+            "base_id": "T096-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 6,
+            "replacement": "viqdd"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-V02-1",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Cb8aeddbeaa5e0b19aa57",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 14,
+          "end": 16,
+          "replacement": "28"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Wonder"
+          },
+          {
+            "assertion_id": "T096-B2-V02-1-relation",
+            "base_id": "T096-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-V02-2",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Ccc6ec362bdcba99e26a1",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 14,
+          "end": 16,
+          "replacement": "53"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Wonder"
+          },
+          {
+            "assertion_id": "T096-B2-V02-2-relation",
+            "base_id": "T096-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-V02-3",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Cdb38fcc89535d5b776c4",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 14,
+          "end": 16,
+          "replacement": "76"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Wonder"
+          },
+          {
+            "assertion_id": "T096-B2-V02-3-relation",
+            "base_id": "T096-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-V03-1",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C2b66dbaadc7f72a82fb1",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 0,
+          "end": 1,
+          "replacement": "14"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-V03-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Wonder"
+          },
+          {
+            "assertion_id": "T096-B2-V03-1-relation",
+            "base_id": "T096-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-V03-2",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C109c34c471e88967bc83",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 0,
+          "end": 1,
+          "replacement": "17"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-V03-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Wonder"
+          },
+          {
+            "assertion_id": "T096-B2-V03-2-relation",
+            "base_id": "T096-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-V03-3",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 4
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Cba548e88814e7d8bc13b",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 4,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 0,
+          "end": 1,
+          "replacement": "1963"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-V03-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Wonder"
+          },
+          {
+            "assertion_id": "T096-B2-V03-3-relation",
+            "base_id": "T096-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-V04-1",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 60
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C68376c9ae058846a487d",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 6,
+            "observed_max": 40,
+            "test_value": 60,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 4,
+          "end": 9,
+          "replacement": "onderbwalqgchgaimewcqafohnvnvdruufqqbvqregjeokfaxwlkutbdwxs"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Wonderbwalqgchgaimewcqafohnvnvdruufqqbvqregjeokfaxwlkutbdwxs"
+          },
+          {
+            "assertion_id": "T096-B2-V04-1-relation",
+            "base_id": "T096-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 6,
+            "replacement": "onderbwalqgchgaimewcqafohnvnvdruufqqbvqregjeokfaxwlkutbdwxs"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-V04-2",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 80
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C2d3a79c8434bc225de9d",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 6,
+            "observed_max": 40,
+            "test_value": 80,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 4,
+          "end": 9,
+          "replacement": "onderpwndpbytlrfinfrffrkpltqqaotubisasnvpofnkgevqpifohfyskmlmpsxyiapvqaofwvsbml"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Wonderpwndpbytlrfinfrffrkpltqqaotubisasnvpofnkgevqpifohfyskmlmpsxyiapvqaofwvsbml"
+          },
+          {
+            "assertion_id": "T096-B2-V04-2-relation",
+            "base_id": "T096-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 6,
+            "replacement": "onderpwndpbytlrfinfrffrkpltqqaotubisasnvpofnkgevqpifohfyskmlmpsxyiapvqaofwvsbml"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-V04-3",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 160
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Cb3a8f4f631c7f0099b25",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 6,
+            "observed_max": 40,
+            "test_value": 160,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 4,
+          "end": 9,
+          "replacement": "ondervgengqpgafeuezhmhoaodmvjbtuyldbjzlswplketgqxznlcrtytrrlnrankijtnnbuvmmrmxpveatddfeoandcrvuepncmstwvndmhhwpdtcbvtbdsgzengarqcsgplopcqomswgdrblfoosoydubcuzr"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Wondervgengqpgafeuezhmhoaodmvjbtuyldbjzlswplketgqxznlcrtytrrlnrankijtnnbuvmmrmxpveatddfeoandcrvuepncmstwvndmhhwpdtcbvtbdsgzengarqcsgplopcqomswgdrblfoosoydubcuzr"
+          },
+          {
+            "assertion_id": "T096-B2-V04-3-relation",
+            "base_id": "T096-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 1,
+            "end": 6,
+            "replacement": "ondervgengqpgafeuezhmhoaodmvjbtuyldbjzlswplketgqxznlcrtytrrlnrankijtnnbuvmmrmxpveatddfeoandcrvuepncmstwvndmhhwpdtcbvtbdsgzengarqcsgplopcqomswgdrblfoosoydubcuzr"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-V05-1",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C9d20854100b0fcb466e8",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "value": "Boundary",
+            "attribute": "target_length",
+            "boundary": 1,
+            "requirement": "nonempty_selected_field"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 6,
+            "observed_max": 40,
+            "test_value": 1,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 3,
+          "end": 9,
+          "replacement": "H"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-V05-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "H"
+          },
+          {
+            "assertion_id": "T096-B2-V05-1-relation",
+            "base_id": "T096-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 6,
+            "replacement": "H"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-S01-1",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-C597bab050ab044308e9b",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": ". "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": ". ",
+            "closing_marker": ", $"
+          },
+          "side": "before",
+          "dummy_field": "RJAGHX"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "RJAGHX"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-S01-2",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Cdac7f26d5468077cb890",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": ". "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": ". ",
+            "closing_marker": ", $"
+          },
+          "side": "before",
+          "dummy_field": "RLMTJH"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "RLMTJH"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-S01-3",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Ced0f075b7cd90ec28dda",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": ". "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": ". ",
+            "closing_marker": ", $"
+          },
+          "side": "after",
+          "dummy_field": "SZWSWG"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Wonder"
+          },
+          {
+            "assertion_id": "T096-B2-S01-3-relation",
+            "base_id": "T096-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T096-B2-S01-4",
+        "task_id": "T096",
+        "base_id": "T096-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T096-Cdfa14fcfae7b520454a8",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": ". "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": ". ",
+            "closing_marker": ", $"
+          },
+          "side": "after",
+          "dummy_field": "IXWSBL"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T096-B2-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "Wonder"
+          },
+          {
+            "assertion_id": "T096-B2-S01-4-relation",
+            "base_id": "T096-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      }
+    ],
+    "applicability": [
+      {
+        "task_id": "T096",
+        "operator_id": "V01",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T096",
+        "operator_id": "V02",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T096",
+        "operator_id": "V03",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T096",
+        "operator_id": "V04",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T096",
+        "operator_id": "V05",
+        "obligations": 2,
+        "statuses": {
+          "not_applicable_to_operator": 1,
+          "planned": 1
+        },
+        "unique_cases": 1,
+        "reasons": {
+          "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure": 1
+        }
+      },
+      {
+        "task_id": "T096",
+        "operator_id": "S01",
+        "obligations": 8,
+        "statuses": {
+          "planned": 8
+        },
+        "unique_cases": 8,
+        "reasons": {}
+      }
+    ]
+  },
+  "generation_seed": 160
+}

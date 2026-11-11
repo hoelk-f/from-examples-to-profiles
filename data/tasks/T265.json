@@ -1,0 +1,158 @@
+{
+  "task_id": "T265",
+  "family_id": "field-extraction-v1",
+  "field": "Card number",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "before",
+        ","
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0865"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "5323 5254 7005 2676, 07/23, 627, Simmona Elzey, MasterCard"
+      ],
+      "output": "5323 5254 7005 2676",
+      "pair_sha256": "7a45f54b7868ec9846fb7ddb712e4b82968b4553e5de502c40ce49f192f16f1a",
+      "provenance": [
+        {
+          "occurrence_id": "O0865",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:206/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "5127 1743 3998 9394, 01/20, 588, Gilbertha Stamey, MasterCard"
+      ],
+      "output": "5127 1743 3998 9394",
+      "pair_sha256": "2ee9a82412c5e461da2f0fbd99819085ae8bf560bedc7f791cbc3bac8c07db84",
+      "provenance": [
+        {
+          "occurrence_id": "O0865",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:206/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "5404 3677 2397 0897, 12/20, 710, Fulk Sharkey, MasterCard"
+      ],
+      "output": "5404 3677 2397 0897",
+      "pair_sha256": "95de43fe50583ab5ac1e367a99f79cdc6a5c2faf6881004d33458cee5d12a167",
+      "provenance": [
+        {
+          "occurrence_id": "O0865",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:206/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "5121 6409 6639 2751, 11/20, 275, Wioleta Sheffer, MasterCard"
+      ],
+      "output": "5121 6409 6639 2751",
+      "pair_sha256": "76cdc843414a547cf46a7e5f74809f37d7a1880e67f7544571aaa3777931a8ca",
+      "provenance": [
+        {
+          "occurrence_id": "O0865",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:206/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "5315 7317 7561 0495, 12/23, 207, Deval O\"\"Donnell, MasterCard"
+      ],
+      "output": "5315 7317 7561 0495",
+      "pair_sha256": "c6608bad2963717513083c36520e1144604435c99d2556f36ba8bb17a7fc561c",
+      "provenance": [
+        {
+          "occurrence_id": "O0865",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:206/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 57,
+      "max": 61
+    },
+    "output_lengths": {
+      "min": 19,
+      "max": 19
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Das erste Kommafeld enthält die Nummer, unabhängig von späteren Namen und Codes."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "5121 6409 6639 2751, 11/20, 275, Wioleta Sheffer, MasterCard",
+        "output": "5121 6409 6639 2751"
+      },
+      {
+        "input": "5315 7317 7561 0495, 12/23, 207, Deval O\"\"Donnell, MasterCard",
+        "output": "5315 7317 7561 0495"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "5127 1743 3998 9394, 01/20, 588, Gilbertha Stamey, MasterCard",
+        "output": "5127 1743 3998 9394"
+      },
+      {
+        "input": "5404 3677 2397 0897, 12/20, 710, Fulk Sharkey, MasterCard",
+        "output": "5404 3677 2397 0897"
+      },
+      {
+        "input": "5323 5254 7005 2676, 07/23, 627, Simmona Elzey, MasterCard",
+        "output": "5323 5254 7005 2676"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 215
+}

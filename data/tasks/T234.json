@@ -1,0 +1,159 @@
+{
+  "task_id": "T234",
+  "family_id": "field-extraction-v1",
+  "field": "Quoted position",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "token",
+        "\"",
+        5
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0705"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "\"Mark Buehrle\", \"CWS\", \"Starting Pitcher\""
+      ],
+      "output": "Starting Pitcher",
+      "pair_sha256": "9ee8bc22a9a6ce882d6bacba261a20dae2f711b4cbe9881750384c744ca8c90e",
+      "provenance": [
+        {
+          "occurrence_id": "O0705",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:288/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Jeff Mathis\", \"ANA\", \"Catcher\""
+      ],
+      "output": "Catcher",
+      "pair_sha256": "6e3ca32a05b3802e9b1bc3b83331b016048496e26ca1ff770b6c7d8362e128c1",
+      "provenance": [
+        {
+          "occurrence_id": "O0705",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:288/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Vladimir Guerrero\", \"ANA\", \"Outfielder\""
+      ],
+      "output": "Outfielder",
+      "pair_sha256": "8d26d7ecab0ec32bbecb46033d41129a355b4c6e300befd03e512c2f120e1268",
+      "provenance": [
+        {
+          "occurrence_id": "O0705",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:288/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Albert Pujols\", \"STL\", \"First Baseman\""
+      ],
+      "output": "First Baseman",
+      "pair_sha256": "c1102fc8f980b56fc3c9648f1acb0ee78b6c90e5322fb255628a2de91c24c120",
+      "provenance": [
+        {
+          "occurrence_id": "O0705",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:288/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Scott Podsednik\", \"CWS\", \"Outfielder\""
+      ],
+      "output": "Outfielder",
+      "pair_sha256": "c01ebbe6f5960cfc5e7fa53e417ecacf84f5a91cc80b58708e48ef56db022a05",
+      "provenance": [
+        {
+          "occurrence_id": "O0705",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:288/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 31,
+      "max": 41
+    },
+    "output_lengths": {
+      "min": 7,
+      "max": 16
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Das fünfte Quote-Token bildet das dritte zitierte Feld und erhält mehrere Wörter."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "\"Mark Buehrle\", \"CWS\", \"Starting Pitcher\"",
+        "output": "Starting Pitcher"
+      },
+      {
+        "input": "\"Scott Podsednik\", \"CWS\", \"Outfielder\"",
+        "output": "Outfielder"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "\"Albert Pujols\", \"STL\", \"First Baseman\"",
+        "output": "First Baseman"
+      },
+      {
+        "input": "\"Vladimir Guerrero\", \"ANA\", \"Outfielder\"",
+        "output": "Outfielder"
+      },
+      {
+        "input": "\"Jeff Mathis\", \"ANA\", \"Catcher\"",
+        "output": "Catcher"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 126
+}

@@ -1,0 +1,162 @@
+{
+  "task_id": "T225",
+  "family_id": "field-extraction-v1",
+  "field": "HTML href value",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "href=\""
+      ],
+      [
+        "before",
+        "\""
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0689"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "<a href=\"default.asp\">HTML tutorial</a>"
+      ],
+      "output": "default.asp",
+      "pair_sha256": "edb1c702180f6f4645ab4e1dd05d0f3866d76ba2379893e786953f4427308ce4",
+      "provenance": [
+        {
+          "occurrence_id": "O0689",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:43/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<a href=\"bbc.co.uk\">news</a>"
+      ],
+      "output": "bbc.co.uk",
+      "pair_sha256": "4603c2ab9b4d8243c22260c1407610fc85da8983c1ad66a1b98daba522762e85",
+      "provenance": [
+        {
+          "occurrence_id": "O0689",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:43/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<a href=\"google.com\">search</a>"
+      ],
+      "output": "google.com",
+      "pair_sha256": "3170db7eb10624ee3acd48c65c17e2eeda1670cfa802dde45327372e36674b1b",
+      "provenance": [
+        {
+          "occurrence_id": "O0689",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:43/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<a href=\"/html/default.asp\">HTML tutorial</a>"
+      ],
+      "output": "/html/default.asp",
+      "pair_sha256": "1234c301b9073d11a10682586c8a2c8b44faa70942a2ad4967cd070f1dab77e4",
+      "provenance": [
+        {
+          "occurrence_id": "O0689",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:43/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<a href=\"https://www.w3schools.com/\">Visit W3Schools!</a>"
+      ],
+      "output": "https://www.w3schools.com/",
+      "pair_sha256": "16fa5b7e95919095fd088a4d3c45c42ccb3bfd4663e390e4fd666259140b7bca",
+      "provenance": [
+        {
+          "occurrence_id": "O0689",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:43/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 28,
+      "max": 57
+    },
+    "output_lengths": {
+      "min": 9,
+      "max": 26
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Der vollständige doppelt zitierte href-Wert kann ein relativer Pfad oder eine URL sein."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "<a href=\"default.asp\">HTML tutorial</a>",
+        "output": "default.asp"
+      },
+      {
+        "input": "<a href=\"google.com\">search</a>",
+        "output": "google.com"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "<a href=\"bbc.co.uk\">news</a>",
+        "output": "bbc.co.uk"
+      },
+      {
+        "input": "<a href=\"https://www.w3schools.com/\">Visit W3Schools!</a>",
+        "output": "https://www.w3schools.com/"
+      },
+      {
+        "input": "<a href=\"/html/default.asp\">HTML tutorial</a>",
+        "output": "/html/default.asp"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 114
+}

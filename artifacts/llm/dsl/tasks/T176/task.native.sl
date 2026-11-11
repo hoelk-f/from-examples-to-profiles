@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " - +" " PM - +91 90000 80000= " " ipsum" "+" "," ", " "-" "=" "= " "Dec 2, 2014, 11=2" "ipsum ipsum" "loren loren loren loren loren loren loren loren ipsum" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "Dec 2, 2014, 11=24 PM - +91 90000 80000= ipsum ipsum") "ipsum ipsum"))
+(constraint (= (f "Dec 2, 2014, 11=23 PM - +91 90000 80000= loren loren loren loren loren loren loren loren ipsum") "loren loren loren loren loren loren loren loren ipsum"))
+(check-synth)

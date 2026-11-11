@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " 2" "1Z " "2 " "3 " "430" "811" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "1Z D8X 6H2 63 1247 430 2") "430"))
+(constraint (= (f "1Z W13 2O2 22 2441 811 7") "811"))
+(check-synth)

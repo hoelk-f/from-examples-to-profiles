@@ -1,0 +1,2209 @@
+{
+  "task_id": "T132",
+  "family_id": "field-extraction-v1",
+  "field": "Journal rank and name field",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "token_span",
+        " ",
+        0,
+        -3
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0860"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "9 New England Journal of Medicine 3,564 568,698"
+      ],
+      "output": "9 New England Journal of Medicine",
+      "pair_sha256": "71102c496c3bd0f6f1dbe5d944177d145d3fc56ec0d624c9a94ad4c088fea08b",
+      "provenance": [
+        {
+          "occurrence_id": "O0860",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:171/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "6 J. American Chemical Society 29,272 881,457"
+      ],
+      "output": "6 J. American Chemical Society",
+      "pair_sha256": "7898a2046c13359b4499f6e5cd3d5b0d57584fec3ac568bf5df1649a5640121c",
+      "provenance": [
+        {
+          "occurrence_id": "O0860",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:171/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "2 Proc. Natl. Acad. Sci. USA (PNAS) 30,396 1,376,541"
+      ],
+      "output": "2 Proc. Natl. Acad. Sci. USA (PNAS)",
+      "pair_sha256": "3282f3643c0975e49152d2477b1fd06d2121725a0e5b1f3950ca1b85ff33daaf",
+      "provenance": [
+        {
+          "occurrence_id": "O0860",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:171/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "8 Astrophysical Journal 26,418 581,299"
+      ],
+      "output": "8 Astrophysical Journal",
+      "pair_sha256": "c9c3e7067911c90c51a4040362814ccc1166348dc31f05cee21a1074caf1140d",
+      "provenance": [
+        {
+          "occurrence_id": "O0860",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:171/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "10 Applied Physics Letters 36,759 549,224"
+      ],
+      "output": "10 Applied Physics Letters",
+      "pair_sha256": "ef942755fa9a13b9fbf7f6473765d3ceef41eec5ea10e5eb44dd3158239abb1f",
+      "provenance": [
+        {
+          "occurrence_id": "O0860",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:171/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 38,
+      "max": 52
+    },
+    "output_lengths": {
+      "min": 23,
+      "max": 35
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Der zusammenhängende Zielbereich umfasst Rang und Journalname. Er passt zum vereinbarten Bereichsvertrag, aber nicht zu einer engeren Forderung nach nur einer atomaren Spalte."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "10 Applied Physics Letters 36,759 549,224",
+        "output": "10 Applied Physics Letters"
+      },
+      {
+        "input": "6 J. American Chemical Society 29,272 881,457",
+        "output": "6 J. American Chemical Society"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "8 Astrophysical Journal 26,418 581,299",
+        "output": "8 Astrophysical Journal"
+      },
+      {
+        "input": "2 Proc. Natl. Acad. Sci. USA (PNAS) 30,396 1,376,541",
+        "output": "2 Proc. Natl. Acad. Sci. USA (PNAS)"
+      },
+      {
+        "input": "9 New England Journal of Medicine 3,564 568,698",
+        "output": "9 New England Journal of Medicine"
+      }
+    ]
+  },
+  "behavioral": {
+    "cases": [
+      {
+        "case_id": "T132-C0f0d88fa288dc3423090",
+        "task_id": "T132",
+        "input": "10 Aztkygy Physics Letters 36,759 549,224",
+        "expected_output": "10 Aztkygy Physics Letters",
+        "expected_span": [
+          0,
+          26
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B1-V01-1"
+        ]
+      },
+      {
+        "case_id": "T132-C4974f7761a43a41451fe",
+        "task_id": "T132",
+        "input": "10 Aubmbaa Physics Letters 36,759 549,224",
+        "expected_output": "10 Aubmbaa Physics Letters",
+        "expected_span": [
+          0,
+          26
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B1-V01-2"
+        ]
+      },
+      {
+        "case_id": "T132-C30d0057c75103e3acc65",
+        "task_id": "T132",
+        "input": "10 Acsnvdy Physics Letters 36,759 549,224",
+        "expected_output": "10 Acsnvdy Physics Letters",
+        "expected_span": [
+          0,
+          26
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B1-V01-3"
+        ]
+      },
+      {
+        "case_id": "T132-C9072f3fca4ab32dfaa5d",
+        "task_id": "T132",
+        "input": "10 Applied Physics Letters 36,260 549,224",
+        "expected_output": "10 Applied Physics Letters",
+        "expected_span": [
+          0,
+          26
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B1-V02-1"
+        ]
+      },
+      {
+        "case_id": "T132-Ccf4cc37d819bb3c97850",
+        "task_id": "T132",
+        "input": "10 Applied Physics Letters 36,174 549,224",
+        "expected_output": "10 Applied Physics Letters",
+        "expected_span": [
+          0,
+          26
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B1-V02-2"
+        ]
+      },
+      {
+        "case_id": "T132-Cb402a51ba18695f4da8f",
+        "task_id": "T132",
+        "input": "10 Applied Physics Letters 36,104 549,224",
+        "expected_output": "10 Applied Physics Letters",
+        "expected_span": [
+          0,
+          26
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B1-V02-3"
+        ]
+      },
+      {
+        "case_id": "T132-C2a0391a382d79341d4fb",
+        "task_id": "T132",
+        "input": "10 Appliedflmaazfjedfbeejwpix Physics Letters 36,759 549,224",
+        "expected_output": "10 Appliedflmaazfjedfbeejwpix Physics Letters",
+        "expected_span": [
+          0,
+          45
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B1-V04-1"
+        ]
+      },
+      {
+        "case_id": "T132-C30824a1eb1bd08baa68c",
+        "task_id": "T132",
+        "input": "10 Appliedgcxcysdegcrdshqanobkthrlqkcdaxxhju Physics Letters 36,759 549,224",
+        "expected_output": "10 Appliedgcxcysdegcrdshqanobkthrlqkcdaxxhju Physics Letters",
+        "expected_span": [
+          0,
+          60
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B1-V04-2"
+        ]
+      },
+      {
+        "case_id": "T132-C2ae697b90a1badbb317f",
+        "task_id": "T132",
+        "input": "10 Appliedfhlsexazbeisbssgkdahxdjfibjkiffpucnebobtabnjatqomogigzpprcuydxtybwyulkhxfribvecvcahbmrxihaodum Physics Letters 36,759 549,224",
+        "expected_output": "10 Appliedfhlsexazbeisbssgkdahxdjfibjkiffpucnebobtabnjatqomogigzpprcuydxtybwyulkhxfribvecvcahbmrxihaodum Physics Letters",
+        "expected_span": [
+          0,
+          120
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B1-V04-3"
+        ]
+      },
+      {
+        "case_id": "T132-Ce826fe06065e4df87aaf",
+        "task_id": "T132",
+        "input": "457074445276 10 Applied Physics Letters 36,759 549,224",
+        "expected_output": "457074445276 10 Applied Physics Letters",
+        "expected_span": [
+          0,
+          39
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B1-S01-1"
+        ]
+      },
+      {
+        "case_id": "T132-C8a0ecc76e18f58b12b89",
+        "task_id": "T132",
+        "input": "146313406021 10 Applied Physics Letters 36,759 549,224",
+        "expected_output": "146313406021 10 Applied Physics Letters",
+        "expected_span": [
+          0,
+          39
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B1-S01-2"
+        ]
+      },
+      {
+        "case_id": "T132-C973346341bc3c6ff62a9",
+        "task_id": "T132",
+        "input": "10 Applied Physics Letters 36,759 549,224 606694162131",
+        "expected_output": "10 Applied Physics Letters 36,759",
+        "expected_span": [
+          0,
+          33
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B1-S01-3"
+        ]
+      },
+      {
+        "case_id": "T132-Cf67b74b29c90eac2fb85",
+        "task_id": "T132",
+        "input": "10 Applied Physics Letters 36,759 549,224 477971165916",
+        "expected_output": "10 Applied Physics Letters 36,759",
+        "expected_span": [
+          0,
+          33
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B1-S01-4"
+        ]
+      },
+      {
+        "case_id": "T132-C8d6e4c254511eb07120c",
+        "task_id": "T132",
+        "input": "6 J. Acjjxjct Chemical Society 29,272 881,457",
+        "expected_output": "6 J. Acjjxjct Chemical Society",
+        "expected_span": [
+          0,
+          30
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B2-V01-1"
+        ]
+      },
+      {
+        "case_id": "T132-Cecb2ded4cd18dd6b6238",
+        "task_id": "T132",
+        "input": "6 J. Azrarxww Chemical Society 29,272 881,457",
+        "expected_output": "6 J. Azrarxww Chemical Society",
+        "expected_span": [
+          0,
+          30
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B2-V01-2"
+        ]
+      },
+      {
+        "case_id": "T132-Cda26b10eb4b096617dd9",
+        "task_id": "T132",
+        "input": "6 J. Andgmxiz Chemical Society 29,272 881,457",
+        "expected_output": "6 J. Andgmxiz Chemical Society",
+        "expected_span": [
+          0,
+          30
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B2-V01-3"
+        ]
+      },
+      {
+        "case_id": "T132-Cafc3c5e060f8d818ffb8",
+        "task_id": "T132",
+        "input": "6 J. American Chemical Society 29,443 881,457",
+        "expected_output": "6 J. American Chemical Society",
+        "expected_span": [
+          0,
+          30
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B2-V02-1"
+        ]
+      },
+      {
+        "case_id": "T132-C1e9530cfa517e5d31b6f",
+        "task_id": "T132",
+        "input": "6 J. American Chemical Society 29,403 881,457",
+        "expected_output": "6 J. American Chemical Society",
+        "expected_span": [
+          0,
+          30
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B2-V02-2"
+        ]
+      },
+      {
+        "case_id": "T132-Cc443a7f9fffed4248dab",
+        "task_id": "T132",
+        "input": "6 J. American Chemical Society 29,043 881,457",
+        "expected_output": "6 J. American Chemical Society",
+        "expected_span": [
+          0,
+          30
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B2-V02-3"
+        ]
+      },
+      {
+        "case_id": "T132-C5e17c9680bcec6b2f9e1",
+        "task_id": "T132",
+        "input": "6 J. Americandxlggmuszzzxdmv Chemical Society 29,272 881,457",
+        "expected_output": "6 J. Americandxlggmuszzzxdmv Chemical Society",
+        "expected_span": [
+          0,
+          45
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B2-V04-1"
+        ]
+      },
+      {
+        "case_id": "T132-Cce19209e50d7eb154cbc",
+        "task_id": "T132",
+        "input": "6 J. Americanyiykkmzioleuksueusjcymqzqxduvs Chemical Society 29,272 881,457",
+        "expected_output": "6 J. Americanyiykkmzioleuksueusjcymqzqxduvs Chemical Society",
+        "expected_span": [
+          0,
+          60
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B2-V04-2"
+        ]
+      },
+      {
+        "case_id": "T132-C9506420f9b6d07db44bf",
+        "task_id": "T132",
+        "input": "6 J. Americangubhrngqsnuqiaktxpqajidlfqyfkgarbeumijfcftjmbcofucfjahejazvhaatbbsdhsgkimeallaqlvotlrksazy Chemical Society 29,272 881,457",
+        "expected_output": "6 J. Americangubhrngqsnuqiaktxpqajidlfqyfkgarbeumijfcftjmbcofucfjahejazvhaatbbsdhsgkimeallaqlvotlrksazy Chemical Society",
+        "expected_span": [
+          0,
+          120
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B2-V04-3"
+        ]
+      },
+      {
+        "case_id": "T132-C48c9f9328982208fef84",
+        "task_id": "T132",
+        "input": "664104963155 6 J. American Chemical Society 29,272 881,457",
+        "expected_output": "664104963155 6 J. American Chemical Society",
+        "expected_span": [
+          0,
+          43
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B2-S01-1"
+        ]
+      },
+      {
+        "case_id": "T132-Cde8dc754fa92a6171299",
+        "task_id": "T132",
+        "input": "858608415968 6 J. American Chemical Society 29,272 881,457",
+        "expected_output": "858608415968 6 J. American Chemical Society",
+        "expected_span": [
+          0,
+          43
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B2-S01-2"
+        ]
+      },
+      {
+        "case_id": "T132-C6a6b8ff09aa93240b11f",
+        "task_id": "T132",
+        "input": "6 J. American Chemical Society 29,272 881,457 298726029156",
+        "expected_output": "6 J. American Chemical Society 29,272",
+        "expected_span": [
+          0,
+          37
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B2-S01-3"
+        ]
+      },
+      {
+        "case_id": "T132-C10cb4ee4741b24306433",
+        "task_id": "T132",
+        "input": "6 J. American Chemical Society 29,272 881,457 156090652422",
+        "expected_output": "6 J. American Chemical Society 29,272",
+        "expected_span": [
+          0,
+          37
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T132-B2-S01-4"
+        ]
+      }
+    ],
+    "obligations": [
+      {
+        "obligation_id": "T132-B1-V01-1",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C0f0d88fa288dc3423090",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 4,
+          "end": 10,
+          "replacement": "ztkygy"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B1-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "10 Aztkygy Physics Letters"
+          },
+          {
+            "assertion_id": "T132-B1-V01-1-relation",
+            "base_id": "T132-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 4,
+            "end": 10,
+            "replacement": "ztkygy"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B1-V01-2",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C4974f7761a43a41451fe",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 4,
+          "end": 10,
+          "replacement": "ubmbaa"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B1-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "10 Aubmbaa Physics Letters"
+          },
+          {
+            "assertion_id": "T132-B1-V01-2-relation",
+            "base_id": "T132-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 4,
+            "end": 10,
+            "replacement": "ubmbaa"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B1-V01-3",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C30d0057c75103e3acc65",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 4,
+          "end": 10,
+          "replacement": "csnvdy"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B1-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "10 Acsnvdy Physics Letters"
+          },
+          {
+            "assertion_id": "T132-B1-V01-3-relation",
+            "base_id": "T132-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 4,
+            "end": 10,
+            "replacement": "csnvdy"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B1-V02-1",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C9072f3fca4ab32dfaa5d",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 30,
+          "end": 33,
+          "replacement": "260"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B1-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "10 Applied Physics Letters"
+          },
+          {
+            "assertion_id": "T132-B1-V02-1-relation",
+            "base_id": "T132-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B1-V02-2",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-Ccf4cc37d819bb3c97850",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 30,
+          "end": 33,
+          "replacement": "174"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B1-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "10 Applied Physics Letters"
+          },
+          {
+            "assertion_id": "T132-B1-V02-2-relation",
+            "base_id": "T132-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B1-V02-3",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-Cb402a51ba18695f4da8f",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 30,
+          "end": 33,
+          "replacement": "104"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B1-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "10 Applied Physics Letters"
+          },
+          {
+            "assertion_id": "T132-B1-V02-3-relation",
+            "base_id": "T132-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B1-V03-1",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T132-B1-V03-2",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T132-B1-V03-3",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T132-B1-V04-1",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 45
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C2a0391a382d79341d4fb",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 26,
+            "observed_max": 30,
+            "test_value": 45,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 4,
+          "end": 10,
+          "replacement": "ppliedflmaazfjedfbeejwpix"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B1-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "10 Appliedflmaazfjedfbeejwpix Physics Letters"
+          },
+          {
+            "assertion_id": "T132-B1-V04-1-relation",
+            "base_id": "T132-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 4,
+            "end": 10,
+            "replacement": "ppliedflmaazfjedfbeejwpix"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B1-V04-2",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 60
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C30824a1eb1bd08baa68c",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 26,
+            "observed_max": 30,
+            "test_value": 60,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 4,
+          "end": 10,
+          "replacement": "ppliedgcxcysdegcrdshqanobkthrlqkcdaxxhju"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B1-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "10 Appliedgcxcysdegcrdshqanobkthrlqkcdaxxhju Physics Letters"
+          },
+          {
+            "assertion_id": "T132-B1-V04-2-relation",
+            "base_id": "T132-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 4,
+            "end": 10,
+            "replacement": "ppliedgcxcysdegcrdshqanobkthrlqkcdaxxhju"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B1-V04-3",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 120
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C2ae697b90a1badbb317f",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 26,
+            "observed_max": 30,
+            "test_value": 120,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 4,
+          "end": 10,
+          "replacement": "ppliedfhlsexazbeisbssgkdahxdjfibjkiffpucnebobtabnjatqomogigzpprcuydxtybwyulkhxfribvecvcahbmrxihaodum"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B1-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "10 Appliedfhlsexazbeisbssgkdahxdjfibjkiffpucnebobtabnjatqomogigzpprcuydxtybwyulkhxfribvecvcahbmrxihaodum Physics Letters"
+          },
+          {
+            "assertion_id": "T132-B1-V04-3-relation",
+            "base_id": "T132-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 4,
+            "end": 10,
+            "replacement": "ppliedfhlsexazbeisbssgkdahxdjfibjkiffpucnebobtabnjatqomogigzpprcuydxtybwyulkhxfribvecvcahbmrxihaodum"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B1-V05-1",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure"
+      },
+      {
+        "obligation_id": "T132-B1-S01-1",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-Ce826fe06065e4df87aaf",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Interpolation",
+            "observed_min": 5,
+            "observed_max": 6,
+            "test_value": 6,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "before",
+          "dummy_field": "457074445276"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B1-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "457074445276 10 Applied Physics Letters"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B1-S01-2",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C8a0ecc76e18f58b12b89",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Interpolation",
+            "observed_min": 5,
+            "observed_max": 6,
+            "test_value": 6,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "before",
+          "dummy_field": "146313406021"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B1-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "146313406021 10 Applied Physics Letters"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B1-S01-3",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C973346341bc3c6ff62a9",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Interpolation",
+            "observed_min": 5,
+            "observed_max": 6,
+            "test_value": 6,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "after",
+          "dummy_field": "606694162131"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B1-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "10 Applied Physics Letters 36,759"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B1-S01-4",
+        "task_id": "T132",
+        "base_id": "T132-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-Cf67b74b29c90eac2fb85",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Interpolation",
+            "observed_min": 5,
+            "observed_max": 6,
+            "test_value": 6,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "after",
+          "dummy_field": "477971165916"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B1-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "10 Applied Physics Letters 36,759"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B2-V01-1",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C8d6e4c254511eb07120c",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 6,
+          "end": 13,
+          "replacement": "cjjxjct"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B2-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "6 J. Acjjxjct Chemical Society"
+          },
+          {
+            "assertion_id": "T132-B2-V01-1-relation",
+            "base_id": "T132-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 6,
+            "end": 13,
+            "replacement": "cjjxjct"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B2-V01-2",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-Cecb2ded4cd18dd6b6238",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 6,
+          "end": 13,
+          "replacement": "zrarxww"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B2-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "6 J. Azrarxww Chemical Society"
+          },
+          {
+            "assertion_id": "T132-B2-V01-2-relation",
+            "base_id": "T132-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 6,
+            "end": 13,
+            "replacement": "zrarxww"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B2-V01-3",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-Cda26b10eb4b096617dd9",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 6,
+          "end": 13,
+          "replacement": "ndgmxiz"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B2-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "6 J. Andgmxiz Chemical Society"
+          },
+          {
+            "assertion_id": "T132-B2-V01-3-relation",
+            "base_id": "T132-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 6,
+            "end": 13,
+            "replacement": "ndgmxiz"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B2-V02-1",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-Cafc3c5e060f8d818ffb8",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 34,
+          "end": 37,
+          "replacement": "443"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B2-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "6 J. American Chemical Society"
+          },
+          {
+            "assertion_id": "T132-B2-V02-1-relation",
+            "base_id": "T132-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B2-V02-2",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C1e9530cfa517e5d31b6f",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 34,
+          "end": 37,
+          "replacement": "403"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B2-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "6 J. American Chemical Society"
+          },
+          {
+            "assertion_id": "T132-B2-V02-2-relation",
+            "base_id": "T132-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B2-V02-3",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-Cc443a7f9fffed4248dab",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 34,
+          "end": 37,
+          "replacement": "043"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B2-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "6 J. American Chemical Society"
+          },
+          {
+            "assertion_id": "T132-B2-V02-3-relation",
+            "base_id": "T132-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B2-V03-1",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T132-B2-V03-2",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T132-B2-V03-3",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T132-B2-V04-1",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 45
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C5e17c9680bcec6b2f9e1",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 26,
+            "observed_max": 30,
+            "test_value": 45,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 6,
+          "end": 13,
+          "replacement": "mericandxlggmuszzzxdmv"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B2-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "6 J. Americandxlggmuszzzxdmv Chemical Society"
+          },
+          {
+            "assertion_id": "T132-B2-V04-1-relation",
+            "base_id": "T132-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 6,
+            "end": 13,
+            "replacement": "mericandxlggmuszzzxdmv"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B2-V04-2",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 60
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-Cce19209e50d7eb154cbc",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 26,
+            "observed_max": 30,
+            "test_value": 60,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 6,
+          "end": 13,
+          "replacement": "mericanyiykkmzioleuksueusjcymqzqxduvs"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B2-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "6 J. Americanyiykkmzioleuksueusjcymqzqxduvs Chemical Society"
+          },
+          {
+            "assertion_id": "T132-B2-V04-2-relation",
+            "base_id": "T132-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 6,
+            "end": 13,
+            "replacement": "mericanyiykkmzioleuksueusjcymqzqxduvs"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B2-V04-3",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 120
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C9506420f9b6d07db44bf",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 26,
+            "observed_max": 30,
+            "test_value": 120,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 6,
+          "end": 13,
+          "replacement": "mericangubhrngqsnuqiaktxpqajidlfqyfkgarbeumijfcftjmbcofucfjahejazvhaatbbsdhsgkimeallaqlvotlrksazy"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B2-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "6 J. Americangubhrngqsnuqiaktxpqajidlfqyfkgarbeumijfcftjmbcofucfjahejazvhaatbbsdhsgkimeallaqlvotlrksazy Chemical Society"
+          },
+          {
+            "assertion_id": "T132-B2-V04-3-relation",
+            "base_id": "T132-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 6,
+            "end": 13,
+            "replacement": "mericangubhrngqsnuqiaktxpqajidlfqyfkgarbeumijfcftjmbcofucfjahejazvhaatbbsdhsgkimeallaqlvotlrksazy"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B2-V05-1",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure"
+      },
+      {
+        "obligation_id": "T132-B2-S01-1",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C48c9f9328982208fef84",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 5,
+            "observed_max": 6,
+            "test_value": 7,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "before",
+          "dummy_field": "664104963155"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B2-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "664104963155 6 J. American Chemical Society"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B2-S01-2",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-Cde8dc754fa92a6171299",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 5,
+            "observed_max": 6,
+            "test_value": 7,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "before",
+          "dummy_field": "858608415968"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B2-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "858608415968 6 J. American Chemical Society"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B2-S01-3",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C6a6b8ff09aa93240b11f",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 5,
+            "observed_max": 6,
+            "test_value": 7,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "after",
+          "dummy_field": "298726029156"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B2-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "6 J. American Chemical Society 29,272"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T132-B2-S01-4",
+        "task_id": "T132",
+        "base_id": "T132-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T132-C10cb4ee4741b24306433",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 5,
+            "observed_max": 6,
+            "test_value": 7,
+            "reference": "two_synthesis_examples",
+            "marker": " "
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "delimiter_field",
+            "marker": " "
+          },
+          "side": "after",
+          "dummy_field": "156090652422"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T132-B2-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "6 J. American Chemical Society 29,272"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      }
+    ],
+    "bases": [
+      {
+        "base_id": "T132-B1",
+        "task_id": "T132",
+        "input": "10 Applied Physics Letters 36,759 549,224",
+        "expected_output": "10 Applied Physics Letters",
+        "expected_span": [
+          0,
+          26
+        ],
+        "source_path": "data/tasks/T132.json#split.training",
+        "source_index": 0,
+        "role": "synthesis_example_for_paired_assertions_only"
+      },
+      {
+        "base_id": "T132-B2",
+        "task_id": "T132",
+        "input": "6 J. American Chemical Society 29,272 881,457",
+        "expected_output": "6 J. American Chemical Society",
+        "expected_span": [
+          0,
+          30
+        ],
+        "source_path": "data/tasks/T132.json#split.training",
+        "source_index": 1,
+        "role": "synthesis_example_for_paired_assertions_only"
+      }
+    ],
+    "applicability": [
+      {
+        "task_id": "T132",
+        "operator_id": "V01",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T132",
+        "operator_id": "V02",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T132",
+        "operator_id": "V03",
+        "obligations": 6,
+        "statuses": {
+          "not_applicable_to_operator": 6
+        },
+        "unique_cases": 0,
+        "reasons": {
+          "no_unprotected_ascii_alphanumeric_run_in_required_region": 6
+        }
+      },
+      {
+        "task_id": "T132",
+        "operator_id": "V04",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T132",
+        "operator_id": "V05",
+        "obligations": 2,
+        "statuses": {
+          "not_applicable_to_operator": 2
+        },
+        "unique_cases": 0,
+        "reasons": {
+          "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure": 2
+        }
+      },
+      {
+        "task_id": "T132",
+        "operator_id": "S01",
+        "obligations": 8,
+        "statuses": {
+          "planned": 8
+        },
+        "unique_cases": 8,
+        "reasons": {}
+      }
+    ]
+  },
+  "generation_seed": 214
+}

@@ -1,0 +1,162 @@
+{
+  "task_id": "T213",
+  "family_id": "field-extraction-v1",
+  "field": "Price between currency and slash",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "$"
+      ],
+      [
+        "before",
+        " /"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0397"
+  ],
+  "collections": [
+    "TDE"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "Mar 18 Beautiful One bedroom Available. Schedule your appointment today $1410 / 1br - 938ft2 - (Downtown Tacoma, Theater District) pic map"
+      ],
+      "output": "1410",
+      "pair_sha256": "22089bcc88da53d6e203a5ffa7bb5f9a29cae79b9c7e706df1555641397a354b",
+      "provenance": [
+        {
+          "occurrence_id": "O0397",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_craigslist2.txt",
+          "location": "line:1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Mar 18 1. Warm sunsets, Lake Washington, Downtown Seattle Skyline. Act fast! $2829 / 3br - 1535ft2 - (Renton, WA) pic map"
+      ],
+      "output": "2829",
+      "pair_sha256": "8fd8909fe1f4eada928d16bedf3f8dbbd3d5dc52cabfb708fe361d3429ba1135",
+      "provenance": [
+        {
+          "occurrence_id": "O0397",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_craigslist2.txt",
+          "location": "line:2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Mar 18 New AVAILABLE NOW FURNISHED $1650 / 1br - 750ft2 - (Bellevue) pic"
+      ],
+      "output": "1650",
+      "pair_sha256": "9d464d3d49f3a18e838ec569b43d95b1a4b7daa2ab115efc397b1cbbce8bb1a1",
+      "provenance": [
+        {
+          "occurrence_id": "O0397",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_craigslist2.txt",
+          "location": "line:3"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Mar 1 Lake Washington, Bellevue $1234 / 3br - 1899ft2 - (Bellevue, WA) pic map"
+      ],
+      "output": "1234",
+      "pair_sha256": "edbc7ae50a3a62c9c3c2feb1a22e19fa550abc4fd5e7abba3c68111c96cdcaa8",
+      "provenance": [
+        {
+          "occurrence_id": "O0397",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_craigslist2.txt",
+          "location": "line:4"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Mar 23 Downtown Seattle Skyline. Act fast! $2829 / 3br - 355ft2 - (Seattle, WA) pic map"
+      ],
+      "output": "2829",
+      "pair_sha256": "69e5edd8271ddd6183418839a3640e74f1e28821c923864116b0be1b2556398d",
+      "provenance": [
+        {
+          "occurrence_id": "O0397",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_craigslist2.txt",
+          "location": "line:5"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 72,
+      "max": 138
+    },
+    "output_lengths": {
+      "min": 4,
+      "max": 4
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Der Betrag ist durch Dollarzeichen und nachfolgenden Slash-Trenner begrenzt."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Mar 18 New AVAILABLE NOW FURNISHED $1650 / 1br - 750ft2 - (Bellevue) pic",
+        "output": "1650"
+      },
+      {
+        "input": "Mar 23 Downtown Seattle Skyline. Act fast! $2829 / 3br - 355ft2 - (Seattle, WA) pic map",
+        "output": "2829"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "Mar 18 Beautiful One bedroom Available. Schedule your appointment today $1410 / 1br - 938ft2 - (Downtown Tacoma, Theater District) pic map",
+        "output": "1410"
+      },
+      {
+        "input": "Mar 1 Lake Washington, Bellevue $1234 / 3br - 1899ft2 - (Bellevue, WA) pic map",
+        "output": "1234"
+      },
+      {
+        "input": "Mar 18 1. Warm sunsets, Lake Washington, Downtown Seattle Skyline. Act fast! $2829 / 3br - 1535ft2 - (Renton, WA) pic map",
+        "output": "2829"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 68
+}

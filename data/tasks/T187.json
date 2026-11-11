@@ -1,0 +1,121 @@
+{
+  "task_id": "T187",
+  "family_id": "field-extraction-v1",
+  "field": "Address line 3",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "token",
+        "\n",
+        2
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0006"
+  ],
+  "collections": [
+    "PROSE"
+  ],
+  "unique_example_count": 3,
+  "source_example_row_count": 3,
+  "examples": [
+    {
+      "input": [
+        "Sukma Meszaros\n678 Apple Rte\nBusan\nWV\n38891"
+      ],
+      "output": "Busan",
+      "pair_sha256": "ebdbf9a50fff82e4b8257d1391f2cba1c9225dc5bfcd4d5b89b0911cfcbcd9f5",
+      "provenance": [
+        {
+          "occurrence_id": "O0006",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000006/spec.json",
+          "location": "/Examples/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Sanjar Ibrahim\n23 Second Blvd\nAlgiers\nWI\n03719"
+      ],
+      "output": "Algiers",
+      "pair_sha256": "74690f016dd70f3082aa7192bdf136458c1f11f877d05fc87dfed7b50a23d5e7",
+      "provenance": [
+        {
+          "occurrence_id": "O0006",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000006/spec.json",
+          "location": "/Examples/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Abhinav Savicevic\n23 1st Pkwy\nRome\nOR\n17293"
+      ],
+      "output": "Rome",
+      "pair_sha256": "faaa90523ddcc9a35b5b1e8c328dd69ac21757eae0aad80cdf2946455f1eb949",
+      "provenance": [
+        {
+          "occurrence_id": "O0006",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000006/spec.json",
+          "location": "/Examples/2"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 43,
+      "max": 46
+    },
+    "output_lengths": {
+      "min": 4,
+      "max": 7
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Die dritte Adresszeile liefert den Ortswert ohne weitere Verarbeitung."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Sukma Meszaros\n678 Apple Rte\nBusan\nWV\n38891",
+        "output": "Busan"
+      },
+      {
+        "input": "Abhinav Savicevic\n23 1st Pkwy\nRome\nOR\n17293",
+        "output": "Rome"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "Sanjar Ibrahim\n23 Second Blvd\nAlgiers\nWI\n03719",
+        "output": "Algiers"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 3
+}

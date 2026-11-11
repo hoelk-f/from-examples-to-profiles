@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " 1" "." ".p" "0K " "6 Oct " ":" ":49 " "Retirement.pdf" "_" "logic_primer.ppt" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "720K 16 Oct 09:49 logic_primer.ppt") "logic_primer.ppt"))
+(constraint (= (f "300K 6 Oct 14:49 Retirement.pdf") "Retirement.pdf"))
+(check-synth)

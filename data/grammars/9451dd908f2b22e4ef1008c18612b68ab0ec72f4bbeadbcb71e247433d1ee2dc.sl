@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " "-" "." ".tex" "04-imp.tex" ":" "K " "fig-e4.tex" "r " (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "7.4K 7 Mar 11:12 04-imp.tex") "04-imp.tex"))
+(constraint (= (f "4.9K 25 Apr 2015 fig-e4.tex") "fig-e4.tex"))
+(check-synth)

@@ -1,0 +1,167 @@
+{
+  "task_id": "T217",
+  "family_id": "field-extraction-v1",
+  "field": "First field of second brace-delimited group",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "}, {"
+      ],
+      [
+        "before",
+        "}"
+      ],
+      [
+        "token",
+        ", ",
+        0
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0406"
+  ],
+  "collections": [
+    "TDE"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "{{a, b}, {cccc, d}, {e, f}}"
+      ],
+      "output": "cccc",
+      "pair_sha256": "5424625b0c11e09d376b076df58a740b79abcee378c0e1f5d79dd8dbc57de136",
+      "provenance": [
+        {
+          "occurrence_id": "O0406",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_hierarchical1_ff_fail.txt",
+          "location": "line:1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "{{x, aaay}, {aaaz, d}}"
+      ],
+      "output": "aaaz",
+      "pair_sha256": "157932b984abced06eb4c7e4ba51099b2fe0af05721a648be38083fa5d26012c",
+      "provenance": [
+        {
+          "occurrence_id": "O0406",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_hierarchical1_ff_fail.txt",
+          "location": "line:2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "{{a}, {ffeaa}, {aa, aaa, aaa, aaa}}"
+      ],
+      "output": "ffeaa",
+      "pair_sha256": "1bb593bc70101df9eff5745f4b76c6de43474537a3ea88c52f0aef063a956e9f",
+      "provenance": [
+        {
+          "occurrence_id": "O0406",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_hierarchical1_ff_fail.txt",
+          "location": "line:3"
+        }
+      ]
+    },
+    {
+      "input": [
+        "{{ajfj, ajfie, ajaj, aj}, {jwi, ajaj, aj, a}, {aj, ajiw, ajif, jfi}}"
+      ],
+      "output": "jwi",
+      "pair_sha256": "adf5b534f91ada88615f557839ed944d80b24bfd130d26536acc552239762154",
+      "provenance": [
+        {
+          "occurrence_id": "O0406",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_hierarchical1_ff_fail.txt",
+          "location": "line:4"
+        }
+      ]
+    },
+    {
+      "input": [
+        "{{a}, {b}, {c}}"
+      ],
+      "output": "b",
+      "pair_sha256": "7df7064c632d8b5deaf1f69da18e1067acb5223d8daa4ac0ad501f4e001df477",
+      "provenance": [
+        {
+          "occurrence_id": "O0406",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/Yeye-He/Transform-Data-by-Example/blob/3cd92891b21755c1972475776f0d638d56f3792e/Benchmark/benchmark-FF-Trifacta-GoogleRefine/example_file_hierarchical1_ff_fail.txt",
+          "location": "line:5"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 15,
+      "max": 68
+    },
+    "output_lengths": {
+      "min": 1,
+      "max": 5
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Das erste Element der zweiten flachen Klammergruppe ist ein Feld. Die Parameter setzen die dargestellte Gruppenschreibweise voraus."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "{{ajfj, ajfie, ajaj, aj}, {jwi, ajaj, aj, a}, {aj, ajiw, ajif, jfi}}",
+        "output": "jwi"
+      },
+      {
+        "input": "{{a, b}, {cccc, d}, {e, f}}",
+        "output": "cccc"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "{{a}, {b}, {c}}",
+        "output": "b"
+      },
+      {
+        "input": "{{x, aaay}, {aaaz, d}}",
+        "output": "aaaz"
+      },
+      {
+        "input": "{{a}, {ffeaa}, {aa, aaa, aaa, aaa}}",
+        "output": "ffeaa"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 73
+}

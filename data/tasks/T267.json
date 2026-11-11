@@ -1,0 +1,159 @@
+{
+  "task_id": "T267",
+  "family_id": "field-extraction-v1",
+  "field": "Height amount",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "token",
+        " ",
+        -2
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0892"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "1958 1967 Tokyo Tower Tokyo, Japan 332.6 m"
+      ],
+      "output": "332.6",
+      "pair_sha256": "fa67df7c274d676e43cb09af7665ec523a0615551c6869e96a34a50f0d0090e9",
+      "provenance": [
+        {
+          "occurrence_id": "O0892",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:162/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "1647 1874 Tower of Strasbourg Cathedral Strasbourg, France 142 m"
+      ],
+      "output": "142",
+      "pair_sha256": "3f881ec83282b4cae9d44f46d31c83c4850a86a4eadc8c5ab2a706d4b57f35f9",
+      "provenance": [
+        {
+          "occurrence_id": "O0892",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:162/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "1889 1958 Eiffel Tower Paris, France 312.3 m"
+      ],
+      "output": "312.3",
+      "pair_sha256": "900adab0ab6f480ade740fbe517fa71d259cce249401d0b3e1bcb587134e1b68",
+      "provenance": [
+        {
+          "occurrence_id": "O0892",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:162/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "1240 1311 Tower of Old St Paul\"s Cathedral London, UK 150 m"
+      ],
+      "output": "150",
+      "pair_sha256": "17d18ec040c872e6fe13355a5548ae9ad40be2f1d12ced27b901fe3be19b3625",
+      "provenance": [
+        {
+          "occurrence_id": "O0892",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:162/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "1180 1240 Malmesbury Abbey Tower Malmesbury, UK 131.3 m"
+      ],
+      "output": "131.3",
+      "pair_sha256": "01d42b69d325948cf7e563c3172402ba0c2a961f1ff15b02856267eb7552ee0d",
+      "provenance": [
+        {
+          "occurrence_id": "O0892",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:162/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 42,
+      "max": 64
+    },
+    "output_lengths": {
+      "min": 3,
+      "max": 5
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Die vorhandene Höhenzahl ist das vorletzte Wort unmittelbar vor m. Keine Einheitenumrechnung."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "1958 1967 Tokyo Tower Tokyo, Japan 332.6 m",
+        "output": "332.6"
+      },
+      {
+        "input": "1240 1311 Tower of Old St Paul\"s Cathedral London, UK 150 m",
+        "output": "150"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "1180 1240 Malmesbury Abbey Tower Malmesbury, UK 131.3 m",
+        "output": "131.3"
+      },
+      {
+        "input": "1889 1958 Eiffel Tower Paris, France 312.3 m",
+        "output": "312.3"
+      },
+      {
+        "input": "1647 1874 Tower of Strasbourg Cathedral Strasbourg, France 142 m",
+        "output": "142"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 230
+}

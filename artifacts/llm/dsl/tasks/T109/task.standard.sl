@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " "," ", " ", 0" ", MasterCard" "/" "/21, 1" "0 " "5 " "Holli Claxton" "Sariel Reale" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "5315 7150 6827 2113, 06/21, 130, Sariel Reale, MasterCard") "Sariel Reale"))
+(constraint (= (f "5405 1040 5693 1652, 07/21, 177, Holli Claxton, MasterCard") "Holli Claxton"))
+(check-synth)

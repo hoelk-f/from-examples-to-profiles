@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " "," ", " ", Italy" "-" "Piazza Giuseppe Garibaldi" "Via Santa Teresa" "a " (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "Piazza Giuseppe Garibaldi, 2402 43010-Castelguelfo PR, Italy") "Piazza Giuseppe Garibaldi"))
+(constraint (= (f "Via Santa Teresa, 9341 53049-Torrita Di Siena SI, Italy") "Via Santa Teresa"))
+(check-synth)

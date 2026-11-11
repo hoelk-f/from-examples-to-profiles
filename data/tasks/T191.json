@@ -1,0 +1,143 @@
+{
+  "task_id": "T191",
+  "family_id": "field-extraction-v1",
+  "field": "City field between first and second comma",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "token",
+        ",",
+        1
+      ],
+      [
+        "trim"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0011"
+  ],
+  "collections": [
+    "PROSE"
+  ],
+  "unique_example_count": 4,
+  "source_example_row_count": 4,
+  "examples": [
+    {
+      "input": [
+        "One Madeup Way, Modesto, AZ 17293"
+      ],
+      "output": "Modesto",
+      "pair_sha256": "98cf4dbeab546d3ddb8bb2d8c7e486b83695c15e1f583eaecd47ad5241f28faa",
+      "provenance": [
+        {
+          "occurrence_id": "O0011",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000011/spec.json",
+          "location": "/Examples/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "45 1ST WAY SE, Mandalay, MT 58712"
+      ],
+      "output": "Mandalay",
+      "pair_sha256": "f9386b4e115de5537ba21813836e6cb632edad3458c6e82b746bf1d9d5c27872",
+      "provenance": [
+        {
+          "occurrence_id": "O0011",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000011/spec.json",
+          "location": "/Examples/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "678 Third Place, Topeka, IN 58712"
+      ],
+      "output": "Topeka",
+      "pair_sha256": "1ad19fe4292325c79adfbc2d92f52ca396b43bb906dab5b408476479566df80e",
+      "provenance": [
+        {
+          "occurrence_id": "O0011",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000011/spec.json",
+          "location": "/Examples/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "2345 SW 5th Road, Eugene, CA 38891"
+      ],
+      "output": "Eugene",
+      "pair_sha256": "b0d0f9ae1c6bd010f2b2df34377d28ccfa07fdb3e0bfec25467c50bf43b9eeac",
+      "provenance": [
+        {
+          "occurrence_id": "O0011",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Address.000011/spec.json",
+          "location": "/Examples/3"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 33,
+      "max": 34
+    },
+    "output_lengths": {
+      "min": 6,
+      "max": 8
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Auch alphanumerische Hausangaben ändern die Lage des zweiten Kommafeldes nicht."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "One Madeup Way, Modesto, AZ 17293",
+        "output": "Modesto"
+      },
+      {
+        "input": "2345 SW 5th Road, Eugene, CA 38891",
+        "output": "Eugene"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "678 Third Place, Topeka, IN 58712",
+        "output": "Topeka"
+      },
+      {
+        "input": "45 1ST WAY SE, Mandalay, MT 58712",
+        "output": "Mandalay"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 7
+}

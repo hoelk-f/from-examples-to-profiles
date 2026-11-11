@@ -1,0 +1,162 @@
+{
+  "task_id": "T230",
+  "family_id": "field-extraction-v1",
+  "field": "Conference city",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        ": "
+      ],
+      [
+        "before",
+        ","
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0699"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "<h2 id=\"2015\">24. IJCAI 2015: Buenos Aires, Argentina</h2>"
+      ],
+      "output": "Buenos Aires",
+      "pair_sha256": "70caebc6446a3e687687b774775262a8bdb9403636ebfcfed7433e0cbe7ae8ac",
+      "provenance": [
+        {
+          "occurrence_id": "O0699",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:242/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<h2 id=\"2011\">22. IJCAI 2011: Barcelona, Catalonia, Spain</h2>"
+      ],
+      "output": "Barcelona",
+      "pair_sha256": "251b4db3258483b9a0b55458a30f160b90272a22105e8e8d8db52ac40cbbf1a2",
+      "provenance": [
+        {
+          "occurrence_id": "O0699",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:242/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<h2 id=\"2009\">21. IJCAI 2009: Pasadena, California, USA</h2>"
+      ],
+      "output": "Pasadena",
+      "pair_sha256": "9ef77c72afc25815b73535965184dc019a4f4dd077f161e5207cdb914581015e",
+      "provenance": [
+        {
+          "occurrence_id": "O0699",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:242/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<h2 id=\"2013\">23. IJCAI 2013: Beijing, China</h2>"
+      ],
+      "output": "Beijing",
+      "pair_sha256": "07f72d969c5207ac004a11fcf2162db2442bb3fdb1c1df9c5f45fb3391add0c4",
+      "provenance": [
+        {
+          "occurrence_id": "O0699",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:242/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "<h2 id=\"2016\">25. IJCAI 2016: New York, NY, USA</h2>"
+      ],
+      "output": "New York",
+      "pair_sha256": "c30e76a30845a40a73963b2c3e709338ed8c9fd5742ce3b5ef3fbba6c46de2e9",
+      "provenance": [
+        {
+          "occurrence_id": "O0699",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:242/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 49,
+      "max": 62
+    },
+    "output_lengths": {
+      "min": 7,
+      "max": 12
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Das Ortsfeld liegt zwischen Doppelpunkt und erstem folgenden Komma, einschließlich mehrwortiger Städte."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "<h2 id=\"2015\">24. IJCAI 2015: Buenos Aires, Argentina</h2>",
+        "output": "Buenos Aires"
+      },
+      {
+        "input": "<h2 id=\"2009\">21. IJCAI 2009: Pasadena, California, USA</h2>",
+        "output": "Pasadena"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "<h2 id=\"2013\">23. IJCAI 2013: Beijing, China</h2>",
+        "output": "Beijing"
+      },
+      {
+        "input": "<h2 id=\"2016\">25. IJCAI 2016: New York, NY, USA</h2>",
+        "output": "New York"
+      },
+      {
+        "input": "<h2 id=\"2011\">22. IJCAI 2011: Barcelona, Catalonia, Spain</h2>",
+        "output": "Barcelona"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 121
+}

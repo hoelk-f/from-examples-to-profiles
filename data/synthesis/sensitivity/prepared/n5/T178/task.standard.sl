@@ -1,0 +1,8 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " 17" " <" "1748" "1797" "1798" "1870" "<" ">" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "December 9 1797") "1797"))
+(constraint (= (f "February 21 1798") "1798"))
+(constraint (= (f "March 17 1870 <as Raritan Township>") "1870"))
+(constraint (= (f "January 19 1748") "1748"))
+(constraint (= (f "December 5 1798") "1798"))
+(check-synth)

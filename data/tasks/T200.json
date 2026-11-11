@@ -1,0 +1,102 @@
+{
+  "task_id": "T200",
+  "family_id": "field-extraction-v1",
+  "field": "Second space-delimited log field",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "token",
+        " ",
+        1
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0181"
+  ],
+  "collections": [
+    "PROSE"
+  ],
+  "unique_example_count": 2,
+  "source_example_row_count": 2,
+  "examples": [
+    {
+      "input": [
+        "2008-07-26 18:25:57 142.52.143.231 GET /foobar/ - 49 - 70.74.119.161 MZAWZRI/8.8+(ZASNYR+OC+1.4;+HZQ70;+JI:95.7)+DHXUI/41247641+WVTWRQF/88.0 816 8 2 946"
+      ],
+      "output": "18:25:57",
+      "pair_sha256": "b8e8424370d93f5964c22d46f2f93a76497c4f11c5ef2fb1216b0fa3a58eb45d",
+      "provenance": [
+        {
+          "occurrence_id": "O0181",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Log.000022/spec.json",
+          "location": "/Examples/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "2008-06-17 02:25:20 186.183.32.231 GET /foobar/ - 14 - 138.83.171.119 VVUTYHN/6.3+(HVFEBQ+SQ+9.2;+YBX60;+DC:69.4)+DROFQ/03802799+KNHNNBH/48.6 174 9 1 668"
+      ],
+      "output": "02:25:20",
+      "pair_sha256": "c7593b1af26964b867987efae59ad5520cb6e485098efb2fd8ef053c94d74624",
+      "provenance": [
+        {
+          "occurrence_id": "O0181",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Log.000022/spec.json",
+          "location": "/Examples/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 152,
+      "max": 153
+    },
+    "output_lengths": {
+      "min": 8,
+      "max": 8
+    }
+  },
+  "warnings": [
+    "Very few unique source examples. A later synthesis/held-out protocol may be infeasible.",
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Die Uhrzeit ist das zweite Leerzeichenfeld des gezeigten Logformats. Zwei Beispiele sind eine geringe Datenbasis."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "2008-07-26 18:25:57 142.52.143.231 GET /foobar/ - 49 - 70.74.119.161 MZAWZRI/8.8+(ZASNYR+OC+1.4;+HZQ70;+JI:95.7)+DHXUI/41247641+WVTWRQF/88.0 816 8 2 946",
+        "output": "18:25:57"
+      },
+      {
+        "input": "2008-06-17 02:25:20 186.183.32.231 GET /foobar/ - 14 - 138.83.171.119 VVUTYHN/6.3+(HVFEBQ+SQ+9.2;+YBX60;+DC:69.4)+DROFQ/03802799+KNHNNBH/48.6 174 9 1 668",
+        "output": "02:25:20"
+      }
+    ],
+    "heldout": []
+  },
+  "behavioral": {},
+  "generation_seed": 25
+}

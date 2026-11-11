@@ -1,0 +1,2 @@
+def transform(x: str) -> str:
+    return x.rsplit(".", 1)[-1] if "." in x else x

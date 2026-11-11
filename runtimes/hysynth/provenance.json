@@ -1,0 +1,75 @@
+{
+  "method": "strict HySynth-STRING adaptation, not a full paper reproduction",
+  "paper": "https://arxiv.org/html/2405.15880v2",
+  "upstream": "https://github.com/shraddhabarke/Probe/tree/5b625f02b8fe1191e305390f87d4d5870d80131c",
+  "imported_adapter_sources": {
+    "common.py": "6bd5a7674bf31ee3f08220c8c939b560a82636d9f02cea1eccaea8c8302e25f6",
+    "runtime.py": "596d9100d66287029b5a3f517f9e53b5b225019d55952bc84e8440a28a547e3d",
+    "process_pool.py": "b45fb9d8a1efdbd5905dcf5b655aca83fe61081b18306cc54ef2efc167e48a7a",
+    "smt_transport.py": "10d1ade3e5cff4b346b077c90e4edec639ee059e617709ca0b85ec0bba9cabd2"
+  },
+  "grammar": "one productive nonterminal per type, task constants from synthesis examples",
+  "selection": "direct first consistent sample, guided all valid executable samples with duplicates",
+  "deviations": [
+    {
+      "aspect": "Search core",
+      "paper_or_artifact": "Probe weighted bottom-up enumeration with fixed LLM-derived weights",
+      "pilot": "Same core and unchanged estimator, fixed weights active",
+      "assessment": "Control checks confirm the intended wiring"
+    },
+    {
+      "aspect": "Proposal count",
+      "paper_or_artifact": "100 in main paper, 10/20/50 ablations",
+      "pilot": "One per task",
+      "assessment": "Material experimental difference, especially with Laplace smoothing"
+    },
+    {
+      "aspect": "Grammar nonterminals",
+      "paper_or_artifact": "Pinned Probe vocabulary preserves types, not distinct nonterminals of the same type",
+      "pilot": "S and C are both String but C is intended to allow literals only",
+      "assessment": "Confirmed adapter mismatch. T85 and independent C_nonterminal violate the prompted grammar"
+    },
+    {
+      "aspect": "Constants",
+      "paper_or_artifact": "Union grammar in STRING benchmark",
+      "pilot": "Per-task constants derived from the two training examples, including complete output strings",
+      "assessment": "Must be justified and documented. Removing output constants would change the hypothesis space"
+    },
+    {
+      "aspect": "Parsing",
+      "paper_or_artifact": "Paper main configuration non-strict, pinned PCFGCompute requires parseable expressions",
+      "pilot": "Strict parse and additional grammar-conformance check on the LLM proposal",
+      "assessment": "Strict artifact adaptation, not the published main pipeline"
+    },
+    {
+      "aspect": "PCFG mathematics",
+      "paper_or_artifact": "Paper normalizes by nonterminal and rounds costs upward. Pinned STRING code normalizes across AST categories and rounds to nearest integer",
+      "pilot": "Uses pinned artifact unchanged",
+      "assessment": "Paper versus artifact discrepancy. Do not silently replace the estimator and call it a reproduction"
+    },
+    {
+      "aspect": "Examples and evaluation",
+      "paper_or_artifact": "Original STRING tasks contain 2 to 400 examples",
+      "pilot": "Two training examples and separate held-out and behavioral cases",
+      "assessment": "Deliberate study setting, not a bug"
+    },
+    {
+      "aspect": "Time budget",
+      "paper_or_artifact": "600 seconds including sampling and search in main paper",
+      "pilot": "60 seconds symbolic search and separate model timeout",
+      "assessment": "Documented budget adaptation. No pilot search reached its timeout"
+    },
+    {
+      "aspect": "Original stock",
+      "paper_or_artifact": "Parent archive includes 100 raw completions for each of 70 tasks. Probe archive contains processed lists of 0 to 11 expressions",
+      "pilot": "New single Sol completion per task",
+      "assessment": "Processed lists are not a verified complete non-strict reconstruction of all 100 responses"
+    },
+    {
+      "aspect": "Numeric conversion",
+      "paper_or_artifact": "Pinned StringToInt uses JVM Int conversion and can throw on larger digit strings",
+      "pilot": "Custom grammar excludes str.to.int",
+      "assessment": "Observed original smoke-test crash. It does not explain the previous 184-task loss"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+def transform(x: str) -> str:
+    tokens = x.split()
+    digit_tokens = [t for t in tokens if t.isdigit()]
+    if not digit_tokens:
+        return ""
+    return max(digit_tokens, key=len)

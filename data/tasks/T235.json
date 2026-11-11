@@ -1,0 +1,162 @@
+{
+  "task_id": "T235",
+  "family_id": "field-extraction-v1",
+  "field": "Quoted team name",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "\""
+      ],
+      [
+        "before",
+        "\""
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0707"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "\"Giants\",117.62,94"
+      ],
+      "output": "Giants",
+      "pair_sha256": "d20f606e8d5671154c7d22583267ee5885100a9ef1cd0805bd7c0af7ab3a4dec",
+      "provenance": [
+        {
+          "occurrence_id": "O0707",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:290/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Athletics\",55.37, 94"
+      ],
+      "output": "Athletics",
+      "pair_sha256": "4e3e87897b6967c8573b1d3fe863a0bd3672704a71698ab576f957667ebab6f1",
+      "provenance": [
+        {
+          "occurrence_id": "O0707",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:290/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Yankees\",197.96,95"
+      ],
+      "output": "Yankees",
+      "pair_sha256": "525b18de32dded40ca410ef8a4163eb6a984b009abe64edb4aa6e6118a91ad2d",
+      "provenance": [
+        {
+          "occurrence_id": "O0707",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:290/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Reds\",82.20,97"
+      ],
+      "output": "Reds",
+      "pair_sha256": "4f2567a33bf25230fc148a153d5a92669b8f758b9b4b0f51f484df703b931cd0",
+      "provenance": [
+        {
+          "occurrence_id": "O0707",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:290/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "\"Braves\",83.31,94"
+      ],
+      "output": "Braves",
+      "pair_sha256": "9e227fef4b13e61a6a5ef16b1afeba12a0a64329e49df8358e072e5475ed3edc",
+      "provenance": [
+        {
+          "occurrence_id": "O0707",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:290/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 15,
+      "max": 21
+    },
+    "output_lengths": {
+      "min": 4,
+      "max": 9
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "scope",
+  "review_notes": [
+    {
+      "status": "scope",
+      "reason_de": "Das erste zitierte Feld wird vor den numerischen Folgespalten übernommen. Die Quelle liefert keine allgemeine CSV-Spezifikation."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "\"Athletics\",55.37, 94",
+        "output": "Athletics"
+      },
+      {
+        "input": "\"Yankees\",197.96,95",
+        "output": "Yankees"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "\"Reds\",82.20,97",
+        "output": "Reds"
+      },
+      {
+        "input": "\"Braves\",83.31,94",
+        "output": "Braves"
+      },
+      {
+        "input": "\"Giants\",117.62,94",
+        "output": "Giants"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 127
+}

@@ -1,0 +1,2520 @@
+{
+  "task_id": "T019",
+  "family_id": "field-extraction-v1",
+  "field": "Number inside parentheses",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "("
+      ],
+      [
+        "before",
+        ")"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0305"
+  ],
+  "collections": [
+    "PROSE"
+  ],
+  "unique_example_count": 4,
+  "source_example_row_count": 4,
+  "examples": [
+    {
+      "input": [
+        "419 138 420700 5327 (27) 0033"
+      ],
+      "output": "27",
+      "pair_sha256": "48f2377b3ff559b0f862bb53c9807e384927acc36244d09da2c2c4ba4e0a88b5",
+      "provenance": [
+        {
+          "occurrence_id": "O0305",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Number.000091/spec.json",
+          "location": "/Examples/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "886 906 (99)"
+      ],
+      "output": "99",
+      "pair_sha256": "817994293f7226837f7d5d61bb3075c05768d6eafb7eaf9b937725785f628106",
+      "provenance": [
+        {
+          "occurrence_id": "O0305",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Number.000091/spec.json",
+          "location": "/Examples/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "038 (67) 600"
+      ],
+      "output": "67",
+      "pair_sha256": "5e4a12e60234a5b82bf5aa933f997b6e763a0e6ac4b00b6d0b061b66d6f7c65f",
+      "provenance": [
+        {
+          "occurrence_id": "O0305",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Number.000091/spec.json",
+          "location": "/Examples/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "(24) 950 4346"
+      ],
+      "output": "24",
+      "pair_sha256": "65421352d4f10dc4ee3b0878d49b520fe61b695a18ead07c1a61462d7bf93628",
+      "provenance": [
+        {
+          "occurrence_id": "O0305",
+          "source_role": "unspecified",
+          "file_ref": "https://github.com/microsoft/prose-benchmarks/blob/cf9fe00cfe4657ba92e8444729cc7791e40c0e88/Transformation.Text/Number.000091/spec.json",
+          "location": "/Examples/3"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 12,
+      "max": 29
+    },
+    "output_lengths": {
+      "min": 2,
+      "max": 2
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Die Klammermarkierungen lokalisieren den Zahlenwert trotz unterschiedlicher Position im Eingangstext."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "(24) 950 4346",
+        "output": "24"
+      },
+      {
+        "input": "419 138 420700 5327 (27) 0033",
+        "output": "27"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "886 906 (99)",
+        "output": "99"
+      },
+      {
+        "input": "038 (67) 600",
+        "output": "67"
+      }
+    ]
+  },
+  "behavioral": {
+    "bases": [
+      {
+        "base_id": "T019-B1",
+        "task_id": "T019",
+        "input": "(24) 950 4346",
+        "expected_output": "24",
+        "expected_span": [
+          1,
+          3
+        ],
+        "source_path": "data/tasks/T019.json#split.training",
+        "source_index": 0,
+        "role": "synthesis_example_for_paired_assertions_only"
+      },
+      {
+        "base_id": "T019-B2",
+        "task_id": "T019",
+        "input": "419 138 420700 5327 (27) 0033",
+        "expected_output": "27",
+        "expected_span": [
+          21,
+          23
+        ],
+        "source_path": "data/tasks/T019.json#split.training",
+        "source_index": 1,
+        "role": "synthesis_example_for_paired_assertions_only"
+      }
+    ],
+    "cases": [
+      {
+        "case_id": "T019-C4fb7d7f9c92d107434ee",
+        "task_id": "T019",
+        "input": "(62) 950 4346",
+        "expected_output": "62",
+        "expected_span": [
+          1,
+          3
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-V01-1"
+        ]
+      },
+      {
+        "case_id": "T019-C529418d8f4a743ce019f",
+        "task_id": "T019",
+        "input": "(37) 950 4346",
+        "expected_output": "37",
+        "expected_span": [
+          1,
+          3
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-V01-2"
+        ]
+      },
+      {
+        "case_id": "T019-C107ea0a7c7683f8eee34",
+        "task_id": "T019",
+        "input": "(91) 950 4346",
+        "expected_output": "91",
+        "expected_span": [
+          1,
+          3
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-V01-3"
+        ]
+      },
+      {
+        "case_id": "T019-Ce4dd99a19aa7c4e25a29",
+        "task_id": "T019",
+        "input": "(24) 950 7951",
+        "expected_output": "24",
+        "expected_span": [
+          1,
+          3
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-V02-1"
+        ]
+      },
+      {
+        "case_id": "T019-C78b9c6ac8e35651a5cbf",
+        "task_id": "T019",
+        "input": "(24) 950 9100",
+        "expected_output": "24",
+        "expected_span": [
+          1,
+          3
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-V02-2"
+        ]
+      },
+      {
+        "case_id": "T019-Cce005424e0f9964ba1d6",
+        "task_id": "T019",
+        "input": "(24) 950 3537",
+        "expected_output": "24",
+        "expected_span": [
+          1,
+          3
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-V02-3"
+        ]
+      },
+      {
+        "case_id": "T019-Cfff1d9ffbd8b77e86aad",
+        "task_id": "T019",
+        "input": "(244) 950 4346",
+        "expected_output": "244",
+        "expected_span": [
+          1,
+          4
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-V04-1"
+        ]
+      },
+      {
+        "case_id": "T019-C170e1cb84a93ff9228a4",
+        "task_id": "T019",
+        "input": "(2409) 950 4346",
+        "expected_output": "2409",
+        "expected_span": [
+          1,
+          5
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-V04-2"
+        ]
+      },
+      {
+        "case_id": "T019-C3243e8891c43273092a0",
+        "task_id": "T019",
+        "input": "(24315200) 950 4346",
+        "expected_output": "24315200",
+        "expected_span": [
+          1,
+          9
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-V04-3"
+        ]
+      },
+      {
+        "case_id": "T019-C33b33ee8e6da6f579f9f",
+        "task_id": "T019",
+        "input": "(8) 950 4346",
+        "expected_output": "8",
+        "expected_span": [
+          1,
+          2
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-V05-1"
+        ]
+      },
+      {
+        "case_id": "T019-Cbfa32bf493b7c97afcff",
+        "task_id": "T019",
+        "input": "(684)(24) 950 4346",
+        "expected_output": "684",
+        "expected_span": [
+          1,
+          4
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-S01-1"
+        ]
+      },
+      {
+        "case_id": "T019-Cc03b47c182dc4c87e99d",
+        "task_id": "T019",
+        "input": "(374)(24) 950 4346",
+        "expected_output": "374",
+        "expected_span": [
+          1,
+          4
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-S01-2"
+        ]
+      },
+      {
+        "case_id": "T019-C43b7774b5f9bea9db671",
+        "task_id": "T019",
+        "input": "(24) 950 4346(577)",
+        "expected_output": "24",
+        "expected_span": [
+          1,
+          3
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-S01-3"
+        ]
+      },
+      {
+        "case_id": "T019-C551b6593486d5c920cdc",
+        "task_id": "T019",
+        "input": "(24) 950 4346(159)",
+        "expected_output": "24",
+        "expected_span": [
+          1,
+          3
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B1-S01-4"
+        ]
+      },
+      {
+        "case_id": "T019-Ce53ebb634819ec8a80f5",
+        "task_id": "T019",
+        "input": "419 138 420700 5327 (01) 0033",
+        "expected_output": "01",
+        "expected_span": [
+          21,
+          23
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-V01-1"
+        ]
+      },
+      {
+        "case_id": "T019-C1ff3ac4bc4edce05ff0a",
+        "task_id": "T019",
+        "input": "419 138 420700 5327 (55) 0033",
+        "expected_output": "55",
+        "expected_span": [
+          21,
+          23
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-V01-2"
+        ]
+      },
+      {
+        "case_id": "T019-C969de2855bb426774183",
+        "task_id": "T019",
+        "input": "419 138 420700 5327 (82) 0033",
+        "expected_output": "82",
+        "expected_span": [
+          21,
+          23
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-V01-3"
+        ]
+      },
+      {
+        "case_id": "T019-Ccb6372c8d7bce4b2cfa0",
+        "task_id": "T019",
+        "input": "419 138 634245 5327 (27) 0033",
+        "expected_output": "27",
+        "expected_span": [
+          21,
+          23
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-V02-1"
+        ]
+      },
+      {
+        "case_id": "T019-C6a56aab63345876532d9",
+        "task_id": "T019",
+        "input": "419 138 587135 5327 (27) 0033",
+        "expected_output": "27",
+        "expected_span": [
+          21,
+          23
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-V02-2"
+        ]
+      },
+      {
+        "case_id": "T019-Cee464308a2106a1d4f3f",
+        "task_id": "T019",
+        "input": "419 138 936438 5327 (27) 0033",
+        "expected_output": "27",
+        "expected_span": [
+          21,
+          23
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-V02-3"
+        ]
+      },
+      {
+        "case_id": "T019-Cabdc47b1d6710151cc67",
+        "task_id": "T019",
+        "input": "419 138 4207008238685269 5327 (27) 0033",
+        "expected_output": "27",
+        "expected_span": [
+          31,
+          33
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-V03-1"
+        ]
+      },
+      {
+        "case_id": "T019-C3a56dba1849692d909ac",
+        "task_id": "T019",
+        "input": "419 138 42070007728121454913529522 5327 (27) 0033",
+        "expected_output": "27",
+        "expected_span": [
+          41,
+          43
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-V03-2"
+        ]
+      },
+      {
+        "case_id": "T019-C26d7394d1063969633bb",
+        "task_id": "T019",
+        "input": "419 138 420700029271256431904687192292060948841831587369228633067804915272 5327 (27) 0033",
+        "expected_output": "27",
+        "expected_span": [
+          81,
+          83
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-V03-3"
+        ]
+      },
+      {
+        "case_id": "T019-Cd0871219fc909fb1236c",
+        "task_id": "T019",
+        "input": "419 138 420700 5327 (276) 0033",
+        "expected_output": "276",
+        "expected_span": [
+          21,
+          24
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-V04-1"
+        ]
+      },
+      {
+        "case_id": "T019-Cbde9201f5f580f49f748",
+        "task_id": "T019",
+        "input": "419 138 420700 5327 (2706) 0033",
+        "expected_output": "2706",
+        "expected_span": [
+          21,
+          25
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-V04-2"
+        ]
+      },
+      {
+        "case_id": "T019-C9636c78e26af97bd92bf",
+        "task_id": "T019",
+        "input": "419 138 420700 5327 (27166392) 0033",
+        "expected_output": "27166392",
+        "expected_span": [
+          21,
+          29
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-V04-3"
+        ]
+      },
+      {
+        "case_id": "T019-C3788458ffdb63c98ec82",
+        "task_id": "T019",
+        "input": "419 138 420700 5327 (1) 0033",
+        "expected_output": "1",
+        "expected_span": [
+          21,
+          22
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-V05-1"
+        ]
+      },
+      {
+        "case_id": "T019-Ca8bd095c7cb234d760a3",
+        "task_id": "T019",
+        "input": "(433)419 138 420700 5327 (27) 0033",
+        "expected_output": "433",
+        "expected_span": [
+          1,
+          4
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-S01-1"
+        ]
+      },
+      {
+        "case_id": "T019-C19c992a61ce279cf285f",
+        "task_id": "T019",
+        "input": "(978)419 138 420700 5327 (27) 0033",
+        "expected_output": "978",
+        "expected_span": [
+          1,
+          4
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-S01-2"
+        ]
+      },
+      {
+        "case_id": "T019-Cfe63cc7157e17b302760",
+        "task_id": "T019",
+        "input": "419 138 420700 5327 (27) 0033(592)",
+        "expected_output": "27",
+        "expected_span": [
+          21,
+          23
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-S01-3"
+        ]
+      },
+      {
+        "case_id": "T019-C17ed64c52fbdcf972e5e",
+        "task_id": "T019",
+        "input": "419 138 420700 5327 (27) 0033(654)",
+        "expected_output": "27",
+        "expected_span": [
+          21,
+          23
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T019-B2-S01-4"
+        ]
+      }
+    ],
+    "obligations": [
+      {
+        "obligation_id": "T019-B1-V01-1",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C4fb7d7f9c92d107434ee",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 3,
+          "replacement": "62"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "62"
+          },
+          {
+            "assertion_id": "T019-B1-V01-1-relation",
+            "base_id": "T019-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "62"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B1-V01-2",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C529418d8f4a743ce019f",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 3,
+          "replacement": "37"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "37"
+          },
+          {
+            "assertion_id": "T019-B1-V01-2-relation",
+            "base_id": "T019-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "37"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B1-V01-3",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C107ea0a7c7683f8eee34",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 3,
+          "replacement": "91"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "91"
+          },
+          {
+            "assertion_id": "T019-B1-V01-3-relation",
+            "base_id": "T019-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "91"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B1-V02-1",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-Ce4dd99a19aa7c4e25a29",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 9,
+          "end": 13,
+          "replacement": "7951"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "24"
+          },
+          {
+            "assertion_id": "T019-B1-V02-1-relation",
+            "base_id": "T019-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B1-V02-2",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C78b9c6ac8e35651a5cbf",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 9,
+          "end": 13,
+          "replacement": "9100"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "24"
+          },
+          {
+            "assertion_id": "T019-B1-V02-2-relation",
+            "base_id": "T019-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B1-V02-3",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-Cce005424e0f9964ba1d6",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 9,
+          "end": 13,
+          "replacement": "3537"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "24"
+          },
+          {
+            "assertion_id": "T019-B1-V02-3-relation",
+            "base_id": "T019-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B1-V03-1",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 30
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T019-B1-V03-2",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 40
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T019-B1-V03-3",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 80
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "no_unprotected_ascii_alphanumeric_run_in_required_region"
+      },
+      {
+        "obligation_id": "T019-B1-V04-1",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-Cfff1d9ffbd8b77e86aad",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 3,
+          "replacement": "244"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "244"
+          },
+          {
+            "assertion_id": "T019-B1-V04-1-relation",
+            "base_id": "T019-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "244"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B1-V04-2",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 4
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C170e1cb84a93ff9228a4",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 4,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 3,
+          "replacement": "2409"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "2409"
+          },
+          {
+            "assertion_id": "T019-B1-V04-2-relation",
+            "base_id": "T019-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "2409"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B1-V04-3",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 8
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C3243e8891c43273092a0",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 8,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 3,
+          "replacement": "24315200"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "24315200"
+          },
+          {
+            "assertion_id": "T019-B1-V04-3-relation",
+            "base_id": "T019-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "24315200"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B1-V05-1",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C33b33ee8e6da6f579f9f",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "value": "Boundary",
+            "attribute": "target_length",
+            "boundary": 1,
+            "requirement": "nonempty_selected_field"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 1,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 3,
+          "replacement": "8"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-V05-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "8"
+          },
+          {
+            "assertion_id": "T019-B1-V05-1-relation",
+            "base_id": "T019-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "8"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B1-S01-1",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-Cbfa32bf493b7c97afcff",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "before",
+          "dummy_field": "684"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "684"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B1-S01-2",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-Cc03b47c182dc4c87e99d",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "before",
+          "dummy_field": "374"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "374"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B1-S01-3",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C43b7774b5f9bea9db671",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "after",
+          "dummy_field": "577"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "24"
+          },
+          {
+            "assertion_id": "T019-B1-S01-3-relation",
+            "base_id": "T019-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B1-S01-4",
+        "task_id": "T019",
+        "base_id": "T019-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C551b6593486d5c920cdc",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "after",
+          "dummy_field": "159"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B1-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "24"
+          },
+          {
+            "assertion_id": "T019-B1-S01-4-relation",
+            "base_id": "T019-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-V01-1",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-Ce53ebb634819ec8a80f5",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 21,
+          "end": 23,
+          "replacement": "01"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "01"
+          },
+          {
+            "assertion_id": "T019-B2-V01-1-relation",
+            "base_id": "T019-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "01"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-V01-2",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C1ff3ac4bc4edce05ff0a",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 21,
+          "end": 23,
+          "replacement": "55"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "55"
+          },
+          {
+            "assertion_id": "T019-B2-V01-2-relation",
+            "base_id": "T019-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "55"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-V01-3",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C969de2855bb426774183",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 21,
+          "end": 23,
+          "replacement": "82"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "82"
+          },
+          {
+            "assertion_id": "T019-B2-V01-3-relation",
+            "base_id": "T019-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "82"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-V02-1",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-Ccb6372c8d7bce4b2cfa0",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 14,
+          "replacement": "634245"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "27"
+          },
+          {
+            "assertion_id": "T019-B2-V02-1-relation",
+            "base_id": "T019-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-V02-2",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C6a56aab63345876532d9",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 14,
+          "replacement": "587135"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "27"
+          },
+          {
+            "assertion_id": "T019-B2-V02-2-relation",
+            "base_id": "T019-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-V02-3",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-Cee464308a2106a1d4f3f",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 14,
+          "replacement": "936438"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "27"
+          },
+          {
+            "assertion_id": "T019-B2-V02-3-relation",
+            "base_id": "T019-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-V03-1",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 30
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-Cabdc47b1d6710151cc67",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 0,
+            "observed_max": 20,
+            "test_value": 30,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 14,
+          "replacement": "4207008238685269"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-V03-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "27"
+          },
+          {
+            "assertion_id": "T019-B2-V03-1-relation",
+            "base_id": "T019-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-V03-2",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 40
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C3a56dba1849692d909ac",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 0,
+            "observed_max": 20,
+            "test_value": 40,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 14,
+          "replacement": "42070007728121454913529522"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-V03-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "27"
+          },
+          {
+            "assertion_id": "T019-B2-V03-2-relation",
+            "base_id": "T019-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-V03-3",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 80
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C26d7394d1063969633bb",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 0,
+            "observed_max": 20,
+            "test_value": 80,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 8,
+          "end": 14,
+          "replacement": "420700029271256431904687192292060948841831587369228633067804915272"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-V03-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "27"
+          },
+          {
+            "assertion_id": "T019-B2-V03-3-relation",
+            "base_id": "T019-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-V04-1",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-Cd0871219fc909fb1236c",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 3,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 21,
+          "end": 23,
+          "replacement": "276"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "276"
+          },
+          {
+            "assertion_id": "T019-B2-V04-1-relation",
+            "base_id": "T019-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "276"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-V04-2",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 4
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-Cbde9201f5f580f49f748",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 4,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 21,
+          "end": 23,
+          "replacement": "2706"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "2706"
+          },
+          {
+            "assertion_id": "T019-B2-V04-2-relation",
+            "base_id": "T019-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "2706"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-V04-3",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 8
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C9636c78e26af97bd92bf",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 8,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 21,
+          "end": 23,
+          "replacement": "27166392"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "27166392"
+          },
+          {
+            "assertion_id": "T019-B2-V04-3-relation",
+            "base_id": "T019-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "27166392"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-V05-1",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C3788458ffdb63c98ec82",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "value": "Boundary",
+            "attribute": "target_length",
+            "boundary": 1,
+            "requirement": "nonempty_selected_field"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 2,
+            "observed_max": 2,
+            "test_value": 1,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 21,
+          "end": 23,
+          "replacement": "1"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-V05-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "1"
+          },
+          {
+            "assertion_id": "T019-B2-V05-1-relation",
+            "base_id": "T019-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 2,
+            "replacement": "1"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-S01-1",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-Ca8bd095c7cb234d760a3",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "before",
+          "dummy_field": "433"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "433"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-S01-2",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C19c992a61ce279cf285f",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "before",
+          "dummy_field": "978"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "978"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-S01-3",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-Cfe63cc7157e17b302760",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "after",
+          "dummy_field": "592"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "27"
+          },
+          {
+            "assertion_id": "T019-B2-S01-3-relation",
+            "base_id": "T019-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T019-B2-S01-4",
+        "task_id": "T019",
+        "base_id": "T019-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T019-C17ed64c52fbdcf972e5e",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "after",
+          "dummy_field": "654"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T019-B2-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "27"
+          },
+          {
+            "assertion_id": "T019-B2-S01-4-relation",
+            "base_id": "T019-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      }
+    ],
+    "applicability": [
+      {
+        "task_id": "T019",
+        "operator_id": "V01",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T019",
+        "operator_id": "V02",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T019",
+        "operator_id": "V03",
+        "obligations": 6,
+        "statuses": {
+          "not_applicable_to_operator": 3,
+          "planned": 3
+        },
+        "unique_cases": 3,
+        "reasons": {
+          "no_unprotected_ascii_alphanumeric_run_in_required_region": 3
+        }
+      },
+      {
+        "task_id": "T019",
+        "operator_id": "V04",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T019",
+        "operator_id": "V05",
+        "obligations": 2,
+        "statuses": {
+          "planned": 2
+        },
+        "unique_cases": 2,
+        "reasons": {}
+      },
+      {
+        "task_id": "T019",
+        "operator_id": "S01",
+        "obligations": 8,
+        "statuses": {
+          "planned": 8
+        },
+        "unique_cases": 8,
+        "reasons": {}
+      }
+    ]
+  },
+  "generation_seed": 37
+}

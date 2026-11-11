@@ -1,0 +1,162 @@
+{
+  "task_id": "T250",
+  "family_id": "field-extraction-v1",
+  "field": "Country",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        ", "
+      ],
+      [
+        "before",
+        ":"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0779"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "Beijing, China: 27.7 million people"
+      ],
+      "output": "China",
+      "pair_sha256": "8a56b89f09050b5c7496942c428114859937f7c190f8db68c63ed20a6ef29f39",
+      "provenance": [
+        {
+          "occurrence_id": "O0779",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:99/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Karachi, Pakistan: 24.8 million people"
+      ],
+      "output": "Pakistan",
+      "pair_sha256": "48615cca1d5bbf248cd95bd8f10899ec1b4d430db3bfc8be07f38f1a042ca85f",
+      "provenance": [
+        {
+          "occurrence_id": "O0779",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:99/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "London, UK: 8.136 million people"
+      ],
+      "output": "UK",
+      "pair_sha256": "de20a7320c16eb34d930f7891b55d2633ca9fb1702f08c5f1d99cc33f5d57711",
+      "provenance": [
+        {
+          "occurrence_id": "O0779",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:99/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Tokyo, Japan: 37.2 million people"
+      ],
+      "output": "Japan",
+      "pair_sha256": "ec97b18be8f0761fcb1d8c02efc0ddc23be478457e8aadb61502386c812caf22",
+      "provenance": [
+        {
+          "occurrence_id": "O0779",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:99/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Cairo, Egypt: 24.5 million people"
+      ],
+      "output": "Egypt",
+      "pair_sha256": "5929d821d73b9b8572a5d1317a984a4f9a6c8252696f89a0a996c0bda06de33e",
+      "provenance": [
+        {
+          "occurrence_id": "O0779",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:99/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 32,
+      "max": 38
+    },
+    "output_lengths": {
+      "min": 2,
+      "max": 8
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Das Land liegt zwischen Komma und Doppelpunkt."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "Karachi, Pakistan: 24.8 million people",
+        "output": "Pakistan"
+      },
+      {
+        "input": "Cairo, Egypt: 24.5 million people",
+        "output": "Egypt"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "London, UK: 8.136 million people",
+        "output": "UK"
+      },
+      {
+        "input": "Tokyo, Japan: 37.2 million people",
+        "output": "Japan"
+      },
+      {
+        "input": "Beijing, China: 27.7 million people",
+        "output": "China"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 170
+}

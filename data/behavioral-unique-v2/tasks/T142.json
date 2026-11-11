@@ -1,0 +1,2583 @@
+{
+  "task_id": "T142",
+  "family_id": "field-extraction-v1",
+  "field": "Broadcaster",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        "("
+      ],
+      [
+        "before",
+        ")"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0886"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "AFC Fylde v Aldershot Town, 15:00 GMT (BBC Surrey)"
+      ],
+      "output": "BBC Surrey",
+      "pair_sha256": "57e6e56f0df4109ca349e7517917537f990275b8fd696d56ffd64d054b498d00",
+      "provenance": [
+        {
+          "occurrence_id": "O0886",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:104/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Chelsea v Crystal Palace, 17:30 GMT (BBC Radio London)"
+      ],
+      "output": "BBC Radio London",
+      "pair_sha256": "acdea07ff6fdc92429b4a5fb8bc4ff72d15ae12a74db5a221df876f8304c5cfe",
+      "provenance": [
+        {
+          "occurrence_id": "O0886",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:104/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Newcastle v Southampton, 15:00 GMT, (BBC Radio 5 live)"
+      ],
+      "output": "BBC Radio 5 live",
+      "pair_sha256": "035355f27b8eefdfed73b6ea4e1346b74e25775e247ff36833935b9e6c07e3bf",
+      "provenance": [
+        {
+          "occurrence_id": "O0886",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:104/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Maidstone United v Torquay United, 15:00 GMT (BBC Radio Devon)"
+      ],
+      "output": "BBC Radio Devon",
+      "pair_sha256": "853807147a36eae0cfff304f64ec4ad419781e82fded324f0d60c9b03aa7df48",
+      "provenance": [
+        {
+          "occurrence_id": "O0886",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:104/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "Hartlepool United v Boreham Wood, 15:00 GMT (BBC Tees)"
+      ],
+      "output": "BBC Tees",
+      "pair_sha256": "3334adf4c9774613ef9ab4cbe78259fe14078809bdaeb68562dcceb200e9eabc",
+      "provenance": [
+        {
+          "occurrence_id": "O0886",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:104/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 50,
+      "max": 62
+    },
+    "output_lengths": {
+      "min": 8,
+      "max": 16
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Der Sender wird aus dem Klammerfeld übernommen. Eine zusätzliche Kommaschreibweise davor ist irrelevant."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "AFC Fylde v Aldershot Town, 15:00 GMT (BBC Surrey)",
+        "output": "BBC Surrey"
+      },
+      {
+        "input": "Hartlepool United v Boreham Wood, 15:00 GMT (BBC Tees)",
+        "output": "BBC Tees"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "Maidstone United v Torquay United, 15:00 GMT (BBC Radio Devon)",
+        "output": "BBC Radio Devon"
+      },
+      {
+        "input": "Chelsea v Crystal Palace, 17:30 GMT (BBC Radio London)",
+        "output": "BBC Radio London"
+      },
+      {
+        "input": "Newcastle v Southampton, 15:00 GMT, (BBC Radio 5 live)",
+        "output": "BBC Radio 5 live"
+      }
+    ]
+  },
+  "behavioral": {
+    "cases": [
+      {
+        "case_id": "T142-C86bf39b0f591f578310c",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aldershot Town, 15:00 GMT (BBC Skqzul)",
+        "expected_output": "BBC Skqzul",
+        "expected_span": [
+          39,
+          49
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-V01-1"
+        ]
+      },
+      {
+        "case_id": "T142-C1759e22bc7f5218f3bb6",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aldershot Town, 15:00 GMT (BBC Sfwtna)",
+        "expected_output": "BBC Sfwtna",
+        "expected_span": [
+          39,
+          49
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-V01-2"
+        ]
+      },
+      {
+        "case_id": "T142-Cc06f3a30d66d8fd002df",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aldershot Town, 15:00 GMT (BBC Sehprq)",
+        "expected_output": "BBC Sehprq",
+        "expected_span": [
+          39,
+          49
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-V01-3"
+        ]
+      },
+      {
+        "case_id": "T142-Cc3948fea0f3db8fd2551",
+        "task_id": "T142",
+        "input": "AFC Fylde v Ahkidkwtp Town, 15:00 GMT (BBC Surrey)",
+        "expected_output": "BBC Surrey",
+        "expected_span": [
+          39,
+          49
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-V02-1"
+        ]
+      },
+      {
+        "case_id": "T142-C0b33edaaf30e7afb60da",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aaffqnajj Town, 15:00 GMT (BBC Surrey)",
+        "expected_output": "BBC Surrey",
+        "expected_span": [
+          39,
+          49
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-V02-2"
+        ]
+      },
+      {
+        "case_id": "T142-C094a39ee80a5ebfa4b57",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aplzjbqvr Town, 15:00 GMT (BBC Surrey)",
+        "expected_output": "BBC Surrey",
+        "expected_span": [
+          39,
+          49
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-V02-3"
+        ]
+      },
+      {
+        "case_id": "T142-C7129a1e6de0d8583a92d",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aldershotgjchsfsxaluhvvlubqbrikhklupe Town, 15:00 GMT (BBC Surrey)",
+        "expected_output": "BBC Surrey",
+        "expected_span": [
+          67,
+          77
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-V03-1"
+        ]
+      },
+      {
+        "case_id": "T142-C41c421fdfe91d3ad7991",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aldershothdjixgpywwnfhmoyyyyiwjvfbwvkeoulekfmkhretbhowrlssu Town, 15:00 GMT (BBC Surrey)",
+        "expected_output": "BBC Surrey",
+        "expected_span": [
+          89,
+          99
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-V03-2"
+        ]
+      },
+      {
+        "case_id": "T142-C1fc2629034c64c88dedd",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aldershotnqcnvshfjbbmithzmysozdhipjkyaamcwmwplqzojxzzllpfpevpfnqqxiugytoncnauwpqqnnjyyexmhujduacysjfyrjlfnzbrtkgbviddjbtfqspksolcrtkqbptwbecdetkahq Town, 15:00 GMT (BBC Surrey)",
+        "expected_output": "BBC Surrey",
+        "expected_span": [
+          177,
+          187
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-V03-3"
+        ]
+      },
+      {
+        "case_id": "T142-Cb14746b92c03629145da",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aldershot Town, 15:00 GMT (BBC Surreytkgnv)",
+        "expected_output": "BBC Surreytkgnv",
+        "expected_span": [
+          39,
+          54
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-V04-1"
+        ]
+      },
+      {
+        "case_id": "T142-Ce1e2d545e6a6aaa00ccc",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aldershot Town, 15:00 GMT (BBC Surreyqksonxfqtk)",
+        "expected_output": "BBC Surreyqksonxfqtk",
+        "expected_span": [
+          39,
+          59
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-V04-2"
+        ]
+      },
+      {
+        "case_id": "T142-Ca3908aadff1c6812d383",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aldershot Town, 15:00 GMT (BBC Surreygtumqqunweyojeptpdfyqmiybmwhlk)",
+        "expected_output": "BBC Surreygtumqqunweyojeptpdfyqmiybmwhlk",
+        "expected_span": [
+          39,
+          79
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-V04-3"
+        ]
+      },
+      {
+        "case_id": "T142-C0e2833ff31e05e256eb5",
+        "task_id": "T142",
+        "input": "(BTHAEBHLIU)AFC Fylde v Aldershot Town, 15:00 GMT (BBC Surrey)",
+        "expected_output": "BTHAEBHLIU",
+        "expected_span": [
+          1,
+          11
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-S01-1"
+        ]
+      },
+      {
+        "case_id": "T142-Cd6360e442a8d51a89977",
+        "task_id": "T142",
+        "input": "(MGMZJXCBKQ)AFC Fylde v Aldershot Town, 15:00 GMT (BBC Surrey)",
+        "expected_output": "MGMZJXCBKQ",
+        "expected_span": [
+          1,
+          11
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-S01-2"
+        ]
+      },
+      {
+        "case_id": "T142-C08ad41129ccdb24ae035",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aldershot Town, 15:00 GMT (BBC Surrey)(KFOUVTPLMA)",
+        "expected_output": "BBC Surrey",
+        "expected_span": [
+          39,
+          49
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-S01-3"
+        ]
+      },
+      {
+        "case_id": "T142-C9525e02a3b6a89634d11",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aldershot Town, 15:00 GMT (BBC Surrey)(MOVJLYPPMZ)",
+        "expected_output": "BBC Surrey",
+        "expected_span": [
+          39,
+          49
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B1-S01-4"
+        ]
+      },
+      {
+        "case_id": "T142-Ce2d2864698c6386e205f",
+        "task_id": "T142",
+        "input": "Hartlepool United v Boreham Wood, 15:00 GMT (CHY Tees)",
+        "expected_output": "CHY Tees",
+        "expected_span": [
+          45,
+          53
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-V01-1"
+        ]
+      },
+      {
+        "case_id": "T142-Cfa31e1e2d0538596894c",
+        "task_id": "T142",
+        "input": "Hartlepool United v Boreham Wood, 15:00 GMT (KHJ Tees)",
+        "expected_output": "KHJ Tees",
+        "expected_span": [
+          45,
+          53
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-V01-2"
+        ]
+      },
+      {
+        "case_id": "T142-C337e96d465cfb48844f1",
+        "task_id": "T142",
+        "input": "Hartlepool United v Boreham Wood, 15:00 GMT (AOM Tees)",
+        "expected_output": "AOM Tees",
+        "expected_span": [
+          45,
+          53
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-V01-3"
+        ]
+      },
+      {
+        "case_id": "T142-C584fad94c2e4903c403e",
+        "task_id": "T142",
+        "input": "Htvjdhgxxa United v Boreham Wood, 15:00 GMT (BBC Tees)",
+        "expected_output": "BBC Tees",
+        "expected_span": [
+          45,
+          53
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-V02-1"
+        ]
+      },
+      {
+        "case_id": "T142-Ce5bd55b3ee6b90dcb4a5",
+        "task_id": "T142",
+        "input": "Hfvwjwhevc United v Boreham Wood, 15:00 GMT (BBC Tees)",
+        "expected_output": "BBC Tees",
+        "expected_span": [
+          45,
+          53
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-V02-2"
+        ]
+      },
+      {
+        "case_id": "T142-C8dd9f7fd8feb66e2fb59",
+        "task_id": "T142",
+        "input": "Hgzzbaubjx United v Boreham Wood, 15:00 GMT (BBC Tees)",
+        "expected_output": "BBC Tees",
+        "expected_span": [
+          45,
+          53
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-V02-3"
+        ]
+      },
+      {
+        "case_id": "T142-Cc62003185ae836018fbd",
+        "task_id": "T142",
+        "input": "Hartlepoolholgptdnoimyoadhavsmng United v Boreham Wood, 15:00 GMT (BBC Tees)",
+        "expected_output": "BBC Tees",
+        "expected_span": [
+          67,
+          75
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-V03-1"
+        ]
+      },
+      {
+        "case_id": "T142-C01ad73c58600fa06e350",
+        "task_id": "T142",
+        "input": "Hartlepoolxxxpkzckhkbcwsadlsqgcsofssbggisdspudvwsuqwyh United v Boreham Wood, 15:00 GMT (BBC Tees)",
+        "expected_output": "BBC Tees",
+        "expected_span": [
+          89,
+          97
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-V03-2"
+        ]
+      },
+      {
+        "case_id": "T142-Cbf006855bdea365b8a38",
+        "task_id": "T142",
+        "input": "Hartlepoolxnkgjkatwypejybguwriignukjvvobpwvssirwigkhohuoyktaejpvuofcenuaspdwqvjbamvakrjciuqiqkapckrwwksfkyikoajwhqluofwwuezqdsffxbivexhfvrdnvg United v Boreham Wood, 15:00 GMT (BBC Tees)",
+        "expected_output": "BBC Tees",
+        "expected_span": [
+          177,
+          185
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-V03-3"
+        ]
+      },
+      {
+        "case_id": "T142-C8062c4c6f7ba07e5755d",
+        "task_id": "T142",
+        "input": "Hartlepool United v Boreham Wood, 15:00 GMT (BBCWLILJEA Tees)",
+        "expected_output": "BBCWLILJEA Tees",
+        "expected_span": [
+          45,
+          60
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-V04-1"
+        ]
+      },
+      {
+        "case_id": "T142-C7d7bb408169d3b3977f2",
+        "task_id": "T142",
+        "input": "Hartlepool United v Boreham Wood, 15:00 GMT (BBCPSRTSGTAJVFH Tees)",
+        "expected_output": "BBCPSRTSGTAJVFH Tees",
+        "expected_span": [
+          45,
+          65
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-V04-2"
+        ]
+      },
+      {
+        "case_id": "T142-C5c1f04b90db564c004fb",
+        "task_id": "T142",
+        "input": "Hartlepool United v Boreham Wood, 15:00 GMT (BBCTURWZGPAIJRHYMEJCSKHSPBHDYBMJHOK Tees)",
+        "expected_output": "BBCTURWZGPAIJRHYMEJCSKHSPBHDYBMJHOK Tees",
+        "expected_span": [
+          45,
+          85
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-V04-3"
+        ]
+      },
+      {
+        "case_id": "T142-C6c4eb814490b2870cd47",
+        "task_id": "T142",
+        "input": "(ZCJBIRHV)Hartlepool United v Boreham Wood, 15:00 GMT (BBC Tees)",
+        "expected_output": "ZCJBIRHV",
+        "expected_span": [
+          1,
+          9
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-S01-1"
+        ]
+      },
+      {
+        "case_id": "T142-C4fefbd396cefabe7baca",
+        "task_id": "T142",
+        "input": "(YYLQHNLV)Hartlepool United v Boreham Wood, 15:00 GMT (BBC Tees)",
+        "expected_output": "YYLQHNLV",
+        "expected_span": [
+          1,
+          9
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-S01-2"
+        ]
+      },
+      {
+        "case_id": "T142-Cf35fd39ba5c7835ddd2c",
+        "task_id": "T142",
+        "input": "Hartlepool United v Boreham Wood, 15:00 GMT (BBC Tees)(KNYNRADT)",
+        "expected_output": "BBC Tees",
+        "expected_span": [
+          45,
+          53
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-S01-3"
+        ]
+      },
+      {
+        "case_id": "T142-C0eee63ec28a4df35a613",
+        "task_id": "T142",
+        "input": "Hartlepool United v Boreham Wood, 15:00 GMT (BBC Tees)(YXFPUWVV)",
+        "expected_output": "BBC Tees",
+        "expected_span": [
+          45,
+          53
+        ],
+        "requirement_scope": "study_defined_literal_contract",
+        "obligation_ids": [
+          "T142-B2-S01-4"
+        ]
+      }
+    ],
+    "obligations": [
+      {
+        "obligation_id": "T142-B1-V01-1",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C86bf39b0f591f578310c",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 44,
+          "end": 49,
+          "replacement": "kqzul"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Skqzul"
+          },
+          {
+            "assertion_id": "T142-B1-V01-1-relation",
+            "base_id": "T142-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 5,
+            "end": 10,
+            "replacement": "kqzul"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-V01-2",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C1759e22bc7f5218f3bb6",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 44,
+          "end": 49,
+          "replacement": "fwtna"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Sfwtna"
+          },
+          {
+            "assertion_id": "T142-B1-V01-2-relation",
+            "base_id": "T142-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 5,
+            "end": 10,
+            "replacement": "fwtna"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-V01-3",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-Cc06f3a30d66d8fd002df",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 44,
+          "end": 49,
+          "replacement": "ehprq"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Sehprq"
+          },
+          {
+            "assertion_id": "T142-B1-V01-3-relation",
+            "base_id": "T142-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 5,
+            "end": 10,
+            "replacement": "ehprq"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-V02-1",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-Cc3948fea0f3db8fd2551",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 13,
+          "end": 21,
+          "replacement": "hkidkwtp"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Surrey"
+          },
+          {
+            "assertion_id": "T142-B1-V02-1-relation",
+            "base_id": "T142-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-V02-2",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C0b33edaaf30e7afb60da",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 13,
+          "end": 21,
+          "replacement": "affqnajj"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Surrey"
+          },
+          {
+            "assertion_id": "T142-B1-V02-2-relation",
+            "base_id": "T142-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-V02-3",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C094a39ee80a5ebfa4b57",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 13,
+          "end": 21,
+          "replacement": "plzjbqvr"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Surrey"
+          },
+          {
+            "assertion_id": "T142-B1-V02-3-relation",
+            "base_id": "T142-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-V03-1",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 66
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C7129a1e6de0d8583a92d",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 38,
+            "observed_max": 44,
+            "test_value": 66,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 13,
+          "end": 21,
+          "replacement": "ldershotgjchsfsxaluhvvlubqbrikhklupe"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-V03-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Surrey"
+          },
+          {
+            "assertion_id": "T142-B1-V03-1-relation",
+            "base_id": "T142-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-V03-2",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 88
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C41c421fdfe91d3ad7991",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 38,
+            "observed_max": 44,
+            "test_value": 88,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 13,
+          "end": 21,
+          "replacement": "ldershothdjixgpywwnfhmoyyyyiwjvfbwvkeoulekfmkhretbhowrlssu"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-V03-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Surrey"
+          },
+          {
+            "assertion_id": "T142-B1-V03-2-relation",
+            "base_id": "T142-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-V03-3",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 176
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C1fc2629034c64c88dedd",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 38,
+            "observed_max": 44,
+            "test_value": 176,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 13,
+          "end": 21,
+          "replacement": "ldershotnqcnvshfjbbmithzmysozdhipjkyaamcwmwplqzojxzzllpfpevpfnqqxiugytoncnauwpqqnnjyyexmhujduacysjfyrjlfnzbrtkgbviddjbtfqspksolcrtkqbptwbecdetkahq"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-V03-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Surrey"
+          },
+          {
+            "assertion_id": "T142-B1-V03-3-relation",
+            "base_id": "T142-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-V04-1",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 15
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-Cb14746b92c03629145da",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 8,
+            "observed_max": 10,
+            "test_value": 15,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 44,
+          "end": 49,
+          "replacement": "urreytkgnv"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Surreytkgnv"
+          },
+          {
+            "assertion_id": "T142-B1-V04-1-relation",
+            "base_id": "T142-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 5,
+            "end": 10,
+            "replacement": "urreytkgnv"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-V04-2",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 20
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-Ce1e2d545e6a6aaa00ccc",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 8,
+            "observed_max": 10,
+            "test_value": 20,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 44,
+          "end": 49,
+          "replacement": "urreyqksonxfqtk"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Surreyqksonxfqtk"
+          },
+          {
+            "assertion_id": "T142-B1-V04-2-relation",
+            "base_id": "T142-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 5,
+            "end": 10,
+            "replacement": "urreyqksonxfqtk"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-V04-3",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 40
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-Ca3908aadff1c6812d383",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 8,
+            "observed_max": 10,
+            "test_value": 40,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 44,
+          "end": 49,
+          "replacement": "urreygtumqqunweyojeptpdfyqmiybmwhlk"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Surreygtumqqunweyojeptpdfyqmiybmwhlk"
+          },
+          {
+            "assertion_id": "T142-B1-V04-3-relation",
+            "base_id": "T142-B1",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 5,
+            "end": 10,
+            "replacement": "urreygtumqqunweyojeptpdfyqmiybmwhlk"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-V05-1",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure"
+      },
+      {
+        "obligation_id": "T142-B1-S01-1",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C0e2833ff31e05e256eb5",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "before",
+          "dummy_field": "BTHAEBHLIU"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BTHAEBHLIU"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-S01-2",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-Cd6360e442a8d51a89977",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "before",
+          "dummy_field": "MGMZJXCBKQ"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "MGMZJXCBKQ"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-S01-3",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C08ad41129ccdb24ae035",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "after",
+          "dummy_field": "KFOUVTPLMA"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Surrey"
+          },
+          {
+            "assertion_id": "T142-B1-S01-3-relation",
+            "base_id": "T142-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B1-S01-4",
+        "task_id": "T142",
+        "base_id": "T142-B1",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C9525e02a3b6a89634d11",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "after",
+          "dummy_field": "MOVJLYPPMZ"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B1-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Surrey"
+          },
+          {
+            "assertion_id": "T142-B1-S01-4-relation",
+            "base_id": "T142-B1",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-V01-1",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-Ce2d2864698c6386e205f",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 45,
+          "end": 48,
+          "replacement": "CHY"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-V01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "CHY Tees"
+          },
+          {
+            "assertion_id": "T142-B2-V01-1-relation",
+            "base_id": "T142-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 3,
+            "replacement": "CHY"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-V01-2",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-Cfa31e1e2d0538596894c",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 45,
+          "end": 48,
+          "replacement": "KHJ"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-V01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "KHJ Tees"
+          },
+          {
+            "assertion_id": "T142-B2-V01-2-relation",
+            "base_id": "T142-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 3,
+            "replacement": "KHJ"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-V01-3",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "V01",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C337e96d465cfb48844f1",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 45,
+          "end": 48,
+          "replacement": "AOM"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-V01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "AOM Tees"
+          },
+          {
+            "assertion_id": "T142-B2-V01-3-relation",
+            "base_id": "T142-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 3,
+            "replacement": "AOM"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-V02-1",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C584fad94c2e4903c403e",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 10,
+          "replacement": "tvjdhgxxa"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-V02-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Tees"
+          },
+          {
+            "assertion_id": "T142-B2-V02-1-relation",
+            "base_id": "T142-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-V02-2",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-Ce5bd55b3ee6b90dcb4a5",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 10,
+          "replacement": "fvwjwhevc"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-V02-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Tees"
+          },
+          {
+            "assertion_id": "T142-B2-V02-2-relation",
+            "base_id": "T142-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-V02-3",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "V02",
+        "capability": "content_independence",
+        "dimension": "Value",
+        "parameter": {
+          "variant": 3
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C8dd9f7fd8feb66e2fb59",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "status": "not_applicable",
+            "reason": "categorical_content_change_has_no_ordered_attribute"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 10,
+          "replacement": "gzzbaubjx"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-V02-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Tees"
+          },
+          {
+            "assertion_id": "T142-B2-V02-3-relation",
+            "base_id": "T142-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-V03-1",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 66
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-Cc62003185ae836018fbd",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 38,
+            "observed_max": 44,
+            "test_value": 66,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 10,
+          "replacement": "artlepoolholgptdnoimyoadhavsmng"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-V03-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Tees"
+          },
+          {
+            "assertion_id": "T142-B2-V03-1-relation",
+            "base_id": "T142-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-V03-2",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 88
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C01ad73c58600fa06e350",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 38,
+            "observed_max": 44,
+            "test_value": 88,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 10,
+          "replacement": "artlepoolxxxpkzckhkbcwsadlsqgcsofssbggisdspudvwsuqwyh"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-V03-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Tees"
+          },
+          {
+            "assertion_id": "T142-B2-V03-2-relation",
+            "base_id": "T142-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-V03-3",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "V03",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 176
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-Cbf006855bdea365b8a38",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "prefix_length_before_left_boundary",
+            "value": "Extrapolation",
+            "observed_min": 38,
+            "observed_max": 44,
+            "test_value": 176,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 1,
+          "end": 10,
+          "replacement": "artlepoolxnkgjkatwypejybguwriignukjvvobpwvssirwigkhohuoyktaejpvuofcenuaspdwqvjbamvakrjciuqiqkapckrwwksfkyikoajwhqluofwwuezqdsffxbivexhfvrdnvg"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-V03-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Tees"
+          },
+          {
+            "assertion_id": "T142-B2-V03-3-relation",
+            "base_id": "T142-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-V04-1",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 1.5,
+          "desired_length": 15
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C8062c4c6f7ba07e5755d",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 8,
+            "observed_max": 10,
+            "test_value": 15,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 45,
+          "end": 48,
+          "replacement": "BBCWLILJEA"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-V04-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBCWLILJEA Tees"
+          },
+          {
+            "assertion_id": "T142-B2-V04-1-relation",
+            "base_id": "T142-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 3,
+            "replacement": "BBCWLILJEA"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-V04-2",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 2,
+          "desired_length": 20
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C7d7bb408169d3b3977f2",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 8,
+            "observed_max": 10,
+            "test_value": 20,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 45,
+          "end": 48,
+          "replacement": "BBCPSRTSGTAJVFH"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-V04-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBCPSRTSGTAJVFH Tees"
+          },
+          {
+            "assertion_id": "T142-B2-V04-2-relation",
+            "base_id": "T142-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 3,
+            "replacement": "BBCPSRTSGTAJVFH"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-V04-3",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "V04",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "factor": 4,
+          "desired_length": 40
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C5c1f04b90db564c004fb",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "target_length",
+            "value": "Extrapolation",
+            "observed_min": 8,
+            "observed_max": 10,
+            "test_value": 40,
+            "reference": "two_synthesis_examples"
+          }
+        },
+        "input_edit": {
+          "start": 45,
+          "end": 48,
+          "replacement": "BBCTURWZGPAIJRHYMEJCSKHSPBHDYBMJHOK"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-V04-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBCTURWZGPAIJRHYMEJCSKHSPBHDYBMJHOK Tees"
+          },
+          {
+            "assertion_id": "T142-B2-V04-3-relation",
+            "base_id": "T142-B2",
+            "expectation": "Equivariance",
+            "operation": "replace_slice",
+            "start": 0,
+            "end": 3,
+            "replacement": "BBCTURWZGPAIJRHYMEJCSKHSPBHDYBMJHOK"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-V05-1",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "V05",
+        "capability": "boundary_and_length_handling",
+        "dimension": "Value",
+        "parameter": {
+          "desired_length": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "not_applicable_to_operator",
+        "reason": "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure"
+      },
+      {
+        "obligation_id": "T142-B2-S01-1",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C6c4eb814490b2870cd47",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "before",
+          "dummy_field": "ZCJBIRHV"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-S01-1-exact",
+            "expectation": "Exact Output",
+            "expected_output": "ZCJBIRHV"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-S01-2",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "before",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C4fefbd396cefabe7baca",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "before",
+          "dummy_field": "YYLQHNLV"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-S01-2-exact",
+            "expectation": "Exact Output",
+            "expected_output": "YYLQHNLV"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-S01-3",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 1
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-Cf35fd39ba5c7835ddd2c",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "after",
+          "dummy_field": "KNYNRADT"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-S01-3-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Tees"
+          },
+          {
+            "assertion_id": "T142-B2-S01-3-relation",
+            "base_id": "T142-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      },
+      {
+        "obligation_id": "T142-B2-S01-4",
+        "task_id": "T142",
+        "base_id": "T142-B2",
+        "operator_id": "S01",
+        "capability": "occurrence_selection",
+        "dimension": "Structure",
+        "parameter": {
+          "side": "after",
+          "variant": 2
+        },
+        "requirement_scope": "study_defined_literal_contract",
+        "status": "planned",
+        "case_id": "T142-C0eee63ec28a4df35a613",
+        "regime": {
+          "contract_conformance": {
+            "value": "Valid"
+          },
+          "construction_intent": {
+            "value": "Targeted"
+          },
+          "distribution_membership": {
+            "status": "unclear",
+            "reason": "no_sampling_distribution_defined"
+          },
+          "partition_location": {
+            "status": "unselected"
+          },
+          "observed_range_position": {
+            "attribute": "marker_occurrences",
+            "value": "Extrapolation",
+            "observed_min": 1,
+            "observed_max": 1,
+            "test_value": 2,
+            "reference": "two_synthesis_examples",
+            "marker": "("
+          }
+        },
+        "input_edit": {
+          "template": {
+            "kind": "marked_block",
+            "marker": "(",
+            "closing_marker": ")"
+          },
+          "side": "after",
+          "dummy_field": "YXFPUWVV"
+        },
+        "assertions": [
+          {
+            "assertion_id": "T142-B2-S01-4-exact",
+            "expectation": "Exact Output",
+            "expected_output": "BBC Tees"
+          },
+          {
+            "assertion_id": "T142-B2-S01-4-relation",
+            "base_id": "T142-B2",
+            "expectation": "Invariance",
+            "operation": "identity"
+          }
+        ],
+        "successful_trial": 0,
+        "rejected_proposals": {}
+      }
+    ],
+    "bases": [
+      {
+        "base_id": "T142-B1",
+        "task_id": "T142",
+        "input": "AFC Fylde v Aldershot Town, 15:00 GMT (BBC Surrey)",
+        "expected_output": "BBC Surrey",
+        "expected_span": [
+          39,
+          49
+        ],
+        "source_path": "data/tasks/T142.json#split.training",
+        "source_index": 0,
+        "role": "synthesis_example_for_paired_assertions_only"
+      },
+      {
+        "base_id": "T142-B2",
+        "task_id": "T142",
+        "input": "Hartlepool United v Boreham Wood, 15:00 GMT (BBC Tees)",
+        "expected_output": "BBC Tees",
+        "expected_span": [
+          45,
+          53
+        ],
+        "source_path": "data/tasks/T142.json#split.training",
+        "source_index": 1,
+        "role": "synthesis_example_for_paired_assertions_only"
+      }
+    ],
+    "applicability": [
+      {
+        "task_id": "T142",
+        "operator_id": "V01",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T142",
+        "operator_id": "V02",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T142",
+        "operator_id": "V03",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T142",
+        "operator_id": "V04",
+        "obligations": 6,
+        "statuses": {
+          "planned": 6
+        },
+        "unique_cases": 6,
+        "reasons": {}
+      },
+      {
+        "task_id": "T142",
+        "operator_id": "V05",
+        "obligations": 2,
+        "statuses": {
+          "not_applicable_to_operator": 2
+        },
+        "unique_cases": 0,
+        "reasons": {
+          "one_character_reduction_would_change_protected_markers_or_non_alphanumeric_structure": 2
+        }
+      },
+      {
+        "task_id": "T142",
+        "operator_id": "S01",
+        "obligations": 8,
+        "statuses": {
+          "planned": 8
+        },
+        "unique_cases": 8,
+        "reasons": {}
+      }
+    ]
+  },
+  "generation_seed": 226
+}

@@ -1,0 +1,162 @@
+{
+  "task_id": "T248",
+  "family_id": "field-extraction-v1",
+  "field": "Follower-count field including unit",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "after",
+        " posts "
+      ],
+      [
+        "before_inclusive",
+        " followers"
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0771"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "144 posts 248 followers 872 following"
+      ],
+      "output": "248 followers",
+      "pair_sha256": "1d161212a4145ec48f9f03b4c4889e618923bb672fcf5badd2a678784e718453",
+      "provenance": [
+        {
+          "occurrence_id": "O0771",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:119/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "217 posts 3268 followers 18 following"
+      ],
+      "output": "3268 followers",
+      "pair_sha256": "49bd26641eb05a2c13611bcd58f2218dc0968f7108a07196a2b009c3cb39aaed",
+      "provenance": [
+        {
+          "occurrence_id": "O0771",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:119/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "570 posts 479 followers 1025 following"
+      ],
+      "output": "479 followers",
+      "pair_sha256": "672bda24e90d5ab8280cb551a7aea1d3dce0e00f274b66aae3ef1851b43a1d56",
+      "provenance": [
+        {
+          "occurrence_id": "O0771",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:119/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "368 posts 22600 followers 95 following"
+      ],
+      "output": "22600 followers",
+      "pair_sha256": "8d9f6232423178a56d9e2d571e62f737b3e8024113a4f86b0ca54944dacd5600",
+      "provenance": [
+        {
+          "occurrence_id": "O0771",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:119/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "361 posts 435 followers 709 following"
+      ],
+      "output": "435 followers",
+      "pair_sha256": "5bf9f4bdc39f32e364076712990f3feb0b9ac04275d5a2615c997bcf5e251338",
+      "provenance": [
+        {
+          "occurrence_id": "O0771",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:119/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 37,
+      "max": 38
+    },
+    "output_lengths": {
+      "min": 13,
+      "max": 15
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Das mittlere Zählfeld wird zwischen posts und followers einschließlich der Einheit kopiert."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "217 posts 3268 followers 18 following",
+        "output": "3268 followers"
+      },
+      {
+        "input": "368 posts 22600 followers 95 following",
+        "output": "22600 followers"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "361 posts 435 followers 709 following",
+        "output": "435 followers"
+      },
+      {
+        "input": "570 posts 479 followers 1025 following",
+        "output": "479 followers"
+      },
+      {
+        "input": "144 posts 248 followers 872 following",
+        "output": "248 followers"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 165
+}

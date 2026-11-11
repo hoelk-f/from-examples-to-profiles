@@ -1,0 +1,155 @@
+{
+  "schema_version": 2,
+  "plan_id": "behavioral_test_plan",
+  "frozen_on": "2026-10-05",
+  "status": "frozen",
+  "cohort": "experiments/main.json",
+  "program_manifest": "artifacts/programs/index.json",
+  "source_manifest": "data/sources.json",
+  "classification_axes": [
+    "dimension",
+    "test_regime",
+    "expectation"
+  ],
+  "supporting_metadata_not_axes": [
+    "capability",
+    "operator",
+    "parameter",
+    "requirement_scope",
+    "provenance"
+  ],
+  "operators": {
+    "V01": {
+      "name": "Replace target content at fixed length",
+      "capability": "content_independence",
+      "dimension": "Value",
+      "variants_per_base": 3,
+      "expectations": [
+        "Exact Output",
+        "Equivariance"
+      ]
+    },
+    "V02": {
+      "name": "Replace irrelevant context at fixed length",
+      "capability": "content_independence",
+      "dimension": "Value",
+      "variants_per_base": 3,
+      "expectations": [
+        "Exact Output",
+        "Invariance"
+      ]
+    },
+    "V03": {
+      "name": "Extend the prefix before the left boundary",
+      "capability": "boundary_and_length_handling",
+      "dimension": "Value",
+      "factors": [
+        1.5,
+        2,
+        4
+      ],
+      "expectations": [
+        "Exact Output",
+        "Invariance"
+      ]
+    },
+    "V04": {
+      "name": "Extend the selected field",
+      "capability": "boundary_and_length_handling",
+      "dimension": "Value",
+      "factors": [
+        1.5,
+        2,
+        4
+      ],
+      "expectations": [
+        "Exact Output",
+        "Equivariance"
+      ]
+    },
+    "V05": {
+      "name": "Reduce an atomic target to one character",
+      "capability": "boundary_and_length_handling",
+      "dimension": "Value",
+      "variants_per_base": 1,
+      "expectations": [
+        "Exact Output",
+        "Equivariance"
+      ]
+    },
+    "S01": {
+      "name": "Insert a competing field or marked block",
+      "capability": "occurrence_selection",
+      "dimension": "Structure",
+      "sides": [
+        "before",
+        "after"
+      ],
+      "variants_per_side_per_base": 2,
+      "expectations": [
+        "Exact Output",
+        "Invariance when the reference output is unchanged"
+      ]
+    }
+  },
+  "seed": 20261005,
+  "max_trials_per_obligation": 128,
+  "max_input_codepoints": 4096,
+  "source_bases": "both fixed synthesis examples, unchanged",
+  "exclude_inputs": "every original source input for the same task",
+  "requirement_scope": "study_defined_literal_contract",
+  "original_benchmark_scope_claimed": false,
+  "candidate_outputs_used_for_generation": false,
+  "candidate_code_used_for_generation": false,
+  "baseline_results_known_before_design": true,
+  "blind_preregistration_claimed": false,
+  "nonselected_dimensions": {
+    "Schema": "single-string input and output interface remains fixed",
+    "Representation": "no equivalence-preserving encoding operator selected for this first suite"
+  },
+  "nonselected_tests": [
+    "invalid inputs and Failure Safety",
+    "Unicode perturbations",
+    "equal-budget nominal/random comparison"
+  ],
+  "range_reference": "minimum and maximum of the named ordered attribute across exactly two synthesis examples",
+  "prefix_length_definition": "selected span start, minus the longest protected literal ending immediately at that start, or minus zero if none",
+  "content_mutation_policy": "change only unprotected ASCII alphanumeric runs, preserve case class, literal occurrences and punctuation/whitespace skeleton",
+  "length_mutation_policy": "extend one existing run without adding fields, use max(M+1, ceil(factor*M)) for M=max attribute in demonstrations",
+  "boundary_mutation_policy": "one ASCII alphanumeric character, only for an entirely unprotected atomic alphanumeric target",
+  "structure_policy": "one extra delimiter field for simple selectors, one complete marked block for after[/last]+before, optional trailing trim",
+  "unsupported_structure_templates": "unselected coverage, not a claim that structural changes are contract-invalid",
+  "primary_analysis": {
+    "weighting": "equal weight per applicable task within each profile cell",
+    "remove_tasks_after_failures": false,
+    "task_selection": "experiments/main.json",
+    "same_tests_for_all_systems": true
+  },
+  "secondary_analysis": {
+    "definition": "all selected systems pass every source-held-out case",
+    "purpose": "describe weaknesses missed by the existing held-out suite",
+    "selection_uses_known_baseline_results": true,
+    "computed_by": "src/pbe/analysis.py",
+    "result_field": "common_heldout_pass"
+  },
+  "evaluation_protocol": {
+    "runtimes": "pinned runtime images and frozen program manifest, verify hashes before execution",
+    "limits": "experiments/main.json#evaluation",
+    "execution": "one fresh container per program, sequential single-input requests, no expected outputs sent to candidate",
+    "deduplication": "execute each task/input once per system, reuse output for all linked assertions",
+    "exact_output": "literal string equality, no normalization or trimming",
+    "relations": "evaluate separately on actual base and variant outputs, additionally report whether both are exact",
+    "equivariance_replace_slice": "apply the stored slice replacement to actual base output, fail relation if slice bounds exceed that output",
+    "wrong_equal_outputs": "can pass Invariance, cannot pass Exact Output, never interpret relation-only pass as correctness",
+    "candidate_error_timeout_or_nonstring": "failed behavioral assertion with separate outcome category",
+    "integration_failure_or_oracle_conflict": "unresolved, do not count as candidate failure or silently exclude from denominators",
+    "coverage": "planned, executed, unresolved, unselected and operator-inapplicable reported separately",
+    "aggregation": "within task/cell deduplicate exact assertions by case and relation assertions by base/case/relation, then macro-average tasks",
+    "overlapping_cells": "report cell denominators, never add cells as if inputs were disjoint",
+    "comparisons": "paired per-task system differences on identical applicable cells, report source and fit/scope strata",
+    "headline": "profile by operator and Dimension x regime-family/value x Expectation, any-failure task counts alongside baseline",
+    "no_random_control_claim": "no conclusion that targeted tests outperform an equal-size random suite",
+    "generalization": "descriptive findings for this selected corpus and study contract, no population-level or causal synthesizer-group claim"
+  },
+  "task_contract": "data/contract.json"
+}

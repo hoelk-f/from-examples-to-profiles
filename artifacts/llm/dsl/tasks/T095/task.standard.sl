@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " (" " seconds)" "(" ")" "," ",000 results (0.5" "." "0.57 seconds" "0.59 seconds" "About " (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "About 520,000 results (0.59 seconds)") "0.59 seconds"))
+(constraint (= (f "About 299,000 results (0.57 seconds)") "0.57 seconds"))
+(check-synth)

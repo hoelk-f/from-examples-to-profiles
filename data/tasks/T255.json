@@ -1,0 +1,160 @@
+{
+  "task_id": "T255",
+  "family_id": "field-extraction-v1",
+  "field": "Postal-code field",
+  "contract_ref": "data/contract.json",
+  "parameters": {
+    "selector": [
+      [
+        "token_span",
+        " ",
+        -2,
+        -1
+      ]
+    ],
+    "target": "one_present_nonempty_contiguous_span",
+    "value_policy": "exact_copy",
+    "missing_required_marker": "outside_contract",
+    "empty_selected_span": "outside_contract"
+  },
+  "interpretation_status": "study_defined_literal_field_interpretation",
+  "evidence_level": "source_examples_and_metadata",
+  "evidence_note": "Agreement with source examples does not establish a unique intended rule or an unrestricted original input domain. Parameters define the present study interpretation.",
+  "occurrences": [
+    "O0795"
+  ],
+  "collections": [
+    "Playgol-v2"
+  ],
+  "unique_example_count": 5,
+  "source_example_row_count": 5,
+  "examples": [
+    {
+      "input": [
+        "28 Majors Loan, Falkirk FK1 5QA"
+      ],
+      "output": "FK1 5QA",
+      "pair_sha256": "90b451292aeda8c58432e56211b04c6b0f4f98507dd8924f46eaee44cc498767",
+      "provenance": [
+        {
+          "occurrence_id": "O0795",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:312/train/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "18 Russell Rd, Edinburgh EH11 3YT"
+      ],
+      "output": "EH11 3YT",
+      "pair_sha256": "7197f4cec21dd73647d016b4005d3d307c626dad83bd8ed6d4c316fb2315c151",
+      "provenance": [
+        {
+          "occurrence_id": "O0795",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:312/train/1"
+        }
+      ]
+    },
+    {
+      "input": [
+        "11 The Oak Field, Pett, Hastings TN35 4HQ"
+      ],
+      "output": "TN35 4HQ",
+      "pair_sha256": "5bd4148f9d2293af1ff9a95a8fcc67f4d9c01950fc634402a263747027d0a041",
+      "provenance": [
+        {
+          "occurrence_id": "O0795",
+          "source_role": "train",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:312/train/2"
+        }
+      ]
+    },
+    {
+      "input": [
+        "15 Cooper\"\"s Cl, Mill Ln, Wareham BH20 4RB"
+      ],
+      "output": "BH20 4RB",
+      "pair_sha256": "dadd4e0846c838b5a7edad8c8b85e3e1b6243fcbd97f95fff7fb60f5bbec1498",
+      "provenance": [
+        {
+          "occurrence_id": "O0795",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:312/test/0"
+        }
+      ]
+    },
+    {
+      "input": [
+        "10 Weybank, Wisley, Woking GU23 6QF"
+      ],
+      "output": "GU23 6QF",
+      "pair_sha256": "abe9b74b8662ff3b0a43f62a2b7fc7edda3e2a892b51d712784fc6bf401caf4d",
+      "provenance": [
+        {
+          "occurrence_id": "O0795",
+          "source_role": "test",
+          "file_ref": "https://github.com/klee972/SYNTRA/blob/40d0bdfac9a1dade0afe49fa8308fadff78035c7/SYNTRA/data/playgol_v2.jsonl",
+          "location": "line:312/test/1"
+        }
+      ]
+    }
+  ],
+  "observed_only": {
+    "input_lengths": {
+      "min": 31,
+      "max": 42
+    },
+    "output_lengths": {
+      "min": 7,
+      "max": 8
+    }
+  },
+  "warnings": [
+    "Source test labels were inspected for curation. They are not a sealed final behavioral suite."
+  ],
+  "counting_unit": "conservative_curated_task_cluster_not_claimed_statistically_independent",
+  "review_status": "fit",
+  "review_notes": [
+    {
+      "status": "fit",
+      "reason_de": "Die beiden abschließenden Postcode-Felder werden trotz zusätzlicher Ortskommas gemeinsam kopiert."
+    }
+  ],
+  "schema_version": 3,
+  "split": {
+    "rule": "sha256-order-v1",
+    "seed": "20261002",
+    "training": [
+      {
+        "input": "10 Weybank, Wisley, Woking GU23 6QF",
+        "output": "GU23 6QF"
+      },
+      {
+        "input": "15 Cooper\"\"s Cl, Mill Ln, Wareham BH20 4RB",
+        "output": "BH20 4RB"
+      }
+    ],
+    "heldout": [
+      {
+        "input": "18 Russell Rd, Edinburgh EH11 3YT",
+        "output": "EH11 3YT"
+      },
+      {
+        "input": "28 Majors Loan, Falkirk FK1 5QA",
+        "output": "FK1 5QA"
+      },
+      {
+        "input": "11 The Oak Field, Pett, Hastings TN35 4HQ",
+        "output": "TN35 4HQ"
+      }
+    ]
+  },
+  "behavioral": {},
+  "generation_seed": 183
+}

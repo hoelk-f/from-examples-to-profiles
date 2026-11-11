@@ -1,0 +1,5 @@
+(set-logic SLIA)
+(synth-fun f ((x String)) String ((S String (x "" " " " - +" " - +91 90000 80000= lore" " 11=24 PM - +91 90000 80" " 2, 20" " PM - +91 90000 80000= l" "+" "," ", " ", 11=24 PM - +91 90000 8" "-" "- +91 90000 80000= loren" "11=24 PM - +91 90000 800" "1=24 PM - +91 90000 8000" "24 PM - +91 90000 80000=" "4 PM - +91 90000 80000= " "=" "= " "=24 PM - +91 90000 80000" "Dec 2, 2014, 11=24 PM" "M - +91 90000 80000= lor" "Nov 2, 2022, 11=24 PM" "PM - +91 90000 80000= lo" (str.++ S S) (str.at S I) (str.substr S I I) (str.replace S S S) (ite B S S))) (I Int (-1 0 1 2 3 4 5 (str.len S) (str.indexof S S I) (+ I I) (- I I))) (B Bool ((str.contains S S) (str.prefixof S S) (str.suffixof S S) (= S S) (= I I)))))
+(constraint (= (f "Nov 2, 2022, 11=24 PM - +91 90000 80000= loren ipsum ipsum") "Nov 2, 2022, 11=24 PM"))
+(constraint (= (f "Dec 2, 2014, 11=24 PM - +91 90000 80000= loren") "Dec 2, 2014, 11=24 PM"))
+(check-synth)

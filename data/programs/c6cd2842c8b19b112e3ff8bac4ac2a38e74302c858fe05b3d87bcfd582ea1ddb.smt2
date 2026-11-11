@@ -1,0 +1,1 @@
+(define-fun f ((x String)) String (str.++ (str.at x (str.indexof x "/5/6.7/" 0)) (str.substr (str.replace (str.++ x "/stuff/") "/stuff/" ".") (- (str.len x) (str.len "/news/")) (str.indexof (str.++ "." x) "/" 0))))
